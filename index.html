@@ -592,22 +592,22 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
           </div>
 
           <div class="kpi-grid">
-            <div class="kpi-card">
+            <div class="kpi-card" style="cursor:pointer" onclick="goPage('alunos');setTimeout(()=>setFilter('ok',document.querySelector('.fchip')),50)">
               <div class="kpi-tag" style="background:#F6FFED">✅</div>
               <div class="kpi-val" style="color:var(--green)" id="kpi-ok">0</div>
               <div class="kpi-lbl">Em dia</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card" style="cursor:pointer" onclick="goPage('cobrancas')">
               <div class="kpi-tag" style="background:#FFF1F0">⚠️</div>
               <div class="kpi-val" style="color:var(--red)" id="kpi-late">0</div>
               <div class="kpi-lbl">Atrasados</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card" style="cursor:pointer" onclick="goPage('cobrancas')">
               <div class="kpi-tag" style="background:#FFF7E6">💰</div>
               <div class="kpi-val" style="color:var(--orange);font-size:20px" id="kpi-total">R$ 0</div>
               <div class="kpi-lbl">A receber</div>
             </div>
-            <div class="kpi-card">
+            <div class="kpi-card" style="cursor:pointer" onclick="goPage('alunos')">
               <div class="kpi-tag" style="background:#EFF6FF">👦</div>
               <div class="kpi-val" style="color:var(--teal2)" id="kpi-alunos">0</div>
               <div class="kpi-lbl">Total alunos</div>
@@ -762,7 +762,7 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 <div class="modal-overlay" id="modal-aluno">
   <div class="modal-drawer">
     <div class="drawer-handle"></div>
-    <div class="drawer-title">Novo aluno</div>
+    <div class="drawer-title">🚐 Novo aluno</div>
     <div class="drawer-sub">Preencha os dados — o contrato será enviado automaticamente</div>
     <div class="form-group"><label class="form-label">Nome do aluno *</label><input class="form-input" id="al-nome" placeholder="Nome completo do aluno"></div>
     <div class="form-group"><label class="form-label">Responsável *</label><input class="form-input" id="al-resp" placeholder="Nome do pai/mãe/responsável"></div>
@@ -840,6 +840,7 @@ function save(){localStorage.setItem('vr2_data',JSON.stringify(DATA));}
 // ===== CHECK CONTRATO LINK =====
 window.addEventListener('DOMContentLoaded', ()=>{
   load();
+  pushState('app');
   const hash = window.location.hash;
   if(hash.startsWith('#contrato')){
     const params = new URLSearchParams(hash.replace('#contrato?',''));
@@ -1519,6 +1520,26 @@ function cstepGoFinal(step){
   updateStepBar(step);
 }
 
+// ===== BACK BUTTON HANDLER (mobile) =====
+function pushState(state){
+  try { history.pushState(state,'',''); } catch(e){}
+}
+window.addEventListener('popstate', function(e){
+  // If a modal is open, close it
+  const openModal = document.querySelector('.modal-overlay.open');
+  if(openModal){ openModal.classList.remove('open'); pushState('modal'); return; }
+  // If on contrato screen, go back to login
+  if(document.getElementById('screen-contrato').classList.contains('active')){
+    document.getElementById('screen-contrato').classList.remove('active');
+    if(DATA.user) enterApp(); else document.getElementById('screen-login').classList.add('active');
+    pushState('app'); return;
+  }
+  // If on app, push state again to prevent exit
+  if(document.getElementById('screen-app').classList.contains('active')){
+    pushState('app'); return;
+  }
+});
+
 // ===== NAV =====
 function goPage(page){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -1540,7 +1561,7 @@ function goPage(page){
 }
 
 // ===== MODAL =====
-function openModal(id){document.getElementById(id).classList.add('open');}
+function openModal(id){document.getElementById(id).classList.add('open');pushState('modal');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
 
