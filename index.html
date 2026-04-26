@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#7C3AED">
+<title>VanRotas — Gestão de Transporte Escolar</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:#4764e9f3; --orange2:#9B8EFF; --orange3:#BDB5FF;
+  --teal:#06B6D4; --teal2:#0891B2; --teal3:#E0F7FA;
+  --lime:#34D399; --lime2:#10B981;
+  --yellow:#FBBF24; --yellow2:#F59E0B;
+  --red:#F43F5E; --red2:#FB7185; --red-bg:#FFF1F4;
+  --green:#10B981; --green2:#059669; --green-bg:#ECFDF5;
+  --warn:#F59E0B; --warn-bg:#FFFBEB;
+  --white:#FFFFFF; --off:#F5F3FF; --off2:#EDE9FE;
+  --text:#1E1B4B; --text2:#4C4878; --text3:#A8A4C8;
+  --border:#DDD6FE; --border2:#C4B5FD;
+  --card:#FFFFFF;
+  --radius:16px; --radius-sm:10px; --radius-xs:7px;
+  --shadow:0 2px 12px rgba(124,111,247,0.10); --shadow-lg:0 8px 32px rgba(124,111,247,0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);color:var(--text);overflow:hidden}
+
+/* SCREENS */
+.screen{position:fixed;inset:0;display:none;flex-direction:column;overflow:hidden}
+.screen.active{display:flex}
+
+/* ===== LOGIN ===== */
+#screen-login{background:var(--white);overflow-y:auto;display:none;flex-direction:column}
+#screen-login.active{display:flex}
+
+.login-wrap{display:flex;min-height:100vh;flex-direction:column}
+@media(min-width:768px){.login-wrap{flex-direction:row;min-height:100vh}}
+
+/* LEFT HERO */
+.login-hero{
+  background:linear-gradient(145deg,#6D28D9 0%,#d656d6 40%,#8B5CF6 70%,#A78BFA 100%);
+  padding:32px;display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;min-height:300px;
+}
+@media(min-width:768px){.login-hero{flex:1;min-height:100vh;padding:48px}}
+.hero-brand{display:flex;align-items:center;gap:10px;}
+.hero-brand-icon{width:42px;height:42px;background:rgba(255,255,255,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;backdrop-filter:blur(10px)}
+.hero-brand-name{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:-0.5px}
+.hero-brand-name span{opacity:0.75}
+.hero-tagline{position:relative;z-index:2}
+.hero-tagline h1{font-family:'Nunito',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px}
+.hero-tagline p{font-size:15px;color:rgba(255,255,255,0.85);line-height:1.6;max-width:380px}
+.hero-features{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2}
+.hero-feat{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.15);border-radius:10px;padding:10px 14px;backdrop-filter:blur(10px)}
+.hero-feat-icon{font-size:18px;flex-shrink:0}
+.hero-feat-text{font-size:13px;color:#fff;font-weight:600}
+
+/* decorative circles */
+.hero-circle{position:absolute;border-radius:50%;background:rgba(255,255,255,0.08)}
+.hc1{width:280px;height:280px;top:-80px;right:-80px}
+.hc2{width:180px;height:180px;bottom:40px;right:30px;background:rgba(255,255,255,0.05)}
+.hc3{width:100px;height:100px;bottom:-20px;left:60px;background:rgba(255,255,255,0.06)}
+
+/* VAN */
+.van-scene{text-align:center;margin:16px 0;animation:vanBob 2.5s ease-in-out infinite}
+@keyframes vanBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* RIGHT PANEL */
+.login-panel{padding:32px 24px;display:flex;flex-direction:column;justify-content:flex-start;background:#fff;overflow-y:auto}
+@media(min-width:768px){.login-panel{flex:0 0 420px;padding:48px 40px;overflow-y:auto;justify-content:center}}
+.login-panel-title{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;color:var(--text);margin-bottom:4px}
+.login-panel-sub{font-size:14px;color:var(--text2);margin-bottom:24px}
+
+.tabs-row{display:flex;background:var(--off2);border-radius:var(--radius-sm);padding:3px;margin-bottom:22px}
+.tab-btn{flex:1;padding:9px;text-align:center;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .2s}
+.tab-btn.active{background:#fff;color:var(--orange);box-shadow:0 2px 8px rgba(124,111,247,0.15)}
+
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
+.form-input{width:100%;padding:12px 14px;background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s}
+.form-input:focus{border-color:var(--orange);background:#fff}
+.form-input::placeholder{color:var(--text3)}
+.form-input option{background:#fff}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+.btn-main{width:100%;padding:14px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;border:none;border-radius:var(--radius-sm);font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.2px;box-shadow:0 4px 14px rgba(124,111,247,0.35)}
+.btn-main:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(124,111,247,0.45)}
+.btn-main:active{transform:scale(0.98)}
+
+.login-footer{font-size:12px;color:var(--text3);text-align:center;margin-top:18px;line-height:1.6}
+
+/* ===== APP ===== */
+#screen-app{background:var(--off)}
+
+/* SIDEBAR (desktop) */
+.app-layout{display:flex;height:100%;flex-direction:column}
+@media(min-width:768px){.app-layout{flex-direction:row}}
+
+.sidebar{display:none;width:240px;background:#fff;border-right:1.5px solid var(--border);flex-direction:column;flex-shrink:0;padding:20px 0}
+@media(min-width:768px){.sidebar{display:flex}}
+.sidebar-brand{display:flex;align-items:center;gap:10px;padding:0 20px 20px;border-bottom:1.5px solid var(--border);margin-bottom:12px}
+.sidebar-brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--orange),var(--orange2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.sidebar-brand-name{font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;color:var(--text)}
+.sidebar-brand-name span{color:var(--orange)}
+.sidebar-nav{flex:1;padding:0 10px}
+.snav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text2);margin-bottom:2px;transition:all .15s}
+.snav-item:hover{background:var(--off2)}
+.snav-item.active{background:linear-gradient(135deg,rgba(124,111,247,0.12),rgba(155,142,255,0.08));color:var(--orange)}
+.snav-icon{font-size:18px;width:24px;text-align:center}
+.snav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;min-width:18px;text-align:center}
+.sidebar-user{padding:16px 20px;border-top:1.5px solid var(--border);margin-top:auto}
+.sidebar-user-row{display:flex;align-items:center;gap:10px}
+.sidebar-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff;font-family:'Nunito',sans-serif;flex-shrink:0}
+.sidebar-user-name{font-size:14px;font-weight:700;color:var(--text)}
+.sidebar-user-plan{font-size:11px;color:var(--text3)}
+.sidebar-logout{margin-top:10px;width:100%;padding:8px;background:var(--off2);border:none;border-radius:7px;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.sidebar-logout:hover{background:var(--red-bg);color:var(--red)}
+
+/* MAIN CONTENT AREA */
+.app-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.app-topbar{background:#fff;border-bottom:1.5px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+@media(min-width:768px){.app-topbar{padding:16px 28px}}
+.topbar-left h2{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--text)}
+.topbar-left p{font-size:12px;color:var(--text3);margin-top:2px}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.notif-btn{position:relative;width:38px;height:38px;border-radius:50%;background:var(--off2);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center}
+.notif-dot{position:absolute;top:4px;right:4px;width:9px;height:9px;border-radius:50%;background:var(--red);border:2px solid #fff}
+.mob-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;cursor:pointer}
+@media(min-width:768px){.mob-avatar{display:none}}
+
+.page-content{flex:1;overflow-y:auto;padding:20px}
+@media(min-width:768px){.page-content{padding:28px 32px}}
+
+/* BOTTOM NAV (mobile only) */
+.bottom-nav{background:#fff;border-top:1.5px solid var(--border);display:flex;flex-shrink:0;padding:6px 0 max(10px,env(safe-area-inset-bottom))}
+@media(min-width:768px){.bottom-nav{display:none}}
+.bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px}
+.bnav-icon{font-size:20px;line-height:1}
+.bnav-label{font-size:10px;font-weight:600;color:var(--text3)}
+.bnav-item.active .bnav-label{color:var(--orange)}
+.bnav-item.active .bnav-icon{filter:drop-shadow(0 0 4px rgba(255,107,0,0.5))}
+
+/* PAGES */
+.page{display:none}
+.page.active{display:block}
+
+/* === DASHBOARD === */
+.welcome-band{background:linear-gradient(135deg,#6D28D9,#7C3AED);border-radius:var(--radius);padding:20px 22px;color:#fff;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}
+.welcome-band::after{content:'🚌';position:absolute;right:16px;bottom:-8px;font-size:64px;opacity:0.18;transform:scaleX(-1)}
+.wb-title{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900}
+.wb-sub{font-size:13px;opacity:0.85;margin-top:3px}
+.wb-date{font-size:12px;opacity:0.7;margin-top:6px}
+.btn-wb{background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;backdrop-filter:blur(6px);white-space:nowrap;transition:all .2s}
+.btn-wb:hover{background:rgba(255,255,255,0.45)}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+@media(min-width:600px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
+.kpi-card{background:#fff;border-radius:var(--radius-sm);padding:16px;border:1.5px solid var(--border);position:relative;overflow:hidden}
+.kpi-tag{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
+.kpi-val{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;line-height:1}
+.kpi-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-top:5px}
+.kpi-bar{height:3px;border-radius:2px;margin-top:10px;background:var(--off2)}
+.kpi-bar-fill{height:3px;border-radius:2px}
+
+.section-hdr{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}
+.section-hdr h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+.section-link{font-size:13px;color:var(--orange);font-weight:700;cursor:pointer}
+
+.alert-strip{border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;border:1.5px solid}
+.alert-strip.warn{background:var(--warn-bg);border-color:#FFD591}
+.alert-strip.danger{background:var(--red-bg);border-color:#FFA39E}
+.alert-strip.success{background:var(--green-bg);border-color:#B7EB8F}
+.as-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.as-body{flex:1}
+.as-title{font-size:14px;font-weight:700}
+.as-sub{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.5}
+.as-btn{font-size:12px;color:var(--orange);font-weight:700;cursor:pointer;margin-top:6px;display:inline-block}
+
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:600px){.quick-grid{grid-template-columns:repeat(4,1fr)}}
+.quick-card{background:#fff;border-radius:var(--radius-sm);padding:16px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s}
+.quick-card:hover{border-color:var(--orange);box-shadow:0 4px 16px rgba(124,111,247,0.12)}
+.quick-card:active{transform:scale(0.97)}
+.qc-icon{font-size:26px;margin-bottom:8px}
+.qc-label{font-size:13px;font-weight:700}
+.qc-sub{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* RECENT TABLE */
+.table-wrap{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);overflow:hidden}
+.table-row{display:grid;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+.table-row:last-child{border-bottom:none}
+.table-row:hover{background:var(--off)}
+.table-row.header{background:var(--off2);cursor:default;padding:10px 16px}
+.table-row.header:hover{background:var(--off2)}
+.th{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px}
+.td-name{font-size:14px;font-weight:700}
+.td-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700}
+.pill.ok{background:#F6FFED;color:#52C41A}
+.pill.late{background:#FFF1F0;color:#F5222D}
+.pill.warn{background:#FFF7E6;color:#FA8C16}
+.pill.pago{background:#F0F9FF;color:#0EA5E9}
+
+/* ALUNO CARDS */
+.aluno-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);padding:16px 18px;margin-bottom:12px;cursor:pointer;transition:all .15s;border-left:5px solid transparent}
+.aluno-card.ok{border-left-color:var(--green)}
+.aluno-card.late{border-left-color:var(--red)}
+.aluno-card.warn{border-left-color:var(--warn)}
+.aluno-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px)}
+.ac-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ac-avatar{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;flex-shrink:0}
+.ac-info{flex:1;min-width:0}
+.ac-name{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+.ac-resp{font-size:13px;color:var(--text2);margin-top:2px}
+.ac-escola{font-size:12px;color:var(--text3);margin-top:2px}
+.ac-mid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;padding-top:14px;border-top:1.5px solid var(--border)}
+.ac-stat-val{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+.ac-stat-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.ac-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.act-btn{flex:1;min-width:60px;padding:8px 6px;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.act-btn:active{transform:scale(0.96)}
+.act-wpp{background:#E8FDF2;color:#128C7E}
+.act-email{background:#EFF6FF;color:#2563EB}
+.act-pix{background:#FFF7E6;color:#D97706}
+.act-pago{background:#F6FFED;color:#52C41A}
+.act-red{background:#FFF1F0;color:#F5222D}
+
+/* SEARCH + FILTER */
+.search-bar{position:relative;margin-bottom:12px}
+.search-bar input{width:100%;padding:12px 14px 12px 40px;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:'Outfit',sans-serif;color:var(--text);outline:none}
+.search-bar input:focus{border-color:var(--orange)}
+.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:16px;opacity:.4;pointer-events:none}
+.filter-row{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;scrollbar-width:none;padding-bottom:2px}
+.filter-row::-webkit-scrollbar{display:none}
+.fchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid var(--border);color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s;background:#fff}
+.fchip.active{background:var(--orange);color:#fff;border-color:var(--orange)}
+.fab{position:fixed;right:20px;bottom:80px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:28px;cursor:pointer;z-index:50;box-shadow:0 4px 20px rgba(124,111,247,.5);display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:300}
+.fab:hover{transform:scale(1.08)}
+.fab:active{transform:scale(0.93)}
+@media(min-width:768px){.fab{bottom:28px}}
+
+/* COBRANÇA */
+.cob-total-band{background:linear-gradient(135deg,#FFF1F0,#FFF7F7);border:2px solid #FFA39E;border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.cob-total-lbl{font-size:12px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
+.cob-total-val{font-family:'Nunito',sans-serif;font-size:40px;font-weight:900;color:var(--red);margin-top:4px}
+.cob-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;padding-top:14px;border-top:1.5px solid #FFA39E}
+.cob-stat-lbl{font-size:11px;color:var(--text2);text-transform:uppercase;font-weight:600}
+.cob-stat-val{font-size:18px;font-weight:800;margin-top:3px}
+
+.cob-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);border-left:5px solid var(--red);padding:16px 18px;margin-bottom:12px}
+.cc-top{display:flex;justify-content:space-between;align-items:flex-start}
+.cc-name{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+.cc-resp{font-size:12px;color:var(--text2);margin-top:2px}
+.cc-days-badge{background:var(--red-bg);color:var(--red);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:800;flex-shrink:0}
+.cc-breakdown{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;background:var(--off);border-radius:var(--radius-sm);padding:12px;margin:12px 0}
+.cc-item-lbl{font-size:11px;color:var(--text3);text-transform:uppercase;font-weight:600}
+.cc-item-val{font-size:14px;font-weight:700;margin-top:2px}
+.cc-total-row{display:flex;justify-content:space-between;align-items:center;background:#FFF1F0;border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:12px}
+.cc-total-lbl{font-size:13px;font-weight:700;color:var(--text)}
+.cc-total-val{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:var(--red)}
+
+/* RELATORIO */
+.rel-month{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:14px 18px;margin-bottom:20px}
+.rel-month-name{font-family:'Nunito',sans-serif;font-size:17px;font-weight:800}
+.rel-arrow{font-size:20px;cursor:pointer;color:var(--text2);padding:4px 10px;border-radius:6px;transition:background .15s}
+.rel-arrow:hover{background:var(--off2)}
+.chart-card{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:18px;margin-bottom:20px}
+.chart-title{font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;margin-bottom:14px}
+.bar-wrap{display:flex;align-items:flex-end;gap:6px;height:110px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;flex:1}
+.bar-seg{width:100%;border-radius:4px 4px 0 0;transition:height .5s ease}
+.bar-lbl{font-size:9px;color:var(--text3);font-weight:600}
+.legend-row{display:flex;gap:14px;margin-top:12px;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--text2);font-weight:600}
+.legend-dot{width:10px;height:10px;border-radius:3px}
+
+.rel-table{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);overflow:hidden}
+.rel-header-row{display:grid;grid-template-columns:1fr 80px 80px 90px;padding:10px 16px;background:var(--off2);border-bottom:1.5px solid var(--border);font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px}
+.rel-data-row{display:grid;grid-template-columns:1fr 80px 80px 90px;padding:13px 16px;border-bottom:1px solid var(--border);align-items:center;cursor:pointer;transition:background .12s}
+.rel-data-row:last-child{border-bottom:none}
+.rel-data-row:hover{background:var(--off)}
+
+/* CONFIG */
+.cfg-section{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);overflow:hidden;margin-bottom:14px}
+.cfg-section-hdr{padding:13px 18px;border-bottom:1.5px solid var(--border);font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;color:var(--orange);display:flex;align-items:center;gap:7px}
+.cfg-input-row{padding:12px 18px;border-bottom:1px solid var(--border)}
+.cfg-input-row:last-child{border-bottom:none}
+.cfg-toggle-row{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border)}
+.cfg-toggle-row:last-child{border-bottom:none}
+.toggle{width:46px;height:26px;border-radius:13px;background:var(--off2);border:none;cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+.toggle.on{background:var(--orange)}
+.toggle-knob{width:20px;height:20px;border-radius:50%;background:#fff;position:absolute;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.toggle.on .toggle-knob{left:23px}
+.cfg-lbl{font-size:14px;font-weight:600}
+.cfg-sub{font-size:12px;color:var(--text3);margin-top:2px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:300;display:none;align-items:flex-end;justify-content:center}
+@media(min-width:600px){.modal-overlay{align-items:center}}
+.modal-overlay.open{display:flex;animation:fadein .2s}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.modal-drawer{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;padding:20px 22px 40px;animation:slideup .3s cubic-bezier(.34,1.56,.64,1)}
+@media(min-width:600px){.modal-drawer{border-radius:20px;max-height:90vh}}
+@keyframes slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.drawer-handle{width:40px;height:4px;background:var(--off2);border-radius:2px;margin:0 auto 18px}
+@media(min-width:600px){.drawer-handle{display:none}}
+.drawer-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;margin-bottom:4px}
+.drawer-sub{font-size:14px;color:var(--text2);margin-bottom:22px}
+.btn-primary-full{width:100%;padding:14px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;border:none;border-radius:var(--radius-sm);font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(124,111,247,.25);margin-bottom:10px}
+.btn-primary-full:hover{transform:translateY(-1px)}
+.btn-secondary-full{width:100%;padding:12px;background:var(--off2);border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-weight:600;font-family:'Outfit',sans-serif;color:var(--text2);cursor:pointer}
+.btn-hint{font-size:11px;color:var(--text3);margin-top:5px}
+
+/* CONTRATO MODAL */
+.contrato-doc{background:var(--off);border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:20px;font-size:13px;line-height:1.8;color:var(--text);margin-bottom:16px;max-height:300px;overflow-y:auto}
+.contrato-doc h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:900;text-align:center;margin-bottom:12px;color:var(--orange)}
+.contrato-doc p{margin-bottom:8px}
+.contrato-doc strong{color:var(--text)}
+.sig-pad{border:2px dashed var(--border2);border-radius:var(--radius-sm);height:100px;display:flex;align-items:center;justify-content:center;margin:12px 0;cursor:pointer;background:var(--off);position:relative;overflow:hidden}
+.sig-pad-text{font-size:13px;color:var(--text3);text-align:center}
+.sig-canvas{width:100%;height:100%;position:absolute;inset:0}
+.sig-clear{position:absolute;top:6px;right:8px;font-size:11px;color:var(--orange);cursor:pointer;background:#fff;padding:2px 6px;border-radius:4px;font-weight:700}
+.contrato-check{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.5;margin-bottom:14px;color:var(--text2)}
+.contrato-check input[type=checkbox]{width:18px;height:18px;accent-color:var(--orange);flex-shrink:0;margin-top:1px}
+
+/* PIX BOX */
+.pix-box{background:linear-gradient(135deg,#FFFDF0,#FFF7E6);border:2px solid #FFD591;border-radius:var(--radius);padding:20px;text-align:center;margin-bottom:16px}
+.pix-amount{font-family:'Nunito',sans-serif;font-size:40px;font-weight:900;color:var(--orange)}
+.pix-key{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:14px;margin:12px 0;text-align:left}
+.pix-key-lbl{font-size:11px;color:var(--text3);text-transform:uppercase;font-weight:700}
+.pix-key-val{font-size:18px;font-weight:800;color:var(--orange);margin-top:4px}
+.pix-key-tipo{font-size:12px;color:var(--text2)}
+
+/* TOAST */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);z-index:999;background:var(--text);color:#fff;padding:11px 22px;border-radius:100px;font-size:14px;font-weight:600;animation:toastAnim 2.8s ease forwards;white-space:nowrap;max-width:90vw;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+@keyframes toastAnim{0%{opacity:0;transform:translateX(-50%) translateY(10px)}12%{opacity:1;transform:translateX(-50%) translateY(0)}80%{opacity:1}100%{opacity:0;transform:translateX(-50%) translateY(-8px)}}
+@media(min-width:768px){.toast{bottom:28px}}
+
+/* CONTRATO LINK PAGE */
+#screen-contrato{background:linear-gradient(135deg,#6D28D9 0%,#7C3AED 50%,#A78BFA 100%);min-height:100vh;display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+#screen-contrato.active{display:flex}
+.contrato-page-wrap{background:#fff;border-radius:20px;width:100%;max-width:600px;padding:28px;margin:auto}
+.contrato-header{text-align:center;margin-bottom:24px}
+.contrato-brand{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:var(--orange);margin-bottom:4px}
+.contrato-titulo{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900;color:var(--text)}
+.contrato-sub{font-size:14px;color:var(--text2);margin-top:4px}
+.step-bar{display:flex;align-items:center;gap:6px;margin-bottom:24px}
+.step-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;flex-shrink:0;transition:all .3s}
+.step-dot.done{background:var(--orange);color:#fff}
+.step-dot.active{background:var(--orange);color:#fff;box-shadow:0 0 0 4px rgba(255,107,0,.2)}
+.step-dot.pending{background:var(--off2);color:var(--text3)}
+.step-line{flex:1;height:2px;background:var(--off2)}
+.step-line.done{background:var(--orange)}
+.contrato-step{display:none}
+.contrato-step.active{display:block}
+.contrato-preview{background:var(--off);border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:18px;font-size:13px;line-height:1.8;color:var(--text);max-height:350px;overflow-y:auto;margin-bottom:16px}
+.cp-title{font-family:'Nunito',sans-serif;font-size:15px;font-weight:900;text-align:center;color:var(--orange);margin-bottom:10px}
+.contrato-assinatura{border:2px dashed var(--border2);border-radius:var(--radius-sm);height:120px;margin:12px 0;cursor:crosshair;background:#fff;position:relative;overflow:hidden}
+.contrato-assinatura canvas{width:100%;height:100%;display:block}
+.sig-actions{display:flex;justify-content:flex-end;gap:8px;margin-bottom:12px}
+.sig-btn{padding:5px 12px;border-radius:6px;border:1.5px solid var(--border);background:#fff;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;color:var(--text2)}
+.sig-btn.clear{color:var(--red);border-color:#FFA39E}
+.accepted-badge{background:var(--green-bg);border:2px solid #B7EB8F;border-radius:var(--radius);padding:20px;text-align:center}
+.accepted-icon{font-size:48px;margin-bottom:8px}
+.accepted-title{font-family:'Nunito',sans-serif;font-size:22px;font-weight:900;color:var(--green)}
+
+/* EMPTY */
+.empty-state{text-align:center;padding:50px 20px;color:var(--text2)}
+.empty-icon{font-size:52px;margin-bottom:12px}
+.empty-title{font-family:'Nunito',sans-serif;font-size:18px;font-weight:800;color:var(--text)}
+.empty-sub{font-size:14px;margin-top:6px;line-height:1.5}
+.btn-empty{display:inline-block;margin-top:18px;padding:12px 26px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;border:none;border-radius:var(--radius-sm);font-size:14px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(124,111,247,.3)}
+
+/* ALERT SCHEDULER INDICATOR */
+.sched-badge{display:inline-flex;align-items:center;gap:5px;background:#F0FFF4;border:1.5px solid #B7EB8F;border-radius:20px;padding:4px 12px;font-size:12px;font-weight:700;color:var(--green)}
+
+/* SCROLLBAR */
+.page-content::-webkit-scrollbar,.modal-drawer::-webkit-scrollbar,.contrato-preview::-webkit-scrollbar,.contrato-doc::-webkit-scrollbar{width:4px}
+.page-content::-webkit-scrollbar-thumb,.modal-drawer::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+</style>
+</head>
+<body>
+
+<!-- ===== CONTRATO PÚBLICO (link para pais) ===== -->
+<div class="screen" id="screen-contrato">
+  <div class="contrato-page-wrap">
+    <div class="contrato-header">
+      <div class="contrato-brand">🚌 VanRotas</div>
+      <div class="contrato-titulo">Contrato de Transporte Escolar</div>
+      <div class="contrato-sub" id="cp-motorista-sub">Carregando...</div>
+    </div>
+
+    <!-- STEP BAR -->
+    <div class="step-bar">
+      <div class="step-dot active" id="sdot1">1</div>
+      <div class="step-line" id="sline1"></div>
+      <div class="step-dot pending" id="sdot2">2</div>
+      <div class="step-line" id="sline2"></div>
+      <div class="step-dot pending" id="sdot3">3</div>
+      <div class="step-line" id="sline3"></div>
+      <div class="step-dot pending" id="sdot4">✓</div>
+    </div>
+
+    <!-- STEP 1: DADOS PESSOAIS -->
+    <div class="contrato-step active" id="cstep1">
+      <div class="drawer-title" style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;">Seus dados pessoais</div>
+      <div class="drawer-sub">Preencha corretamente — esses dados estarão no contrato</div>
+      <div class="form-group"><label class="form-label">Nome completo do responsável *</label><input class="form-input" id="cp-resp-nome" placeholder="Nome completo"></div>
+      <div class="form-group"><label class="form-label">CPF do responsável *</label><input class="form-input" id="cp-resp-cpf" placeholder="000.000.000-00" maxlength="14"></div>
+      <div class="form-group"><label class="form-label">RG</label><input class="form-input" id="cp-resp-rg" placeholder="00.000.000-0"></div>
+      <div class="form-row2">
+        <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" id="cp-resp-wpp" placeholder="(11) 99999-9999" type="tel"></div>
+        <div class="form-group"><label class="form-label">E-mail *</label><input class="form-input" id="cp-resp-email" placeholder="email@..." type="email"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Endereço completo *</label><input class="form-input" id="cp-resp-end" placeholder="Rua, número, bairro, cidade"></div>
+      <button class="btn-primary-full" onclick="cstepNext(1)">Próximo →</button>
+    </div>
+
+    <!-- STEP 2: DADOS DO ALUNO -->
+    <div class="contrato-step" id="cstep2">
+      <div class="drawer-title" style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;">Dados do aluno</div>
+      <div class="drawer-sub">Informe os dados da criança para o contrato</div>
+      <div class="form-group"><label class="form-label">Nome completo do aluno *</label><input class="form-input" id="cp-al-nome" placeholder="Nome do aluno"></div>
+      <div class="form-group"><label class="form-label">Data de nascimento *</label><input class="form-input" id="cp-al-nasc" type="date"></div>
+      <div class="form-row2">
+        <div class="form-group"><label class="form-label">Escola *</label><input class="form-input" id="cp-al-escola" placeholder="Nome da escola"></div>
+        <div class="form-group"><label class="form-label">Turno *</label><select class="form-input" id="cp-al-turno"><option>Manhã</option><option>Tarde</option><option>Integral</option><option>Noturno</option></select></div>
+      </div>
+      <div class="form-group"><label class="form-label">Endereço de embarque *</label><input class="form-input" id="cp-al-end" placeholder="Rua, número, bairro"></div>
+      <div class="form-group"><label class="form-label">Contato de emergência</label><input class="form-input" id="cp-al-emerg" placeholder="Nome e telefone"></div>
+      <button class="btn-primary-full" onclick="cstepNext(2)">Próximo →</button>
+      <button class="btn-secondary-full" onclick="cstepBack(2)">← Voltar</button>
+    </div>
+
+    <!-- STEP 3: LER E ASSINAR CONTRATO -->
+    <div class="contrato-step" id="cstep3">
+      <div class="drawer-title" style="font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;">Leia e assine o contrato</div>
+      <div class="drawer-sub">Leia com atenção antes de assinar</div>
+
+      <div class="contrato-preview" id="contrato-text-render"></div>
+
+      <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;">✍️ Assinatura digital do responsável</div>
+      <div style="font-size:12px;color:var(--text3);margin-bottom:8px;">Assine abaixo com o dedo ou mouse</div>
+      <div class="contrato-assinatura" id="sig-area">
+        <canvas id="sig-canvas"></canvas>
+      </div>
+      <div class="sig-actions">
+        <button class="sig-btn clear" onclick="clearSig()">✕ Limpar</button>
+      </div>
+
+      <label class="contrato-check"><input type="checkbox" id="cp-check1"> Li e concordo com todos os termos deste contrato de transporte escolar</label>
+      <label class="contrato-check"><input type="checkbox" id="cp-check2"> Estou ciente das regras de pagamento, juros e multa por atraso</label>
+      <label class="contrato-check"><input type="checkbox" id="cp-check3"> Me responsabilizo pelas obrigações do responsável descritas neste contrato</label>
+
+      <button class="btn-primary-full" onclick="cstepNext(3)">✅ Assinar e enviar contrato</button>
+      <button class="btn-secondary-full" onclick="cstepBack(3)">← Voltar</button>
+    </div>
+
+    <!-- STEP 4: CONCLUÍDO -->
+    <div class="contrato-step" id="cstep4">
+      <div class="accepted-badge">
+        <div class="accepted-icon">🎉</div>
+        <div class="accepted-title">Contrato assinado!</div>
+        <p style="font-size:14px;color:var(--text2);margin-top:8px;line-height:1.6">Seu contrato foi enviado ao motorista. Você receberá uma cópia via WhatsApp. Guarde essa confirmação.</p>
+        <div id="cp-confirm-code" style="background:var(--off2);border-radius:8px;padding:12px;margin-top:14px;font-size:13px;font-weight:700;color:var(--text)"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGIN ===== -->
+<div class="screen active" id="screen-login">
+  <div class="login-wrap">
+    <div class="login-hero">
+      <div class="hero-circle hc1"></div>
+      <div class="hero-circle hc2"></div>
+      <div class="hero-circle hc3"></div>
+      <div class="hero-brand">
+        <div class="hero-brand-icon">🚌</div>
+        <div class="hero-brand-name">Van<span>Rotas</span></div>
+      </div>
+      <div class="van-scene">
+        <svg width="200" height="90" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="22" width="170" height="50" rx="10" fill="rgba(255,255,255,0.9)"/>
+          <rect x="130" y="12" width="50" height="60" rx="8" fill="rgba(255,255,255,0.8)"/>
+          <rect x="135" y="16" width="38" height="26" rx="5" fill="rgba(255,255,255,0.3)"/>
+          <rect x="18" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
+          <rect x="52" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
+          <rect x="86" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
+          <rect x="10" y="48" width="170" height="8" fill="rgba(255,255,255,0.2)"/>
+          <rect x="174" y="36" width="18" height="10" rx="4" fill="#FBBF24"/>
+          <text x="38" y="44" font-family="Arial" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">ESCOLAR</text>
+          <circle cx="46" cy="74" r="16" fill="#7C3AED"/><circle cx="46" cy="74" r="9" fill="rgba(255,255,255,0.3)"/><circle cx="46" cy="74" r="4" fill="rgba(255,255,255,0.5)"/>
+          <circle cx="148" cy="74" r="16" fill="#7C3AED"/><circle cx="148" cy="74" r="9" fill="rgba(255,255,255,0.3)"/><circle cx="148" cy="74" r="4" fill="rgba(255,255,255,0.5)"/>
+        </svg>
+      </div>
+      <div class="hero-tagline">
+        <h1>Gerencie sua van escolar com controle total</h1>
+        <p style="font-size:14px;opacity:.85;margin-top:8px">Cobranças automáticas, contratos digitais e alertas inteligentes para motoristas escolares</p>
+      </div>
+      <div class="hero-features">
+        <div class="hero-feat"><div class="hero-feat-icon">💚</div><div class="hero-feat-text">PIX integrado — cobranças automáticas</div></div>
+        <div class="hero-feat"><div class="hero-feat-icon">📄</div><div class="hero-feat-text">Contrato digital com assinatura</div></div>
+        <div class="hero-feat"><div class="hero-feat-icon">🔔</div><div class="hero-feat-text">Alertas automáticos para pais</div></div>
+      </div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-panel-title">Bem-vindo de volta!</div>
+      <div class="login-panel-sub">Entre na sua conta ou crie uma nova gratuitamente</div>
+      <div class="tabs-row">
+        <div class="tab-btn active" onclick="loginTab('entrar',this)">Entrar</div>
+        <div class="tab-btn" onclick="loginTab('criar',this)">Criar conta</div>
+      </div>
+
+      <div id="lform-entrar">
+        <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-email" type="email" placeholder="seu@email.com"></div>
+        <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="li-senha" type="password" placeholder="••••••••"></div>
+        <button class="btn-main" onclick="doLogin()">Entrar →</button>
+        <div class="login-footer">Esqueceu a senha? <span style="color:var(--orange);font-weight:700;cursor:pointer">Recuperar acesso</span></div>
+      </div>
+
+      <div id="lform-criar" style="display:none">
+        <div class="form-group"><label class="form-label">Nome completo</label><input class="form-input" id="li-nome" placeholder="Seu nome"></div>
+        <div class="form-row2">
+          <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-reg-email" type="email" placeholder="seu@email.com"></div>
+          <div class="form-group"><label class="form-label">WhatsApp</label><input class="form-input" id="li-wpp" type="tel" placeholder="(11) 99999-9999"></div>
+        </div>
+        <div class="form-row2">
+          <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="li-senha2" type="password" placeholder="••••••••"></div>
+          <div class="form-group"><label class="form-label">Confirmar</label><input class="form-input" id="li-senha3" type="password" placeholder="••••••••"></div>
+        </div>
+        <button class="btn-main" onclick="doRegister()">Criar conta grátis →</button>
+        <div class="login-footer">Ao criar conta você aceita os Termos de Uso e a Política de Privacidade</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APP ===== -->
+<div class="screen" id="screen-app">
+  <div class="app-layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-icon">🚌</div>
+        <div class="sidebar-brand-name">Van<span>Rotas</span></div>
+      </div>
+      <div class="sidebar-nav">
+        <div class="snav-item active" id="snav-dashboard" onclick="goPage('dashboard')"><span class="snav-icon">🏠</span>Dashboard</div>
+        <div class="snav-item" id="snav-alunos" onclick="goPage('alunos')"><span class="snav-icon">👦</span>Alunos</div>
+        <div class="snav-item" id="snav-cobrancas" onclick="goPage('cobrancas')"><span class="snav-icon">💰</span>Cobranças<span class="snav-badge" id="snav-badge" style="display:none">0</span></div>
+        <div class="snav-item" id="snav-relatorio" onclick="goPage('relatorio')"><span class="snav-icon">📊</span>Relatório</div>
+        <div class="snav-item" id="snav-config" onclick="goPage('config')"><span class="snav-icon">⚙️</span>Configurações</div>
+        <div class="snav-item" id="snav-contrato" onclick="openContratoLink()" style="margin-top:8px;border-top:1.5px solid var(--border);padding-top:14px"><span class="snav-icon">📄</span>Link de contrato</div>
+      </div>
+      <div class="sidebar-user">
+        <div class="sidebar-user-row">
+          <div class="sidebar-avatar" id="sb-avatar">MO</div>
+          <div><div class="sidebar-user-name" id="sb-name">Motorista</div><div class="sidebar-user-plan">Plano Gratuito</div></div>
+        </div>
+        <button class="sidebar-logout" onclick="doLogout()">🚪 Sair da conta</button>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="app-main">
+      <div class="app-topbar">
+        <div class="topbar-left">
+          <h2 id="topbar-title">Dashboard</h2>
+          <p id="topbar-sub">Visão geral</p>
+        </div>
+        <div class="topbar-right">
+          <button class="notif-btn" onclick="openNotifModal()">🔔<div class="notif-dot" id="notif-dot" style="display:none"></div></button>
+          <div class="mob-avatar" id="mob-avatar" onclick="goPage('config')">MO</div>
+        </div>
+      </div>
+
+      <div class="page-content">
+
+        <!-- DASHBOARD -->
+        <div class="page active" id="page-dashboard">
+          <div class="welcome-band">
+            <div>
+              <div class="wb-title" id="wb-title">Olá, Motorista! 👋</div>
+              <div class="wb-sub">Aqui está o resumo de hoje</div>
+              <div class="wb-date" id="wb-date"></div>
+            </div>
+            <button class="btn-wb" onclick="goPage('alunos')">Ver alunos →</button>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-tag" style="background:#F6FFED">✅</div>
+              <div class="kpi-val" style="color:var(--green)" id="kpi-ok">0</div>
+              <div class="kpi-lbl">Em dia</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-tag" style="background:#FFF1F0">⚠️</div>
+              <div class="kpi-val" style="color:var(--red)" id="kpi-late">0</div>
+              <div class="kpi-lbl">Atrasados</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-tag" style="background:#FFF7E6">💰</div>
+              <div class="kpi-val" style="color:var(--orange);font-size:20px" id="kpi-total">R$ 0</div>
+              <div class="kpi-lbl">A receber</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-tag" style="background:#EFF6FF">👦</div>
+              <div class="kpi-val" style="color:var(--teal2)" id="kpi-alunos">0</div>
+              <div class="kpi-lbl">Total alunos</div>
+            </div>
+          </div>
+
+          <div class="section-hdr"><h3>⚡ Alertas importantes</h3><span class="sched-badge" id="sched-badge">🤖 Alertas automáticos ON</span></div>
+          <div id="dash-alerts"></div>
+
+          <div class="section-hdr"><h3>🚀 Ações rápidas</h3></div>
+          <div class="quick-grid">
+            <div class="quick-card" onclick="openModal('modal-aluno')">
+              <div class="qc-icon">➕</div><div class="qc-label">Novo aluno</div><div class="qc-sub">Cadastrar e enviar contrato</div>
+            </div>
+            <div class="quick-card" onclick="openContratoLink()">
+              <div class="qc-icon">🔗</div><div class="qc-label">Link contrato</div><div class="qc-sub">Enviar link para pais assinarem</div>
+            </div>
+            <div class="quick-card" onclick="notificarTodos()">
+              <div class="qc-icon">📣</div><div class="qc-label">Cobrar todos</div><div class="qc-sub">WhatsApp automático</div>
+            </div>
+            <div class="quick-card" onclick="goPage('relatorio')">
+              <div class="qc-icon">📊</div><div class="qc-label">Relatório</div><div class="qc-sub">Ver recebimentos do mês</div>
+            </div>
+          </div>
+
+          <div class="section-hdr"><h3>👦 Situação dos alunos</h3><span class="section-link" onclick="goPage('alunos')">Ver todos →</span></div>
+          <div id="dash-table"></div>
+        </div>
+
+        <!-- ALUNOS -->
+        <div class="page" id="page-alunos">
+          <div class="search-bar"><span class="search-icon">🔍</span><input id="search-al" placeholder="Buscar aluno ou responsável..." oninput="filterAlunos(this.value)"></div>
+          <div class="filter-row">
+            <div class="fchip active" onclick="setFilter('todos',this)">Todos</div>
+            <div class="fchip" onclick="setFilter('ok',this)">✅ Em dia</div>
+            <div class="fchip" onclick="setFilter('late',this)">⚠ Atrasados</div>
+            <div class="fchip" onclick="setFilter('warn',this)">🔔 Vencendo</div>
+          </div>
+          <div id="alunos-list"></div>
+        </div>
+
+        <!-- COBRANÇAS -->
+        <div class="page" id="page-cobrancas">
+          <div class="cob-total-band">
+            <div class="cob-total-lbl">Total em aberto</div>
+            <div class="cob-total-val" id="cob-total-val">R$ 0,00</div>
+            <div class="cob-stats-row">
+              <div><div class="cob-stat-lbl">Atrasados</div><div class="cob-stat-val" id="cob-qtd">0</div></div>
+              <div><div class="cob-stat-lbl">Juros acum.</div><div class="cob-stat-val" id="cob-juros-sum" style="color:var(--red)">R$ 0</div></div>
+              <div><div class="cob-stat-lbl">Dias médios</div><div class="cob-stat-val" id="cob-dias-med">0</div></div>
+            </div>
+          </div>
+          <div class="section-hdr">
+            <h3>Cobranças pendentes</h3>
+            <button style="background:var(--red);color:#fff;border:none;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:800;cursor:pointer;font-family:'Outfit',sans-serif" onclick="notificarTodos()">📣 Cobrar todos</button>
+          </div>
+          <div id="cobrancas-list"></div>
+        </div>
+
+        <!-- RELATORIO -->
+        <div class="page" id="page-relatorio">
+          <div class="rel-month">
+            <span class="rel-arrow" onclick="changeMonth(-1)">‹</span>
+            <span class="rel-month-name" id="rel-month-name">Abril 2026</span>
+            <span class="rel-arrow" onclick="changeMonth(1)">›</span>
+          </div>
+          <div class="kpi-grid" style="margin-bottom:20px">
+            <div class="kpi-card"><div class="kpi-tag" style="background:#F6FFED">💵</div><div class="kpi-val" style="color:var(--green);font-size:18px" id="rel-rec">R$ 0</div><div class="kpi-lbl">Recebido</div></div>
+            <div class="kpi-card"><div class="kpi-tag" style="background:#FFF1F0">⏳</div><div class="kpi-val" style="color:var(--red);font-size:18px" id="rel-pend">R$ 0</div><div class="kpi-lbl">Pendente</div></div>
+            <div class="kpi-card"><div class="kpi-tag" style="background:#FFF7E6">📈</div><div class="kpi-val" style="color:var(--orange);font-size:18px" id="rel-prev">R$ 0</div><div class="kpi-lbl">Previsto</div></div>
+            <div class="kpi-card"><div class="kpi-tag" style="background:#F0F9FF">🎯</div><div class="kpi-val" style="color:var(--teal2);font-size:18px" id="rel-pct">0%</div><div class="kpi-lbl">Realização</div></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-title">Recebido vs Pendente — últimos 6 meses</div>
+            <div class="bar-wrap" id="bar-chart"></div>
+            <div class="legend-row"><div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div>Recebido</div><div class="legend-item"><div class="legend-dot" style="background:var(--off2)"></div>Pendente</div></div>
+          </div>
+          <div class="rel-table">
+            <div class="rel-header-row"><span>Aluno</span><span>Valor</span><span>Status</span><span>Ação</span></div>
+            <div id="rel-table-body"></div>
+          </div>
+        </div>
+
+        <!-- CONFIG -->
+        <div class="page" id="page-config">
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">👤 Perfil do motorista</div>
+            <div class="cfg-input-row"><label class="form-label">Nome</label><input class="form-input" id="cfg-nome" placeholder="Seu nome"></div>
+            <div class="cfg-input-row"><label class="form-label">WhatsApp</label><input class="form-input" id="cfg-tel" placeholder="(11) 99999-9999"></div>
+            <div class="cfg-input-row"><label class="form-label">E-mail</label><input class="form-input" id="cfg-email" type="email" placeholder="email@..."></div>
+            <div class="cfg-input-row"><label class="form-label">CPF</label><input class="form-input" id="cfg-cpf" placeholder="000.000.000-00"></div>
+          </div>
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">💚 Dados PIX</div>
+            <div class="cfg-input-row"><label class="form-label">Tipo de chave</label><select class="form-input" id="cfg-pix-tipo"><option>CPF</option><option>CNPJ</option><option>Celular</option><option>E-mail</option><option>Chave aleatória</option></select></div>
+            <div class="cfg-input-row"><label class="form-label">Chave PIX</label><input class="form-input" id="cfg-pix" placeholder="Sua chave PIX"></div>
+            <div class="cfg-input-row"><label class="form-label">Banco</label><input class="form-input" id="cfg-banco" placeholder="Ex: Nubank, Itaú..."></div>
+          </div>
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">💰 Regras financeiras</div>
+            <div class="cfg-input-row"><label class="form-label">Juros ao mês (%)</label><input class="form-input" id="cfg-juros" type="number" value="2" step="0.5" min="0"><div class="btn-hint">Aplicado proporcionalmente por dia de atraso</div></div>
+            <div class="cfg-input-row"><label class="form-label">Multa por atraso (%)</label><input class="form-input" id="cfg-multa" type="number" value="2" step="0.5" min="0"><div class="btn-hint">Cobrada uma vez ao atrasar</div></div>
+            <div class="cfg-input-row"><label class="form-label">Dia padrão de vencimento</label><input class="form-input" id="cfg-venc" type="number" value="5" min="1" max="28"></div>
+          </div>
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">🔔 Alertas automáticos</div>
+            <div class="cfg-toggle-row">
+              <div><div class="cfg-lbl">Lembrete 1 dia antes do vencimento</div><div class="cfg-sub">Envia WhatsApp automático a todos os responsáveis</div></div>
+              <button class="toggle on" id="tog-1d" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></button>
+            </div>
+            <div class="cfg-toggle-row">
+              <div><div class="cfg-lbl">Aviso no dia do vencimento</div><div class="cfg-sub">Lembrete no próprio dia</div></div>
+              <button class="toggle on" id="tog-d" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></button>
+            </div>
+            <div class="cfg-toggle-row">
+              <div><div class="cfg-lbl">Cobrança automática por atraso</div><div class="cfg-sub">Avisa o responsável que está em atraso com juros calculados</div></div>
+              <button class="toggle on" id="tog-late" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></button>
+            </div>
+          </div>
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">🔗 Link de contrato digital</div>
+            <div class="cfg-input-row">
+              <div style="font-size:13px;color:var(--text2);margin-bottom:10px">Envie este link para os pais preencherem os dados e assinarem o contrato digitalmente</div>
+              <div style="background:var(--off2);border-radius:8px;padding:12px;font-size:13px;font-weight:600;color:var(--orange);word-break:break-all" id="link-contrato">Salve suas configurações para gerar o link</div>
+              <button style="margin-top:10px;padding:10px 18px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif" onclick="copiarLink()">📋 Copiar link</button>
+              <button style="margin-top:8px;margin-left:8px;padding:10px 18px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif" onclick="compartilharLinkWpp()">📱 Enviar via WhatsApp</button>
+            </div>
+          </div>
+          <button class="btn-primary-full" onclick="salvarConfig()" style="margin-top:4px">💾 Salvar configurações</button>
+          <button style="width:100%;padding:13px;background:#FFF1F0;border:1.5px solid #FFA39E;border-radius:var(--radius-sm);color:var(--red);font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;margin-top:8px" onclick="doLogout()">🚪 Sair da conta</button>
+          <div style="height:20px"></div>
+        </div>
+
+      </div><!-- end page-content -->
+    </div><!-- end app-main -->
+  </div><!-- end app-layout -->
+
+  <!-- BOTTOM NAV (mobile) -->
+  <div class="bottom-nav">
+    <div class="bnav-item active" id="bnav-dashboard" onclick="goPage('dashboard')"><div class="bnav-icon">🏠</div><div class="bnav-label">Início</div></div>
+    <div class="bnav-item" id="bnav-alunos" onclick="goPage('alunos')"><div class="bnav-icon">👦</div><div class="bnav-label">Alunos</div></div>
+    <div class="bnav-item" id="bnav-cobrancas" onclick="goPage('cobrancas')"><div class="bnav-icon">💰</div><div class="bnav-label">Cobranças</div></div>
+    <div class="bnav-item" id="bnav-relatorio" onclick="goPage('relatorio')"><div class="bnav-icon">📊</div><div class="bnav-label">Relatório</div></div>
+    <div class="bnav-item" id="bnav-config" onclick="goPage('config')"><div class="bnav-icon">⚙️</div><div class="bnav-label">Config</div></div>
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="fab" id="fab" style="display:none" onclick="openModal('modal-aluno')">+</button>
+
+<!-- MODAL ALUNO -->
+<div class="modal-overlay" id="modal-aluno">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">Novo aluno</div>
+    <div class="drawer-sub">Preencha os dados — o contrato será enviado automaticamente</div>
+    <div class="form-group"><label class="form-label">Nome do aluno *</label><input class="form-input" id="al-nome" placeholder="Nome completo do aluno"></div>
+    <div class="form-group"><label class="form-label">Responsável *</label><input class="form-input" id="al-resp" placeholder="Nome do pai/mãe/responsável"></div>
+    <div class="form-row2">
+      <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" id="al-wpp" placeholder="5511999999999" type="tel"></div>
+      <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="al-email" placeholder="email@..." type="email"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Endereço de embarque</label><input class="form-input" id="al-end" placeholder="Rua, número, bairro"></div>
+    <div class="form-row2">
+      <div class="form-group"><label class="form-label">Escola</label><input class="form-input" id="al-escola" placeholder="Nome da escola"></div>
+      <div class="form-group"><label class="form-label">Turno</label><select class="form-input" id="al-turno"><option>Manhã</option><option>Tarde</option><option>Integral</option><option>Noturno</option></select></div>
+    </div>
+    <div class="form-row2">
+      <div class="form-group"><label class="form-label">Valor mensal (R$) *</label><input class="form-input" id="al-valor" type="number" placeholder="350" min="0" step="0.01"></div>
+      <div class="form-group"><label class="form-label">Dia de vencimento</label><input class="form-input" id="al-venc" type="number" placeholder="5" min="1" max="28"></div>
+    </div>
+    <div class="form-group"><label class="form-label">Observações</label><input class="form-input" id="al-obs" placeholder="Alergias, necessidades especiais..."></div>
+    <button class="btn-primary-full" onclick="salvarAluno()">✅ Cadastrar aluno</button>
+    <button class="btn-secondary-full" onclick="closeModal('modal-aluno')">Cancelar</button>
+  </div>
+</div>
+
+<!-- MODAL DETALHE -->
+<div class="modal-overlay" id="modal-detalhe">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div id="detalhe-content"></div>
+  </div>
+</div>
+
+<!-- MODAL PIX -->
+<div class="modal-overlay" id="modal-pix">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">💚 Cobrança PIX</div>
+    <div id="pix-content"></div>
+    <button class="btn-secondary-full" onclick="closeModal('modal-pix')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL NOTIFICAÇÕES -->
+<div class="modal-overlay" id="modal-notifs">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">🔔 Notificações</div>
+    <div id="notifs-content"></div>
+    <button class="btn-secondary-full" onclick="closeModal('modal-notifs')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL LINK CONTRATO -->
+<div class="modal-overlay" id="modal-link-contrato">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">🔗 Link do contrato digital</div>
+    <div class="drawer-sub">Compartilhe este link com o responsável para assinar o contrato online</div>
+    <div style="background:var(--off2);border-radius:10px;padding:14px;font-size:13px;font-weight:600;color:var(--orange);word-break:break-all;margin-bottom:16px" id="modal-link-text"></div>
+    <button class="btn-primary-full" onclick="copiarLink()">📋 Copiar link</button>
+    <button style="width:100%;padding:13px;background:#25D366;color:#fff;border:none;border-radius:var(--radius-sm);font-size:15px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;margin-bottom:10px" onclick="compartilharLinkWpp()">📱 Enviar via WhatsApp</button>
+    <button class="btn-secondary-full" onclick="closeModal('modal-link-contrato')">Fechar</button>
+  </div>
+</div>
+
+<script>
+// ===== DATA =====
+let DATA = {user:null, motorista:{nome:'',tel:'',email:'',cpf:'',pixChave:'',pixTipo:'CPF',banco:'',juros:2,multa:2,vencPadrao:5}, alunos:[], users:[], contratos:[]};
+let curFilter = 'todos';
+let relMonth = {m:new Date().getMonth(), y:new Date().getFullYear()};
+let alertTimer = null;
+let sigDrawing = false, sigCtx = null, sigCanvas = null;
+
+function load(){const s=localStorage.getItem('vr2_data'); if(s) DATA=JSON.parse(s);}
+function save(){localStorage.setItem('vr2_data',JSON.stringify(DATA));}
+
+// ===== CHECK CONTRATO LINK =====
+window.addEventListener('DOMContentLoaded', ()=>{
+  load();
+  const hash = window.location.hash;
+  if(hash.startsWith('#contrato')){
+    const params = new URLSearchParams(hash.replace('#contrato?',''));
+    const mid = params.get('m');
+    if(mid) openContratoPublico(mid);
+    else openContratoPublico(null);
+    return;
+  }
+  if(DATA.user){enterApp();}
+});
+
+// ===== LOGIN =====
+function loginTab(t,el){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active');
+  document.getElementById('lform-entrar').style.display = t==='entrar'?'block':'none';
+  document.getElementById('lform-criar').style.display = t==='criar'?'block':'none';
+}
+function doLogin(){
+  const email=document.getElementById('li-email').value.trim();
+  if(!email){showToast('❌ Digite seu e-mail');return;}
+  let user=DATA.users.find(u=>u.email===email)||{email,nome:email.split('@')[0]};
+  DATA.user=user; save(); enterApp();
+}
+function doRegister(){
+  const nome=document.getElementById('li-nome').value.trim();
+  const email=document.getElementById('li-reg-email').value.trim();
+  const wpp=document.getElementById('li-wpp').value.trim();
+  const s1=document.getElementById('li-senha2').value;
+  const s2=document.getElementById('li-senha3').value;
+  if(!nome||!email){showToast('❌ Preencha nome e e-mail');return;}
+  if(s1!==s2){showToast('❌ Senhas não conferem');return;}
+  const user={nome,email,wpp};
+  if(!DATA.users.find(u=>u.email===email)) DATA.users.push(user);
+  DATA.user=user; DATA.motorista.nome=nome; DATA.motorista.tel=wpp; DATA.motorista.email=email;
+  save(); enterApp();
+}
+function doLogout(){
+  if(!confirm('Tem certeza que deseja sair?'))return;
+  DATA.user=null; save();
+  document.getElementById('screen-app').classList.remove('active');
+  document.getElementById('screen-login').classList.add('active');
+  document.getElementById('fab').style.display='none';
+  stopAlertTimer();
+}
+function enterApp(){
+  document.getElementById('screen-login').classList.remove('active');
+  document.getElementById('screen-app').classList.add('active');
+  document.getElementById('fab').style.display='flex';
+  loadDemoIfEmpty();
+  updateHeader();
+  loadConfig();
+  renderAll();
+  startAlertTimer();
+}
+
+function loadDemoIfEmpty(){
+  if(DATA.alunos.length>0)return;
+  DATA.motorista={nome:'João Silva',tel:'5511987654321',email:'joao@email.com',cpf:'000.000.000-00',pixChave:'joao@email.com',pixTipo:'E-mail',banco:'Nubank',juros:2,multa:2,vencPadrao:5};
+  const h=new Date();
+  DATA.alunos=[
+    {id:1,nome:'Ana Beatriz Santos',responsavel:'Carla Santos',whatsapp:'5511911111111',emailResp:'carla@email.com',endereco:'Rua das Flores, 123',escola:'E.E. Paulo Salave',turno:'Manhã',valor:380,vencimento:5,obs:'',pagamentos:[{data:new Date(h.getFullYear(),h.getMonth(),3).toISOString(),valor:'380.00'}],criadoEm:new Date().toISOString()},
+    {id:2,nome:'Pedro Henrique Lima',responsavel:'Roberto Lima',whatsapp:'5511922222222',emailResp:'roberto@email.com',endereco:'Av. Brasil, 456',escola:'Colégio São José',turno:'Tarde',valor:420,vencimento:5,obs:'Alérgico a amendoim',pagamentos:[],criadoEm:new Date().toISOString()},
+    {id:3,nome:'Maria Fernanda Costa',responsavel:'Juliana Costa',whatsapp:'5511933333333',emailResp:'juliana@email.com',endereco:'Rua Nova, 789',escola:'E.E. Paulo Salave',turno:'Manhã',valor:350,vencimento:5,obs:'',pagamentos:[],criadoEm:new Date().toISOString()},
+    {id:4,nome:'Lucas Oliveira',responsavel:'Marcos Oliveira',whatsapp:'5511944444444',emailResp:'marcos@email.com',endereco:'Rua do Sol, 321',escola:'Colégio São José',turno:'Integral',valor:650,vencimento:10,obs:'',pagamentos:[{data:new Date(h.getFullYear(),h.getMonth(),8).toISOString(),valor:'650.00'}],criadoEm:new Date().toISOString()},
+    {id:5,nome:'Sofia Rodrigues',responsavel:'Amanda Rodrigues',whatsapp:'5511955555555',emailResp:'amanda@email.com',endereco:'Alameda Verde, 654',escola:'E.M. Vila Nova',turno:'Manhã',valor:300,vencimento:5,obs:'',pagamentos:[],criadoEm:new Date().toISOString()},
+  ];
+  save();
+}
+
+// ===== HEADER =====
+function updateHeader(){
+  const nome=(DATA.motorista.nome||DATA.user?.nome||'Motorista');
+  const av=nome.substring(0,2).toUpperCase();
+  document.getElementById('sb-avatar').textContent=av;
+  document.getElementById('sb-name').textContent=nome;
+  document.getElementById('mob-avatar').textContent=av;
+  document.getElementById('wb-title').textContent=`Olá, ${nome.split(' ')[0]}! 👋`;
+  document.getElementById('wb-date').textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+
+// ===== STATUS / JUROS =====
+function getStatus(a){
+  const h=new Date(), mes=h.getMonth()+1, ano=h.getFullYear();
+  const pago=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()+1===mes&&d.getFullYear()===ano;});
+  if(pago)return 'ok';
+  const venc=parseInt(a.vencimento)||5, dia=h.getDate();
+  if(dia>venc)return 'late';
+  if(dia>=venc-1)return 'warn';
+  return 'ok';
+}
+function calcJuros(a){
+  if(getStatus(a)!=='late')return 0;
+  const dias=new Date().getDate()-parseInt(a.vencimento||5);
+  const jd=(DATA.motorista.juros||2)/30/100;
+  const multa=parseFloat(a.valor)*(DATA.motorista.multa||2)/100;
+  return parseFloat(a.valor)*jd*dias+multa;
+}
+function fR(v){return 'R$ '+parseFloat(v).toFixed(2).replace('.',',');}
+function calcMulhaAp(a){return parseFloat(a.valor)*(DATA.motorista.multa||2)/100;}
+
+// ===== RENDER ALL =====
+function renderAll(){updateStats();renderDashboard();renderAlunos(DATA.alunos);renderCobrancas();updateContratoLink();}
+
+function updateStats(){
+  let ok=0,late=0,tot=0;
+  DATA.alunos.forEach(a=>{const st=getStatus(a);if(st==='ok')ok++;else if(st==='late'){late++;tot+=parseFloat(a.valor)+calcJuros(a);}else tot+=parseFloat(a.valor);});
+  document.getElementById('kpi-ok').textContent=ok;
+  document.getElementById('kpi-late').textContent=late;
+  document.getElementById('kpi-total').textContent='R$ '+tot.toFixed(0);
+  document.getElementById('kpi-alunos').textContent=DATA.alunos.length;
+  const nd=document.getElementById('notif-dot');
+  nd.style.display=late>0?'block':'none';
+  const sb=document.getElementById('snav-badge');
+  if(late>0){sb.style.display='inline-block';sb.textContent=late;}else sb.style.display='none';
+}
+
+function renderDashboard(){
+  updateStats();
+  // Alerts
+  const late=DATA.alunos.filter(a=>getStatus(a)==='late');
+  const warn=DATA.alunos.filter(a=>getStatus(a)==='warn');
+  let html='';
+  if(late.length) html+=`<div class="alert-strip danger"><div class="as-icon">⚠️</div><div class="as-body"><div class="as-title">${late.length} aluno(s) com pagamento em atraso</div><div class="as-sub">${late.map(a=>a.nome.split(' ')[0]).join(', ')} — juros já sendo calculados</div><div class="as-btn" onclick="goPage('cobrancas')">Ver e cobrar todos →</div></div></div>`;
+  if(warn.length) html+=`<div class="alert-strip warn"><div class="as-icon">🔔</div><div class="as-body"><div class="as-title">${warn.length} aluno(s) com vencimento amanhã</div><div class="as-sub">Lembrete automático será enviado: ${warn.map(a=>a.nome.split(' ')[0]).join(', ')}</div><div class="as-btn" onclick="notificarVencendo()">Enviar lembrete agora →</div></div></div>`;
+  if(!late.length&&!warn.length) html=`<div class="alert-strip success"><div class="as-icon">🎉</div><div class="as-body"><div class="as-title">Tudo em dia!</div><div class="as-sub">Nenhuma cobrança pendente ou vencimento próximo</div></div></div>`;
+  document.getElementById('dash-alerts').innerHTML=html;
+
+  // Table
+  const el=document.getElementById('dash-table');
+  if(!DATA.alunos.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">🚌</div><div class="empty-title">Nenhum aluno cadastrado</div><div class="empty-sub">Adicione seu primeiro aluno para começar</div><button class="btn-empty" onclick="openModal(\'modal-aluno\')">+ Cadastrar aluno</button></div>';return;}
+  const colors=['#7C6FF7','#06B6D4','#10B981','#F43F5E','#9B59B6','#1ABC9C'];
+  const bgs=['#F0EEFF','#E0F7FA','#ECFDF5','#FFF1F4','#F5EEF8','#E8F8F5'];
+  el.innerHTML='<div class="table-wrap"><div class="table-row header" style="grid-template-columns:1fr 80px 90px 80px"><span class="th">Aluno</span><span class="th">Valor</span><span class="th">Status</span><span class="th">Ação</span></div>'+
+  DATA.alunos.slice(0,6).map((a,i)=>{
+    const st=getStatus(a),j=calcJuros(a),pago=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);const h=new Date();return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();});
+    const idx=DATA.alunos.indexOf(a);
+    return `<div class="table-row" style="grid-template-columns:1fr 80px 90px 80px" onclick="showDetalhe(${idx})">
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:32px;height:32px;border-radius:9px;background:${bgs[i%6]};color:${colors[i%6]};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;flex-shrink:0">${a.nome.substring(0,2).toUpperCase()}</div><div><div class="td-name">${a.nome}</div><div class="td-sub">${a.responsavel}</div></div></div>
+      <div style="font-size:14px;font-weight:700">${fR(parseFloat(a.valor)+(j||0))}</div>
+      <div><span class="pill ${pago?'ok':st}">${pago?'✓ Pago':st==='late'?'⚠ Atrasado':st==='warn'?'🔔 Vence':'✓ Em dia'}</span></div>
+      <div onclick="event.stopPropagation()"><button style="padding:5px 10px;border:none;border-radius:6px;background:${pago?'var(--off2)':'var(--orange)'};color:${pago?'var(--text3)':'#fff'};font-size:11px;font-weight:700;cursor:pointer" onclick="${pago?'':'marcarPago('+idx+')'}">${pago?'Pago':'Marcar'}</button></div>
+    </div>`;
+  }).join('')+'</div>';
+}
+
+// ===== ALUNOS =====
+function renderAlunos(lista){
+  const el=document.getElementById('alunos-list');
+  const fl=curFilter==='todos'?lista:lista.filter(a=>getStatus(a)===curFilter);
+  if(!fl.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">👦</div><div class="empty-title">Nenhum aluno encontrado</div><div class="empty-sub">Tente outro filtro ou cadastre novos alunos</div><button class="btn-empty" onclick="openModal(\'modal-aluno\')">+ Novo aluno</button></div>';return;}
+  const colors=['#7C6FF7','#06B6D4','#10B981','#F43F5E','#9B59B6','#1ABC9C'];
+  const bgs=['#F0EEFF','#E0F7FA','#ECFDF5','#FFF1F4','#F5EEF8','#E8F8F5'];
+  el.innerHTML=fl.map(a=>{
+    const st=getStatus(a),j=calcJuros(a),idx=DATA.alunos.indexOf(a),ci=idx%6;
+    const pago=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);const h=new Date();return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();});
+    return `<div class="aluno-card ${st}" onclick="showDetalhe(${idx})">
+      <div class="ac-top">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <div class="ac-avatar" style="background:${bgs[ci]};color:${colors[ci]}">${a.nome.substring(0,2).toUpperCase()}</div>
+          <div class="ac-info"><div class="ac-name">${a.nome}</div><div class="ac-resp">👤 ${a.responsavel}</div><div class="ac-escola">${a.escola||''} ${a.turno?'· '+a.turno:''}</div></div>
+        </div>
+        <span class="pill ${pago?'pago':st}">${pago?'✓ Pago':st==='late'?'⚠ Atrasado':st==='warn'?'🔔 Vence amanhã':'✓ Em dia'}</span>
+      </div>
+      <div class="ac-mid">
+        <div><div class="ac-stat-val" style="color:${st==='late'?'var(--red)':st==='warn'?'var(--warn)':'var(--green)'}">${fR(parseFloat(a.valor)+(j||0))}</div><div class="ac-stat-lbl">${j>0?'c/ juros':'mensalidade'}</div></div>
+        <div><div class="ac-stat-val">Dia ${a.vencimento}</div><div class="ac-stat-lbl">vencimento</div></div>
+        <div><div class="ac-stat-val">${(a.pagamentos||[]).length}</div><div class="ac-stat-lbl">pagamentos</div></div>
+      </div>
+      <div class="ac-actions" onclick="event.stopPropagation()">
+        <button class="act-btn act-wpp" onclick="notWpp(${idx})">📱 WhatsApp</button>
+        <button class="act-btn act-email" onclick="notEmail(${idx})">📧 E-mail</button>
+        <button class="act-btn act-pix" onclick="showPix(${idx})">💚 PIX</button>
+        ${!pago?`<button class="act-btn act-pago" onclick="marcarPago(${idx})">✅ Pago</button>`:''}
+        <button class="act-btn" style="background:#F0EEFF;color:var(--orange)" onclick="enviarContrato(${idx})">📄 Contrato</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function filterAlunos(q){renderAlunos(DATA.alunos.filter(a=>a.nome.toLowerCase().includes(q.toLowerCase())||a.responsavel.toLowerCase().includes(q.toLowerCase())));}
+function setFilter(f,el){curFilter=f;document.querySelectorAll('.fchip').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderAlunos(DATA.alunos);}
+
+// ===== DETALHE =====
+function showDetalhe(idx){
+  const a=DATA.alunos[idx],st=getStatus(a),j=calcJuros(a),total=parseFloat(a.valor)+j;
+  const dias=st==='late'?new Date().getDate()-parseInt(a.vencimento):0;
+  const hist=(a.pagamentos||[]).slice(-5).reverse().map(p=>`<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border)"><div><div style="font-size:13px;font-weight:600">${new Date(p.data).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}</div></div><div style="font-weight:800;color:var(--green)">${fR(p.valor)}</div></div>`).join('')||'<div style="text-align:center;padding:16px;color:var(--text3);font-size:13px">Nenhum pagamento registrado</div>';
+  const contAssinado=DATA.contratos.find(c=>c.alunoId===a.id);
+  document.getElementById('detalhe-content').innerHTML=`
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+      <div style="width:56px;height:56px;border-radius:14px;background:#F0EEFF;color:var(--orange);display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:20px;flex-shrink:0">${a.nome.substring(0,2).toUpperCase()}</div>
+      <div><div style="font-family:'Nunito',sans-serif;font-size:20px;font-weight:900">${a.nome}</div><div style="font-size:13px;color:var(--text2);margin-top:2px">${a.escola||'Escola não informada'} · ${a.turno||''}</div><span class="pill ${st}" style="margin-top:6px;display:inline-block">${st==='ok'?'✓ Em dia':st==='late'?`⚠ ${dias} dias de atraso`:'🔔 Vence amanhã'}</span>${contAssinado?'<span class="pill pago" style="margin-top:6px;margin-left:6px;display:inline-block">📄 Contrato assinado</span>':''}</div>
+    </div>
+    ${st==='late'?`<div style="background:#FFF1F0;border:1.5px solid #FFA39E;border-radius:12px;padding:16px;margin-bottom:16px"><div style="font-size:12px;color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">⚠ Atraso — ${dias} dias</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px"><div><div style="font-size:11px;color:var(--text3)">Mensalidade</div><div style="font-size:15px;font-weight:800">${fR(a.valor)}</div></div><div><div style="font-size:11px;color:var(--text3)">Juros+multa</div><div style="font-size:15px;font-weight:800;color:var(--red)">${fR(j)}</div></div><div><div style="font-size:11px;color:var(--text3)">Total</div><div style="font-size:15px;font-weight:900;color:var(--red)">${fR(total)}</div></div></div></div>`:''}
+    <div style="background:var(--off);border-radius:10px;padding:14px;margin-bottom:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <div><div style="font-size:11px;color:var(--text3)">Responsável</div><div style="font-size:14px;font-weight:700;margin-top:2px">${a.responsavel}</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">Vencimento</div><div style="font-size:14px;font-weight:700;margin-top:2px">Todo dia ${a.vencimento}</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">WhatsApp</div><div style="font-size:13px;font-weight:500;margin-top:2px;color:var(--text2)">${a.whatsapp||'Não informado'}</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">E-mail</div><div style="font-size:13px;font-weight:500;margin-top:2px;color:var(--text2)">${a.emailResp||'Não informado'}</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">Endereço</div><div style="font-size:13px;font-weight:500;margin-top:2px;color:var(--text2)">${a.endereco||'Não informado'}</div></div>
+      <div><div style="font-size:11px;color:var(--text3)">Obs</div><div style="font-size:13px;font-weight:500;margin-top:2px;color:var(--text2)">${a.obs||'Nenhuma'}</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+      <button class="act-btn act-wpp" style="padding:11px" onclick="notWpp(${idx});closeModal('modal-detalhe')">📱 WhatsApp</button>
+      <button class="act-btn act-email" style="padding:11px" onclick="notEmail(${idx});closeModal('modal-detalhe')">📧 E-mail</button>
+      <button class="act-btn act-pix" style="padding:11px" onclick="showPix(${idx});closeModal('modal-detalhe')">💚 PIX</button>
+    </div>
+    <button class="btn-primary-full" onclick="marcarPago(${idx});closeModal('modal-detalhe')">✅ Registrar pagamento recebido</button>
+    <button style="width:100%;padding:12px;background:#F0EEFF;border:1.5px solid #C4B5FD;border-radius:var(--radius-sm);color:var(--orange);font-size:14px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;margin-bottom:10px" onclick="enviarContrato(${idx})">📄 Reenviar contrato</button>
+    <div style="font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;margin:16px 0 10px">Histórico de pagamentos</div>
+    ${hist}
+    <button style="width:100%;margin-top:16px;padding:12px;background:#FFF1F0;border:1.5px solid #FFA39E;border-radius:var(--radius-sm);color:var(--red);font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer" onclick="if(confirm('Remover ${a.nome.replace(/'/g,"\\'")}?')){DATA.alunos.splice(${idx},1);save();renderAll();closeModal('modal-detalhe');showToast('Aluno removido')}">🗑 Remover aluno</button>
+    <button class="btn-secondary-full" style="margin-top:8px" onclick="closeModal('modal-detalhe')">Fechar</button>
+  `;
+  openModal('modal-detalhe');
+}
+
+// ===== COBRANÇAS =====
+function renderCobrancas(){
+  const late=DATA.alunos.filter(a=>getStatus(a)==='late');
+  let totDev=0,totJ=0,totDias=0;
+  late.forEach(a=>{const j=calcJuros(a);totDev+=parseFloat(a.valor)+j;totJ+=j;totDias+=new Date().getDate()-parseInt(a.vencimento);});
+  document.getElementById('cob-total-val').textContent=fR(totDev);
+  document.getElementById('cob-qtd').textContent=late.length;
+  document.getElementById('cob-juros-sum').textContent=fR(totJ);
+  document.getElementById('cob-dias-med').textContent=late.length?Math.round(totDias/late.length):0;
+  const el=document.getElementById('cobrancas-list');
+  if(!late.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">🎉</div><div class="empty-title">Nenhuma cobrança pendente!</div><div class="empty-sub">Todos os alunos estão em dia com o pagamento</div></div>';return;}
+  el.innerHTML=late.map(a=>{
+    const j=calcJuros(a),total=parseFloat(a.valor)+j,dias=new Date().getDate()-parseInt(a.vencimento),idx=DATA.alunos.indexOf(a);
+    const multa=calcMulhaAp(a),jurosPuro=j-multa;
+    return `<div class="cob-card">
+      <div class="cc-top"><div><div class="cc-name">${a.nome}</div><div class="cc-resp">Resp: ${a.responsavel}</div></div><div class="cc-days-badge">${dias} dias de atraso</div></div>
+      <div class="cc-breakdown">
+        <div><div class="cc-item-lbl">Mensalidade</div><div class="cc-item-val">${fR(a.valor)}</div></div>
+        <div><div class="cc-item-lbl">Multa (${DATA.motorista.multa||2}%)</div><div class="cc-item-val" style="color:var(--red)">${fR(multa)}</div></div>
+        <div><div class="cc-item-lbl">Juros (${DATA.motorista.juros||2}%/mês)</div><div class="cc-item-val" style="color:var(--red)">${fR(Math.max(0,jurosPuro))}</div></div>
+        <div><div class="cc-item-lbl">Dias em atraso</div><div class="cc-item-val">${dias} dias</div></div>
+      </div>
+      <div class="cc-total-row"><span class="cc-total-lbl">💳 Total a cobrar</span><span class="cc-total-val">${fR(total)}</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px">
+        <button class="act-btn act-wpp" style="padding:10px" onclick="notWpp(${idx})">📱 WhatsApp</button>
+        <button class="act-btn act-email" style="padding:10px" onclick="notEmail(${idx})">📧 E-mail</button>
+        <button class="act-btn act-pix" style="padding:10px" onclick="showPix(${idx})">💚 PIX</button>
+      </div>
+      <button class="act-btn act-pago" style="width:100%;padding:12px" onclick="marcarPago(${idx})">✅ Marcar como recebido</button>
+    </div>`;
+  }).join('');
+}
+
+// ===== RELATORIO =====
+function renderRelatorio(){
+  const mes=relMonth.m,ano=relMonth.y;
+  const meses=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  document.getElementById('rel-month-name').textContent=meses[mes]+' '+ano;
+  let rec=0,pend=0,prev=0;
+  DATA.alunos.forEach(a=>{
+    prev+=parseFloat(a.valor);
+    const pago=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===mes&&d.getFullYear()===ano;});
+    if(pago)rec+=parseFloat(pago.valor||a.valor);else pend+=parseFloat(a.valor);
+  });
+  document.getElementById('rel-rec').textContent=fR(rec);
+  document.getElementById('rel-pend').textContent=fR(pend);
+  document.getElementById('rel-prev').textContent=fR(prev);
+  document.getElementById('rel-pct').textContent=prev>0?Math.round(rec/prev*100)+'%':'0%';
+  // chart
+  const bc=document.getElementById('bar-chart');
+  let mdata=[];
+  for(let i=5;i>=0;i--){let m2=mes-i,y2=ano;if(m2<0){m2+=12;y2--;}let r2=0,p2=0;DATA.alunos.forEach(a=>{const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===m2&&d.getFullYear()===y2;});if(pg)r2+=parseFloat(pg.valor||a.valor);else p2+=parseFloat(a.valor);});mdata.push({l:meses[m2].substring(0,3),r:r2,p:p2});}
+  const maxV=Math.max(...mdata.map(d=>d.r+d.p),1);
+  bc.innerHTML=mdata.map(d=>`<div class="bar-col"><div class="bar-stack"><div style="background:var(--off2);height:${Math.max(d.p/maxV*100,0)}px;width:100%;border-radius:4px 4px 0 0;transition:height .5s"></div><div style="background:var(--orange);height:${Math.max(d.r/maxV*100,0)}px;width:100%;border-radius:4px 4px 0 0;transition:height .5s;margin-top:2px"></div></div><div class="bar-lbl">${d.l}</div></div>`).join('');
+  // table
+  document.getElementById('rel-table-body').innerHTML=DATA.alunos.map((a,idx)=>{
+    const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===mes&&d.getFullYear()===ano;});
+    const st=pg?'ok':getStatus(a);
+    return `<div class="rel-data-row" onclick="showDetalhe(${idx})"><div><div style="font-size:13px;font-weight:700">${a.nome}</div><div style="font-size:11px;color:var(--text3)">${a.responsavel}</div></div><div style="font-size:13px;font-weight:700">${fR(a.valor)}</div><div><span class="pill ${st}">${pg?'✓ Pago':st==='late'?'⚠ Atrasado':'Pendente'}</span></div><div onclick="event.stopPropagation()"><button style="padding:5px 10px;border:none;border-radius:6px;background:${pg?'var(--off2)':'var(--orange)'};color:${pg?'var(--text3)':'#fff'};font-size:11px;font-weight:700;cursor:pointer" onclick="${pg?'':'marcarPago('+idx+')'}">${pg?'✓':'Pagar'}</button></div></div>`;
+  }).join('')||'<div style="padding:20px;text-align:center;color:var(--text3)">Nenhum aluno</div>';
+}
+function changeMonth(d){relMonth.m+=d;if(relMonth.m<0){relMonth.m=11;relMonth.y--;}if(relMonth.m>11){relMonth.m=0;relMonth.y++;}renderRelatorio();}
+
+// ===== CONFIG =====
+function loadConfig(){
+  const m=DATA.motorista;
+  ['nome','tel','email','cpf','pix','banco'].forEach(k=>{const el=document.getElementById('cfg-'+k);if(el)el.value=m[k==='pix'?'pixChave':k]||'';});
+  document.getElementById('cfg-pix-tipo').value=m.pixTipo||'CPF';
+  document.getElementById('cfg-juros').value=m.juros||2;
+  document.getElementById('cfg-multa').value=m.multa||2;
+  document.getElementById('cfg-venc').value=m.vencPadrao||5;
+  updateContratoLink();
+}
+function salvarConfig(){
+  DATA.motorista={
+    nome:document.getElementById('cfg-nome').value,
+    tel:document.getElementById('cfg-tel').value,
+    email:document.getElementById('cfg-email').value,
+    cpf:document.getElementById('cfg-cpf').value,
+    pixChave:document.getElementById('cfg-pix').value,
+    pixTipo:document.getElementById('cfg-pix-tipo').value,
+    banco:document.getElementById('cfg-banco').value,
+    juros:parseFloat(document.getElementById('cfg-juros').value)||2,
+    multa:parseFloat(document.getElementById('cfg-multa').value)||2,
+    vencPadrao:parseInt(document.getElementById('cfg-venc').value)||5,
+  };
+  save();updateHeader();updateContratoLink();showToast('✅ Configurações salvas!');
+}
+
+// ===== SALVAR ALUNO =====
+function salvarAluno(){
+  const nome=document.getElementById('al-nome').value.trim();
+  const resp=document.getElementById('al-resp').value.trim();
+  const valor=document.getElementById('al-valor').value;
+  if(!nome||!resp||!valor){showToast('❌ Preencha os campos obrigatórios');return;}
+  const a={id:Date.now(),nome,responsavel:resp,whatsapp:document.getElementById('al-wpp').value.trim(),emailResp:document.getElementById('al-email').value.trim(),endereco:document.getElementById('al-end').value.trim(),escola:document.getElementById('al-escola').value.trim(),turno:document.getElementById('al-turno').value,valor:parseFloat(valor),vencimento:parseInt(document.getElementById('al-venc').value)||DATA.motorista.vencPadrao||5,obs:document.getElementById('al-obs').value.trim(),pagamentos:[],criadoEm:new Date().toISOString()};
+  DATA.alunos.push(a);save();renderAll();closeModal('modal-aluno');showToast('✅ Aluno cadastrado! Enviando contrato...');
+  ['al-nome','al-resp','al-wpp','al-email','al-end','al-escola','al-valor','al-obs'].forEach(id=>document.getElementById(id).value='');
+  // Enviar contrato automaticamente via WhatsApp
+  setTimeout(()=>{
+    const idx=DATA.alunos.length-1;
+    enviarContrato(idx);
+  },600);
+}
+
+// ===== CONTRATO VIA WHATSAPP =====
+function enviarContrato(idx){
+  const a=DATA.alunos[idx],m=DATA.motorista;
+  const msg=encodeURIComponent(
+`📋 *CONTRATO DE TRANSPORTE ESCOLAR*
+━━━━━━━━━━━━━━━━━━━━
+*Motorista:* ${m.nome}
+*Data:* ${new Date().toLocaleDateString('pt-BR')}
+
+━━━━━━━━━━━━━━━━━━━━
+*DADOS DO ALUNO*
+Nome: ${a.nome}
+Escola: ${a.escola||'A definir'}
+Turno: ${a.turno}
+Endereço de embarque: ${a.endereco||'A definir'}
+
+*RESPONSÁVEL*
+Nome: ${a.responsavel}
+
+━━━━━━━━━━━━━━━━━━━━
+*VALORES E CONDIÇÕES*
+Mensalidade: *R$ ${parseFloat(a.valor).toFixed(2).replace('.',',')}*
+Vencimento: Todo dia *${a.vencimento}*
+Multa por atraso: *${m.multa}%* (aplicada a partir do 1º dia)
+Juros por atraso: *${m.juros}% ao mês* (cobrado proporcionalmente por dia)
+
+━━━━━━━━━━━━━━━━━━━━
+*RESPONSABILIDADES DO RESPONSÁVEL*
+• Efetuar o pagamento até o dia ${a.vencimento} de cada mês
+• Avisar com antecedência ausências do aluno
+• Garantir que o aluno esteja no ponto de embarque no horário combinado
+• Em caso de atraso no pagamento, os encargos (juros + multa) serão cobrados automaticamente
+
+━━━━━━━━━━━━━━━━━━━━
+💚 *PAGAMENTO VIA PIX*
+Tipo: ${m.pixTipo}
+Chave: *${m.pixChave||'A configurar'}*
+Favorecido: ${m.nome}
+Banco: ${m.banco||''}
+
+━━━━━━━━━━━━━━━━━━━━
+✅ Responda *ACEITO E CONCORDO* para confirmar este contrato digitalmente.
+
+_VanRotas — Plataforma de Gestão de Transporte Escolar_ 🚌`
+  );
+  const wpp=(a.whatsapp||'').replace(/\D/g,'');
+  if(wpp)window.open(`https://wa.me/${wpp}?text=${msg}`,'_blank');
+  else showToast('❌ WhatsApp não cadastrado');
+}
+
+// ===== NOTIFICAÇÕES WPP =====
+function notWpp(idx){
+  const a=DATA.alunos[idx],m=DATA.motorista,st=getStatus(a),j=calcJuros(a),total=parseFloat(a.valor)+j;
+  const dias=st==='late'?new Date().getDate()-parseInt(a.vencimento):0;
+  let msg;
+  if(st==='late'){
+    msg=encodeURIComponent(`⚠️ *AVISO DE PAGAMENTO EM ATRASO*\n\nOlá *${a.responsavel}*! Aqui é ${m.nome}, motorista de *${a.nome}*.\n\nSeu pagamento de *${new Date().toLocaleString('pt-BR',{month:'long',year:'numeric'})}* está em atraso há *${dias} dias*.\n\n💰 Mensalidade: ${fR(a.valor)}\n📈 Multa: ${fR(parseFloat(a.valor)*(m.multa||2)/100)}\n📈 Juros: ${fR(j-parseFloat(a.valor)*(m.multa||2)/100)}\n💳 *Total a pagar: ${fR(total)}*\n\n💚 *PIX para pagamento:*\n${m.pixTipo}: ${m.pixChave||'A configurar'}\nFavorecido: ${m.nome}\n\nQuanto antes regularizar, menores serão os encargos. Qualquer dúvida, estou à disposição! 🙏`);
+  } else {
+    msg=encodeURIComponent(`🔔 *LEMBRETE DE PAGAMENTO*\n\nOlá *${a.responsavel}*! Aqui é ${m.nome}, motorista de *${a.nome}*.\n\nO pagamento do mês vence *amanhã, dia ${a.vencimento}*.\n\n💰 Valor: ${fR(a.valor)}\n\n💚 *PIX:*\n${m.pixTipo}: ${m.pixChave||'A configurar'}\nFavorecido: ${m.nome}\n\nEvite atraso para não gerar multa e juros! 😊`);
+  }
+  const wpp=(a.whatsapp||'').replace(/\D/g,'');
+  if(wpp)window.open(`https://wa.me/${wpp}?text=${msg}`,'_blank');
+  else showToast('❌ WhatsApp não cadastrado para '+a.nome);
+}
+
+function notEmail(idx){
+  const a=DATA.alunos[idx],m=DATA.motorista,j=calcJuros(a),total=parseFloat(a.valor)+j,st=getStatus(a);
+  const subj=encodeURIComponent(st==='late'?`⚠ Pagamento em atraso — ${a.nome}`:`🔔 Lembrete: pagamento vence amanhã — ${a.nome}`);
+  const body=encodeURIComponent(`Olá ${a.responsavel},\n\n${st==='late'?`O pagamento de ${a.nome} está em ATRASO.\n\nMensalidade: ${fR(a.valor)}\nJuros + multa: ${fR(j)}\nTotal: ${fR(total)}\n`:`O pagamento de ${a.nome} vence amanhã.\nValor: ${fR(a.valor)}\n`}\nChave PIX (${m.pixTipo}): ${m.pixChave||'A configurar'}\nFavorecido: ${m.nome}\n\nAtenciosamente,\n${m.nome} — VanRotas`);
+  if(a.emailResp)window.open(`mailto:${a.emailResp}?subject=${subj}&body=${body}`,'_blank');
+  else showToast('❌ E-mail não cadastrado para '+a.nome);
+}
+
+function notificarTodos(){
+  const late=DATA.alunos.filter(a=>getStatus(a)==='late');
+  if(!late.length){showToast('✅ Nenhum aluno atrasado!');return;}
+  if(!confirm(`Enviar cobrança via WhatsApp para ${late.length} responsável(is)?`))return;
+  late.forEach((a,i)=>setTimeout(()=>notWpp(DATA.alunos.indexOf(a)),i*700));
+  showToast(`📱 Enviando cobranças para ${late.length} responsável(is)...`);
+}
+function notificarVencendo(){
+  const warn=DATA.alunos.filter(a=>getStatus(a)==='warn');
+  warn.forEach((a,i)=>setTimeout(()=>notWpp(DATA.alunos.indexOf(a)),i*700));
+  if(warn.length)showToast(`🔔 Lembretes enviados para ${warn.length}`);
+  else showToast('✅ Nenhum vencimento próximo');
+}
+
+// ===== ALERTAS AUTOMÁTICOS =====
+function startAlertTimer(){
+  stopAlertTimer();
+  checkAutoAlerts();
+  alertTimer=setInterval(checkAutoAlerts, 60*60*1000); // a cada 1h
+}
+function stopAlertTimer(){if(alertTimer){clearInterval(alertTimer);alertTimer=null;}}
+function checkAutoAlerts(){
+  const today=new Date();
+  const key='vr2_alerts_'+today.toDateString();
+  const done=JSON.parse(localStorage.getItem(key)||'{}');
+  DATA.alunos.forEach(a=>{
+    const st=getStatus(a);
+    // 1 dia antes
+    if(st==='warn'&&!done['warn_'+a.id]){
+      done['warn_'+a.id]=true;
+      console.log('[VanRotas] Auto-alert: vencimento amanhã para',a.nome);
+      // Na versão real: dispara a mensagem automaticamente
+    }
+    // atrasado
+    if(st==='late'&&!done['late_'+a.id]){
+      done['late_'+a.id]=true;
+      console.log('[VanRotas] Auto-alert: atraso detectado para',a.nome);
+    }
+  });
+  localStorage.setItem(key,JSON.stringify(done));
+}
+
+// ===== PIX =====
+function showPix(idx){
+  const a=DATA.alunos[idx],m=DATA.motorista,j=calcJuros(a),total=parseFloat(a.valor)+j;
+  document.getElementById('pix-content').innerHTML=`
+    <div class="pix-box"><div style="font-size:13px;color:var(--text2);margin-bottom:4px">${a.nome} · ${a.responsavel}</div><div class="pix-amount">${fR(total)}</div>${j>0?`<div style="font-size:12px;color:var(--text2);margin-top:6px">${fR(a.valor)} + ${fR(j)} juros/multa</div>`:''}</div>
+    <div class="pix-key"><div class="pix-key-lbl">Chave PIX</div><div class="pix-key-val">${m.pixChave||'Configure sua chave PIX nas configurações'}</div><div class="pix-key-tipo">${m.pixTipo} · ${m.nome} · ${m.banco||''}</div></div>
+    <div style="font-size:12px;color:var(--text3);text-align:center;margin:10px 0">Mostre esta tela ou envie a cobrança pelo WhatsApp</div>
+    <button class="act-btn act-wpp" style="width:100%;padding:13px;font-size:14px;margin-bottom:8px" onclick="notWpp(${idx});closeModal('modal-pix')">📱 Enviar cobrança via WhatsApp</button>
+  `;
+  openModal('modal-pix');
+}
+
+// ===== MARCAR PAGO =====
+function marcarPago(idx){
+  const a=DATA.alunos[idx],j=calcJuros(a),total=parseFloat(a.valor)+j;
+  if(!a.pagamentos)a.pagamentos=[];
+  a.pagamentos.push({data:new Date().toISOString(),valor:total.toFixed(2)});
+  save();renderAll();showToast(`✅ ${fR(total)} registrado!`);
+}
+
+// ===== NOTIF MODAL =====
+function openNotifModal(){
+  const late=DATA.alunos.filter(a=>getStatus(a)==='late');
+  const warn=DATA.alunos.filter(a=>getStatus(a)==='warn');
+  let html='';
+  if(!late.length&&!warn.length)html='<div style="text-align:center;padding:30px;color:var(--text3)">🎉 Sem notificações pendentes</div>';
+  late.forEach(a=>{const j=calcJuros(a),dias=new Date().getDate()-parseInt(a.vencimento),idx=DATA.alunos.indexOf(a);html+=`<div class="alert-strip danger" style="margin-bottom:10px"><div class="as-icon">⚠️</div><div class="as-body"><div class="as-title">${a.nome} — ${dias} dias de atraso</div><div class="as-sub">Total: ${fR(parseFloat(a.valor)+j)}</div><div class="as-btn" onclick="notWpp(${idx});closeModal('modal-notifs')">Cobrar via WhatsApp →</div></div></div>`;});
+  warn.forEach(a=>{const idx=DATA.alunos.indexOf(a);html+=`<div class="alert-strip warn" style="margin-bottom:10px"><div class="as-icon">🔔</div><div class="as-body"><div class="as-title">${a.nome} — vence amanhã (dia ${a.vencimento})</div><div class="as-sub">Valor: ${fR(a.valor)}</div><div class="as-btn" onclick="notWpp(${idx});closeModal('modal-notifs')">Enviar lembrete →</div></div></div>`;});
+  document.getElementById('notifs-content').innerHTML=html;
+  openModal('modal-notifs');
+}
+
+// ===== CONTRATO LINK =====
+function updateContratoLink(){
+  const link=`${window.location.href.split('#')[0]}#contrato?m=${encodeURIComponent(DATA.motorista.nome||'motorista')}`;
+  const el=document.getElementById('link-contrato');
+  if(el)el.textContent=link;
+  const mel=document.getElementById('modal-link-text');
+  if(mel)mel.textContent=link;
+}
+function getContratoLink(){return `${window.location.href.split('#')[0]}#contrato?m=${encodeURIComponent(DATA.motorista.nome||'motorista')}`;}
+function copiarLink(){navigator.clipboard.writeText(getContratoLink()).then(()=>showToast('📋 Link copiado!')).catch(()=>showToast('❌ Erro ao copiar'));}
+function compartilharLinkWpp(){const link=getContratoLink();const m=DATA.motorista;const msg=encodeURIComponent(`🚌 *VanRotas — Contrato Digital*\n\nOlá! Sou ${m.nome||'seu motorista escolar'}.\n\nClique no link abaixo para preencher seus dados e assinar o contrato de transporte escolar:\n\n👉 ${link}\n\nQualquer dúvida, me chame aqui no WhatsApp! 😊`);window.open(`https://wa.me/?text=${msg}`,'_blank');}
+function openContratoLink(){updateContratoLink();openModal('modal-link-contrato');}
+
+// ===== CONTRATO PÚBLICO =====
+function openContratoPublico(mid){
+  document.getElementById('screen-login').classList.remove('active');
+  document.getElementById('screen-app').classList.remove('active');
+  document.getElementById('screen-contrato').classList.add('active');
+  document.getElementById('cp-motorista-sub').textContent=mid?`Contrato com motorista: ${decodeURIComponent(mid)}`:'Preencha os dados abaixo';
+  renderContratoText();
+  initSigCanvas();
+}
+
+let cpStep=1;
+function cstepNext(step){
+  if(step===1){
+    const nome=document.getElementById('cp-resp-nome').value.trim();
+    const cpf=document.getElementById('cp-resp-cpf').value.trim();
+    const wpp=document.getElementById('cp-resp-wpp').value.trim();
+    const email=document.getElementById('cp-resp-email').value.trim();
+    if(!nome||!cpf||!wpp||!email){showToast('❌ Preencha todos os campos obrigatórios');return;}
+  }
+  if(step===2){
+    const nome=document.getElementById('cp-al-nome').value.trim();
+    const escola=document.getElementById('cp-al-escola').value.trim();
+    if(!nome||!escola){showToast('❌ Preencha nome do aluno e escola');return;}
+    renderContratoText();
+  }
+  if(step===3){
+    if(!document.getElementById('cp-check1').checked||!document.getElementById('cp-check2').checked||!document.getElementById('cp-check3').checked){showToast('❌ Marque todas as caixas de aceite');return;}
+    if(!sigTouched){showToast('❌ Assine o contrato antes de enviar');return;}
+    finalizarContrato();return;
+  }
+  cpStep=step+1;
+  document.querySelectorAll('.contrato-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('cstep'+cpStep).classList.add('active');
+  updateStepBar(cpStep);
+}
+function cstepBack(step){
+  if(step<=1)return;
+  const targetStep=step-1;
+  cpStep=targetStep;
+  document.querySelectorAll('.contrato-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('cstep'+targetStep).classList.add('active');
+  updateStepBar(targetStep);
+}
+function updateStepBar(cur){
+  for(let i=1;i<=4;i++){
+    const d=document.getElementById('sdot'+i);
+    if(!d)continue;
+    if(i<cur){d.className='step-dot done';d.textContent='✓';}
+    else if(i===cur){d.className='step-dot active';d.textContent=i;}
+    else{d.className='step-dot pending';d.textContent=(i===4?'✓':i);}
+    if(i<4){const l=document.getElementById('sline'+i);if(l)l.className='step-line'+(i<cur?' done':'');}
+  }
+}
+
+function renderContratoText(){
+  const rNome=document.getElementById('cp-resp-nome')?.value||'[RESPONSÁVEL]';
+  const rCpf=document.getElementById('cp-resp-cpf')?.value||'[CPF]';
+  const rRg=document.getElementById('cp-resp-rg')?.value||'[RG]';
+  const rEnd=document.getElementById('cp-resp-end')?.value||'[ENDEREÇO]';
+  const alNome=document.getElementById('cp-al-nome')?.value||'[ALUNO]';
+  const alEscola=document.getElementById('cp-al-escola')?.value||'[ESCOLA]';
+  const alTurno=document.getElementById('cp-al-turno')?.value||'[TURNO]';
+  const alEnd=document.getElementById('cp-al-end')?.value||'[ENDEREÇO EMBARQUE]';
+  const hash=window.location.hash;
+  const params=new URLSearchParams(hash.replace('#contrato?',''));
+  const motoristaNome=decodeURIComponent(params.get('m')||'Motorista');
+  const m=DATA.motorista;
+  const hoje=new Date().toLocaleDateString('pt-BR');
+  const el=document.getElementById('contrato-text-render');
+  if(!el)return;
+  el.innerHTML=`
+    <div class="cp-title">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE TRANSPORTE ESCOLAR</div>
+    <p><strong>Data:</strong> ${hoje}</p>
+    <p><strong>CONTRATADO (Motorista):</strong> ${motoristaNome}</p>
+    <p><strong>CONTRATANTE (Responsável):</strong> ${rNome}, portador(a) do CPF nº ${rCpf}, RG nº ${rRg}, residente em ${rEnd}.</p>
+    <p><strong>ALUNO:</strong> ${alNome}</p>
+    <p><strong>Escola:</strong> ${alEscola} | <strong>Turno:</strong> ${alTurno}</p>
+    <p><strong>Ponto de embarque:</strong> ${alEnd}</p>
+    <br>
+    <p><strong>CLÁUSULA 1 – DO OBJETO</strong></p>
+    <p>O CONTRATADO obriga-se a prestar serviços de transporte escolar ao aluno acima identificado, realizando o trajeto entre o endereço de embarque e a escola, nos dias úteis letivos.</p>
+    <br>
+    <p><strong>CLÁUSULA 2 – DO VALOR E PAGAMENTO</strong></p>
+    <p>O valor mensal pela prestação dos serviços é de <strong>R$ [VALOR]</strong>, com vencimento todo dia <strong>[DIA]</strong> de cada mês, a ser pago via PIX para ${motoristaNome}.</p>
+    <p>Em caso de atraso no pagamento, serão cobrados:</p>
+    <p>• <strong>Multa:</strong> ${m.multa||2}% sobre o valor devido, aplicada a partir do 1º dia de atraso;</p>
+    <p>• <strong>Juros moratórios:</strong> ${m.juros||2}% ao mês (${((m.juros||2)/30).toFixed(3)}% ao dia), calculados proporcionalmente aos dias de atraso.</p>
+    <br>
+    <p><strong>CLÁUSULA 3 – RESPONSABILIDADES DO CONTRATANTE</strong></p>
+    <p>O CONTRATANTE compromete-se a:</p>
+    <p>a) Efetuar o pagamento pontualmente até o vencimento;</p>
+    <p>b) Comunicar com antecedência mínima de 24h as faltas ou ausências do aluno;</p>
+    <p>c) Garantir que o aluno esteja no ponto de embarque no horário combinado;</p>
+    <p>d) Informar qualquer alteração de endereço ou dados de contato;</p>
+    <p>e) Zelar pelo bom comportamento do aluno durante o transporte.</p>
+    <br>
+    <p><strong>CLÁUSULA 4 – RESPONSABILIDADES DO CONTRATADO</strong></p>
+    <p>O CONTRATADO compromete-se a:</p>
+    <p>a) Transportar o aluno com segurança e pontualidade;</p>
+    <p>b) Manter o veículo em perfeitas condições de segurança;</p>
+    <p>c) Possuir documentação legal exigida para o transporte escolar;</p>
+    <p>d) Comunicar com antecedência eventuais impossibilidades de atendimento.</p>
+    <br>
+    <p><strong>CLÁUSULA 5 – DO PRAZO</strong></p>
+    <p>O presente contrato vigora por prazo indeterminado, podendo ser rescindido por qualquer das partes com aviso prévio de 30 dias.</p>
+    <br>
+    <p><strong>CLÁUSULA 6 – FORO</strong></p>
+    <p>As partes elegem o foro da comarca do domicílio do CONTRATADO para dirimir eventuais litígios.</p>
+    <br>
+    <p>Ao assinar este contrato, o CONTRATANTE declara ter lido, compreendido e concordado integralmente com todas as cláusulas acima.</p>
+  `;
+}
+
+let sigTouched=false;
+function initSigCanvas(){
+  const area=document.getElementById('sig-area');
+  const canvas=document.getElementById('sig-canvas');
+  if(!canvas||!area)return;
+  canvas.width=area.offsetWidth||300;
+  canvas.height=area.offsetHeight||120;
+  sigCtx=canvas.getContext('2d');
+  sigCtx.strokeStyle='#1A1D23';
+  sigCtx.lineWidth=2.5;
+  sigCtx.lineCap='round';
+  sigCtx.lineJoin='round';
+  const getPos=(e)=>{const r=canvas.getBoundingClientRect();const src=e.touches?e.touches[0]:e;return{x:src.clientX-r.left,y:src.clientY-r.top};};
+  canvas.addEventListener('mousedown',e=>{sigDrawing=true;sigCtx.beginPath();const p=getPos(e);sigCtx.moveTo(p.x,p.y);sigTouched=true;});
+  canvas.addEventListener('mousemove',e=>{if(!sigDrawing)return;const p=getPos(e);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();});
+  canvas.addEventListener('mouseup',()=>sigDrawing=false);
+  canvas.addEventListener('touchstart',e=>{e.preventDefault();sigDrawing=true;sigCtx.beginPath();const p=getPos(e);sigCtx.moveTo(p.x,p.y);sigTouched=true;},{passive:false});
+  canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!sigDrawing)return;const p=getPos(e);sigCtx.lineTo(p.x,p.y);sigCtx.stroke();},{passive:false});
+  canvas.addEventListener('touchend',()=>sigDrawing=false);
+}
+function clearSig(){if(sigCtx){const c=document.getElementById('sig-canvas');sigCtx.clearRect(0,0,c.width,c.height);sigTouched=false;}}
+
+function finalizarContrato(){
+  const code='VR-'+Date.now().toString(36).toUpperCase();
+  const rNome=document.getElementById('cp-resp-nome').value;
+  const rCpf=document.getElementById('cp-resp-cpf').value;
+  const rWpp=document.getElementById('cp-resp-wpp').value;
+  const alNome=document.getElementById('cp-al-nome').value;
+  const alEscola=document.getElementById('cp-al-escola').value;
+  const alTurno=document.getElementById('cp-al-turno').value;
+  const alEnd=document.getElementById('cp-al-end').value;
+  const hash=window.location.hash;
+  const params=new URLSearchParams(hash.replace('#contrato?',''));
+  const motoristaNome=decodeURIComponent(params.get('m')||'Motorista');
+  const contrato={
+    id:code, data:new Date().toISOString(),
+    responsavel:rNome,
+    cpf:rCpf,
+    aluno:alNome,
+    escola:alEscola,
+    assinado:true,
+    sigData:document.getElementById('sig-canvas').toDataURL()
+  };
+  DATA.contratos=DATA.contratos||[];
+  DATA.contratos.push(contrato);
+  save();
+  document.getElementById('cp-confirm-code').innerHTML=`🆔 Código de confirmação: <strong>${code}</strong><br>📅 ${new Date().toLocaleString('pt-BR')}`;
+  cstepGoFinal(4);
+  // Enviar contrato para o dono via WhatsApp
+  const hoje=new Date().toLocaleDateString('pt-BR');
+  const ownerWpp=(DATA.motorista.tel||'').replace(/\D/g,'');
+  const msgOwner=encodeURIComponent(
+`📋 *NOVO CONTRATO ASSINADO — VanRotas*
+━━━━━━━━━━━━━━━━━━━━
+🆔 Código: *${code}*
+📅 Data: ${hoje}
+
+👤 *RESPONSÁVEL*
+Nome: ${rNome}
+CPF: ${rCpf}
+WhatsApp: ${rWpp}
+
+👦 *ALUNO*
+Nome: ${alNome}
+Escola: ${alEscola}
+Turno: ${alTurno}
+Endereço de embarque: ${alEnd||'Não informado'}
+
+━━━━━━━━━━━━━━━━━━━━
+✅ Contrato assinado digitalmente com sucesso!
+_VanRotas — Gestão de Transporte Escolar_ 🚌`
+  );
+  if(ownerWpp){
+    setTimeout(()=>{
+      window.open(`https://wa.me/${ownerWpp}?text=${msgOwner}`,'_blank');
+    },600);
+  }
+}
+function cstepGoFinal(step){
+  cpStep=step;
+  document.querySelectorAll('.contrato-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('cstep'+step).classList.add('active');
+  updateStepBar(step);
+}
+
+// ===== NAV =====
+function goPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.snav-item').forEach(n=>n.classList.remove('active'));
+  document.querySelectorAll('.bnav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  const sn=document.getElementById('snav-'+page);if(sn)sn.classList.add('active');
+  const bn=document.getElementById('bnav-'+page);if(bn)bn.classList.add('active');
+  document.querySelector('.page-content').scrollTop=0;
+  const titles={dashboard:'Dashboard',alunos:'Meus Alunos',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
+  const subs={dashboard:'Visão geral do seu negócio',alunos:'Gerencie todos os alunos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Suas preferências'};
+  document.getElementById('topbar-title').textContent=titles[page]||page;
+  document.getElementById('topbar-sub').textContent=subs[page]||'';
+  if(page==='relatorio')renderRelatorio();
+  if(page==='cobrancas')renderCobrancas();
+  if(page==='dashboard')renderDashboard();
+  if(page==='alunos')renderAlunos(DATA.alunos);
+  if(page==='config')loadConfig();
+}
+
+// ===== MODAL =====
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
+
+// ===== TOAST =====
+function showToast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3000);}
+</script>
+</body>
+</html>
