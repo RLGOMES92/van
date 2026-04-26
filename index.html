@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#7C3AED">
 <title>VanRotas — Gestão de Transporte Escolar</title>
+<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;VanRotas&quot;,&quot;short_name&quot;:&quot;VanRotas&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%236D28D9&quot;,&quot;theme_color&quot;:&quot;%237C3AED&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='20' y='68' width='152' height='72' rx='16' fill='white' fill-opacity='.95'/%3E%3Crect x='118' y='44' width='54' height='96' rx='12' fill='white' fill-opacity='.85'/%3E%3Crect x='124' y='50' width='40' height='36' rx='7' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='26' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='68' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='52' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='52' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='140' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='140' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any maskable&quot;}]}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="VanRotas">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='18' y='64' width='144' height='68' rx='15' fill='white' fill-opacity='.95'/%3E%3Crect x='112' y='42' width='50' height='90' rx='11' fill='white' fill-opacity='.85'/%3E%3Crect x='118' y='48' width='38' height='34' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='24' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='64' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='48' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='48' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='132' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='132' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -128,12 +133,12 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 .mob-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;cursor:pointer}
 @media(min-width:768px){.mob-avatar{display:none}}
 
-.page-content{flex:1;overflow-y:auto;padding:20px}
+.page-content{flex:1;overflow-y:auto;padding:20px;padding-bottom:80px}
 @media(min-width:768px){.page-content{padding:28px 32px}}
 
 /* BOTTOM NAV (mobile only) */
-.bottom-nav{background:#fff;border-top:1.5px solid var(--border);display:flex;flex-shrink:0;padding:6px 0 max(10px,env(safe-area-inset-bottom))}
-@media(min-width:768px){.bottom-nav{display:none}}
+.bottom-nav{background:#fff;border-top:1.5px solid var(--border);display:flex;padding:6px 0 max(10px,env(safe-area-inset-bottom));width:100%}
+@media(min-width:768px){.bottom-nav{display:none!important}}
 .bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px}
 .bnav-icon{font-size:20px;line-height:1}
 .bnav-label{font-size:10px;font-weight:600;color:var(--text3)}
@@ -745,15 +750,44 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
     </div><!-- end app-main -->
   </div><!-- end app-layout -->
 
-  <!-- BOTTOM NAV (mobile) -->
-  <div class="bottom-nav">
-    <div class="bnav-item active" id="bnav-dashboard" onclick="goPage('dashboard')"><div class="bnav-icon">🏠</div><div class="bnav-label">Início</div></div>
-    <div class="bnav-item" id="bnav-alunos" onclick="goPage('alunos')"><div class="bnav-icon">👦</div><div class="bnav-label">Alunos</div></div>
-    <div class="bnav-item" id="bnav-cobrancas" onclick="goPage('cobrancas')"><div class="bnav-icon">💰</div><div class="bnav-label">Cobranças</div></div>
-    <div class="bnav-item" id="bnav-relatorio" onclick="goPage('relatorio')"><div class="bnav-icon">📊</div><div class="bnav-label">Relatório</div></div>
-    <div class="bnav-item" id="bnav-config" onclick="goPage('config')"><div class="bnav-icon">⚙️</div><div class="bnav-label">Config</div></div>
+</div>
+
+<!-- BOTTOM NAV (mobile) — global fixed, shown only when logged in -->
+<div class="bottom-nav" id="global-bottom-nav" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:100;">
+  <div class="bnav-item active" id="bnav-dashboard" onclick="goPage('dashboard')">
+    <div class="bnav-icon">🏠</div>
+    <div class="bnav-label">Início</div>
+  </div>
+  <div class="bnav-item" id="bnav-financeiro" onclick="toggleFinanceiroMenu()">
+    <div class="bnav-icon">💰</div>
+    <div class="bnav-label">Financeiro</div>
+  </div>
+  <div class="bnav-item" id="bnav-alunos" onclick="goPage('alunos')">
+    <div class="bnav-icon">🚐</div>
+    <div class="bnav-label">Alunos</div>
   </div>
 </div>
+
+<!-- FINANCEIRO SUBMENU (mobile) -->
+<div id="financeiro-menu" style="display:none;position:fixed;bottom:70px;left:0;right:0;z-index:200;padding:0 16px;">
+  <div style="background:#fff;border-radius:16px;border:1.5px solid var(--border);box-shadow:0 8px 32px rgba(124,111,247,0.18);overflow:hidden;">
+    <div style="padding:10px 16px 6px;font-size:11px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;">Financeiro</div>
+    <div onclick="goPage('cobrancas');toggleFinanceiroMenu()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;border-top:1px solid var(--border);transition:background .12s" onmouseover="this.style.background='var(--off)'" onmouseout="this.style.background=''">
+      <div style="width:40px;height:40px;border-radius:11px;background:#FFF1F0;display:flex;align-items:center;justify-content:center;font-size:20px;">💳</div>
+      <div><div style="font-size:14px;font-weight:700;color:var(--text)">Cobranças</div><div style="font-size:12px;color:var(--text3);margin-top:1px">Pagamentos em aberto</div></div>
+    </div>
+    <div onclick="goPage('relatorio');toggleFinanceiroMenu()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;border-top:1px solid var(--border);transition:background .12s" onmouseover="this.style.background='var(--off)'" onmouseout="this.style.background=''">
+      <div style="width:40px;height:40px;border-radius:11px;background:#FFF7E6;display:flex;align-items:center;justify-content:center;font-size:20px;">📊</div>
+      <div><div style="font-size:14px;font-weight:700;color:var(--text)">Relatório</div><div style="font-size:12px;color:var(--text3);margin-top:1px">Análise financeira mensal</div></div>
+    </div>
+    <div onclick="goPage('config');toggleFinanceiroMenu()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;border-top:1px solid var(--border);transition:background .12s" onmouseover="this.style.background='var(--off)'" onmouseout="this.style.background=''">
+      <div style="width:40px;height:40px;border-radius:11px;background:var(--off2);display:flex;align-items:center;justify-content:center;font-size:20px;">⚙️</div>
+      <div><div style="font-size:14px;font-weight:700;color:var(--text)">Configurações</div><div style="font-size:12px;color:var(--text3);margin-top:1px">Perfil e preferências</div></div>
+    </div>
+    <div onclick="toggleFinanceiroMenu()" style="padding:14px 16px;text-align:center;border-top:1px solid var(--border);font-size:13px;font-weight:700;color:var(--text3);cursor:pointer;">✕ Fechar</div>
+  </div>
+</div>
+<div id="financeiro-overlay" onclick="toggleFinanceiroMenu()" style="display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,0.3);backdrop-filter:blur(2px)"></div>
 
 <!-- FAB -->
 <button class="fab" id="fab" style="display:none" onclick="openModal('modal-aluno')">+</button>
@@ -830,6 +864,7 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 // ===== DATA =====
 let DATA = {user:null, motorista:{nome:'',tel:'',email:'',cpf:'',pixChave:'',pixTipo:'CPF',banco:'',juros:2,multa:2,vencPadrao:5}, alunos:[], users:[], contratos:[]};
 let curFilter = 'todos';
+let financeiroOpen = false;
 let relMonth = {m:new Date().getMonth(), y:new Date().getFullYear()};
 let alertTimer = null;
 let sigDrawing = false, sigCtx = null, sigCanvas = null;
@@ -883,12 +918,14 @@ function doLogout(){
   document.getElementById('screen-app').classList.remove('active');
   document.getElementById('screen-login').classList.add('active');
   document.getElementById('fab').style.display='none';
+  document.getElementById('global-bottom-nav').style.display='none';
   stopAlertTimer();
 }
 function enterApp(){
   document.getElementById('screen-login').classList.remove('active');
   document.getElementById('screen-app').classList.add('active');
   document.getElementById('fab').style.display='flex';
+  document.getElementById('global-bottom-nav').style.display='flex';
   loadDemoIfEmpty();
   updateHeader();
   loadConfig();
@@ -938,7 +975,7 @@ function calcJuros(a){
   const multa=parseFloat(a.valor)*(DATA.motorista.multa||2)/100;
   return parseFloat(a.valor)*jd*dias+multa;
 }
-function fR(v){return 'R$ '+parseFloat(v).toFixed(2).replace('.',',');}
+function fR(v){const n=parseFloat(v);return 'R$ '+n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});}
 function calcMulhaAp(a){return parseFloat(a.valor)*(DATA.motorista.multa||2)/100;}
 
 // ===== RENDER ALL =====
@@ -949,7 +986,7 @@ function updateStats(){
   DATA.alunos.forEach(a=>{const st=getStatus(a);if(st==='ok')ok++;else if(st==='late'){late++;tot+=parseFloat(a.valor)+calcJuros(a);}else tot+=parseFloat(a.valor);});
   document.getElementById('kpi-ok').textContent=ok;
   document.getElementById('kpi-late').textContent=late;
-  document.getElementById('kpi-total').textContent='R$ '+tot.toFixed(0);
+  document.getElementById('kpi-total').textContent='R$ '+tot.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0});
   document.getElementById('kpi-alunos').textContent=DATA.alunos.length;
   const nd=document.getElementById('notif-dot');
   nd.style.display=late>0?'block':'none';
@@ -1327,6 +1364,7 @@ function openContratoPublico(mid){
   document.getElementById('screen-login').classList.remove('active');
   document.getElementById('screen-app').classList.remove('active');
   document.getElementById('screen-contrato').classList.add('active');
+  document.getElementById('global-bottom-nav').style.display='none';
   document.getElementById('cp-motorista-sub').textContent=mid?`Contrato com motorista: ${decodeURIComponent(mid)}`:'Preencha os dados abaixo';
   renderContratoText();
   initSigCanvas();
@@ -1525,13 +1563,15 @@ function pushState(state){
   try { history.pushState(state,'',''); } catch(e){}
 }
 window.addEventListener('popstate', function(e){
+  // If financeiro menu is open, close it
+  if(financeiroOpen){toggleFinanceiroMenu();return;}
   // If a modal is open, close it
-  const openModal = document.querySelector('.modal-overlay.open');
-  if(openModal){ openModal.classList.remove('open'); pushState('modal'); return; }
+  const openModalEl = document.querySelector('.modal-overlay.open');
+  if(openModalEl){ openModalEl.classList.remove('open'); pushState('modal'); return; }
   // If on contrato screen, go back to login
   if(document.getElementById('screen-contrato').classList.contains('active')){
     document.getElementById('screen-contrato').classList.remove('active');
-    if(DATA.user) enterApp(); else document.getElementById('screen-login').classList.add('active');
+    if(DATA.user){ enterApp(); } else { document.getElementById('screen-login').classList.add('active'); }
     pushState('app'); return;
   }
   // If on app, push state again to prevent exit
@@ -1541,13 +1581,34 @@ window.addEventListener('popstate', function(e){
 });
 
 // ===== NAV =====
+function toggleFinanceiroMenu(){
+  financeiroOpen = !financeiroOpen;
+  const menu = document.getElementById('financeiro-menu');
+  const overlay = document.getElementById('financeiro-overlay');
+  const btn = document.getElementById('bnav-financeiro');
+  if(financeiroOpen){
+    menu.style.display='block';
+    overlay.style.display='block';
+    btn.classList.add('active');
+    pushState('modal');
+  } else {
+    menu.style.display='none';
+    overlay.style.display='none';
+    btn.classList.remove('active');
+  }
+}
+
 function goPage(page){
+  // Close financeiro menu if open
+  if(financeiroOpen){financeiroOpen=false;document.getElementById('financeiro-menu').style.display='none';document.getElementById('financeiro-overlay').style.display='none';}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.snav-item').forEach(n=>n.classList.remove('active'));
   document.querySelectorAll('.bnav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   const sn=document.getElementById('snav-'+page);if(sn)sn.classList.add('active');
-  const bn=document.getElementById('bnav-'+page);if(bn)bn.classList.add('active');
+  // Map pages to bottom nav buttons
+  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
+  const bnId=bnavMap[page];if(bnId){const bn=document.getElementById(bnId);if(bn)bn.classList.add('active');}
   document.querySelector('.page-content').scrollTop=0;
   const titles={dashboard:'Dashboard',alunos:'Meus Alunos',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
   const subs={dashboard:'Visão geral do seu negócio',alunos:'Gerencie todos os alunos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Suas preferências'};
