@@ -3,147 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#007BFF">
+<meta name="theme-color" content="#0F1117">
 <title>VanRotas — Gestão de Transporte Escolar</title>
-<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;VanRotas&quot;,&quot;short_name&quot;:&quot;VanRotas&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%236D28D9&quot;,&quot;theme_color&quot;:&quot;%237C3AED&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='20' y='68' width='152' height='72' rx='16' fill='white' fill-opacity='.95'/%3E%3Crect x='118' y='44' width='54' height='96' rx='12' fill='white' fill-opacity='.85'/%3E%3Crect x='124' y='50' width='40' height='36' rx='7' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='26' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='68' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='52' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='52' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='140' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='140' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any maskable&quot;}]}">
+<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;VanRotas&quot;,&quot;short_name&quot;:&quot;🚐 VanRotas&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%230F1117&quot;,&quot;theme_color&quot;:&quot;%230F1117&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='42' fill='%230F1117'/%3E%3Crect x='18' y='72' width='156' height='70' rx='16' fill='%231A1D27'/%3E%3Crect x='118' y='46' width='56' height='96' rx='13' fill='%231A1D27'/%3E%3Crect x='125' y='53' width='42' height='36' rx='7' fill='%230EA5E9' fill-opacity='.35'/%3E%3Crect x='26' y='80' width='38' height='28' rx='6' fill='%230EA5E9' fill-opacity='.35'/%3E%3Crect x='70' y='80' width='38' height='28' rx='6' fill='%230EA5E9' fill-opacity='.35'/%3E%3Ccircle cx='52' cy='150' r='18' fill='%230EA5E9'/%3E%3Ccircle cx='52' cy='150' r='8' fill='%230F1117' fill-opacity='.5'/%3E%3Ccircle cx='142' cy='150' r='18' fill='%230EA5E9'/%3E%3Ccircle cx='142' cy='150' r='8' fill='%230F1117' fill-opacity='.5'/%3E%3Crect x='172' y='88' width='8' height='18' rx='4' fill='%23FCD34D'/%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any maskable&quot;}]}"&gt;
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="VanRotas">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='18' y='64' width='144' height='68' rx='15' fill='white' fill-opacity='.95'/%3E%3Crect x='112' y='42' width='50' height='90' rx='11' fill='white' fill-opacity='.85'/%3E%3Crect x='118' y='48' width='38' height='34' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='24' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='64' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='48' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='48' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='132' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='132' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-title" content="🚐 VanRotas">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='38' fill='%230F1117'/%3E%3Crect x='16' y='68' width='148' height='66' rx='15' fill='%231A1D27'/%3E%3Crect x='112' y='44' width='52' height='90' rx='12' fill='%231A1D27'/%3E%3Crect x='118' y='50' width='40' height='34' rx='6' fill='%230EA5E9' fill-opacity='.35'/%3E%3Crect x='24' y='76' width='36' height='26' rx='6' fill='%230EA5E9' fill-opacity='.35'/%3E%3Crect x='66' y='76' width='36' height='26' rx='6' fill='%230EA5E9' fill-opacity='.35'/%3E%3Ccircle cx='48' cy='140' r='17' fill='%230EA5E9'/%3E%3Ccircle cx='48' cy='140' r='8' fill='%230F1117' fill-opacity='.5'/%3E%3Ccircle cx='134' cy='140' r='17' fill='%230EA5E9'/%3E%3Ccircle cx='134' cy='140' r='8' fill='%230F1117' fill-opacity='.5'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
+/* === MIXED PREMIUM PALETTE (DARK SIDEBAR + LIGHT PANEL) === */
 :root {
-  /* === NEW PALETTE === */
-  --blue:#007BFF; --blue2:#3395FF; --blue3:#CCE5FF; --blue4:#EBF4FF;
-  --slate:#2D3436; --slate2:#636E72; --slate3:#B2BEC3;
-  --off:#F4F7F6; --off2:#EEF2F1; --white:#FFFFFF;
-  --green:#00B894; --green2:#55EFC4; --green-bg:#E8FAF5;
-  --red:#FF4757; --red2:#FF6B81; --red-bg:#FFF0F1;
-  --warn:#FDCB6E; --warn2:#E17055; --warn-bg:#FFF8EC;
-  --purple:#6C5CE7; --purple2:#A29BFE;
-  --text:var(--slate); --text2:var(--slate2); --text3:var(--slate3);
-  --border:#DFE6E9; --border2:#B2BEC3;
-  --card:#FFFFFF;
-  --radius:24px; --radius-sm:16px; --radius-xs:10px;
-  --shadow:0 2px 12px rgba(0,0,0,0.06); --shadow-md:0 4px 20px rgba(0,0,0,0.10); --shadow-lg:0 8px 32px rgba(0,0,0,0.12);
-  /* keep orange alias → blue for backward compat */
-  --orange:var(--blue); --orange2:var(--blue2); --orange3:var(--blue3);
-  --teal:var(--blue); --teal2:#0056CC; --teal3:var(--blue4);
-  --lime:var(--green); --lime2:var(--green);
-  --yellow:var(--warn); --yellow2:var(--warn2);
+  /* --- SIDEBAR (ESCURO PROFUNDO) --- */
+  --bg-sidebar: #0F172A;   /* Marinho quase preto para o menu lateral */
+  --side-text: #F8FAFC;    /* Texto branco para o menu */
+  --side-hover: #1E293B;   /* Destaque ao passar o mouse no menu */
+
+  /* --- CONTEÚDO (CLARO E AREJADO) --- */
+  --bg-main: #F1F5F9;      /* Fundo da área de trabalho (cinza azulado suave) */
+  --bg-card: #FFFFFF;      /* Painéis e Cards (Branco Puro para "saltar" do fundo) */
+  
+  /* --- CORES VIBRANTES (A ENERGIA DO SITE) --- */
+  --blue-vibrant: #007AFF; /* Azul Royal intenso */
+  --green-vibrant: #22C55E;/* Verde esmeralda (Sucesso) */
+  --red-vibrant: #EF4444;  /* Vermelho coral (Atrasos) */
+  --gold: #F59E0B;         /* Laranja/Dourado (Financeiro) */
+
+  /* --- TEXTO E DETALHES --- */
+  --text-main: #1E293B;    /* Texto principal escuro para leitura fácil */
+  --text-sub: #64748B;     /* Texto secundário */
+  --border: #E2E8F0;       /* Bordas finas e elegantes */
+  
+  /* --- EFEITOS --- */
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra suave para dar volume */
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color:var(--text);overflow:hidden}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg-dark);color:var(--text);overflow:hidden}
 
 /* SCREENS */
 .screen{position:fixed;inset:0;display:none;flex-direction:column;overflow:hidden}
 .screen.active{display:flex}
 
 /* ===== LOGIN ===== */
-#screen-login{background:var(--white);overflow-y:auto;display:none;flex-direction:column}
+#screen-login{background:var(--bg-dark);overflow-y:auto;display:none;flex-direction:column}
 #screen-login.active{display:flex}
 
-.login-wrap{display:flex;min-height:100vh;flex-direction:column}
-@media(min-width:768px){.login-wrap{flex-direction:row;min-height:100vh}}
+.login-wrap{display:flex;min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+@media(min-width:768px){.login-wrap{flex-direction:row;padding:0}}
 
-/* LEFT HERO */
-.login-hero{
-  background:linear-gradient(145deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#007BFF 100%);
-  padding:32px;display:flex;flex-direction:column;justify-content:space-between;
-  position:relative;overflow:hidden;min-height:300px;
+/* MOBILE: full width card, no hero */
+.login-hero{display:none}
+@media(min-width:768px){
+  .login-hero{
+    display:flex;flex:1;background:linear-gradient(145deg,var(--bg-panel) 0%,#0c1445 50%,#0a2266 100%);
+    flex-direction:column;justify-content:center;padding:56px;min-height:100vh;
+    position:relative;overflow:hidden;
+  }
 }
-@media(min-width:768px){.login-hero{flex:1;min-height:100vh;padding:48px}}
-.hero-brand{display:flex;align-items:center;gap:12px;}
-.hero-brand-icon{width:44px;height:44px;background:rgba(255,255,255,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,0.2)}
+
+.hero-circle{position:absolute;border-radius:50%;background:rgba(125,211,252,0.06)}
+.hc1{width:400px;height:400px;top:-120px;right:-120px}
+.hc2{width:240px;height:240px;bottom:80px;right:60px;background:rgba(125,211,252,0.04)}
+.hc3{width:140px;height:140px;bottom:-40px;left:100px;background:rgba(125,211,252,0.05)}
+.hero-brand{display:flex;align-items:center;gap:12px;margin-bottom:auto}
+.hero-brand-icon{width:44px;height:44px;background:var(--blue3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px}
 .hero-brand-name{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
-.hero-brand-name span{opacity:0.6}
-.hero-tagline{position:relative;z-index:2}
-.hero-tagline h1{font-family:'Inter',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-1px}
-.hero-tagline p{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;max-width:380px}
-.hero-features{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2}
-.hero-feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.08);border-radius:14px;padding:12px 16px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12)}
+.hero-brand-name span{opacity:0.4}
+.van-scene{display:none}
+.hero-tagline{margin:auto 0}
+.hero-tagline h1{font-size:clamp(28px,3.5vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px;letter-spacing:-1.5px}
+.hero-tagline p{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.7;max-width:380px}
+.hero-features{display:flex;flex-direction:column;gap:10px;margin-top:40px}
+.hero-feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.05);border-radius:14px;padding:12px 16px;border:1px solid rgba(255,255,255,0.08)}
 .hero-feat-icon{font-size:18px;flex-shrink:0}
-.hero-feat-text{font-size:13px;color:rgba(255,255,255,0.9);font-weight:500}
-
-/* decorative circles */
-.hero-circle{position:absolute;border-radius:50%;background:rgba(0,123,255,0.15)}
-.hc1{width:320px;height:320px;top:-100px;right:-100px}
-.hc2{width:200px;height:200px;bottom:60px;right:40px;background:rgba(255,255,255,0.04)}
-.hc3{width:120px;height:120px;bottom:-30px;left:80px;background:rgba(0,123,255,0.1)}
-
-/* VAN */
-.van-scene{text-align:center;margin:16px 0;animation:vanBob 2.5s ease-in-out infinite}
-@keyframes vanBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-feat-text{font-size:13px;color:rgba(255,255,255,0.75);font-weight:500}
 
 /* RIGHT PANEL */
-.login-panel{padding:32px 24px;display:flex;flex-direction:column;justify-content:flex-start;background:#fff;overflow-y:auto}
-@media(min-width:768px){.login-panel{flex:0 0 440px;padding:52px 44px;overflow-y:auto;justify-content:center}}
-.login-panel-title{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-0.5px}
-.login-panel-sub{font-size:14px;color:var(--text2);margin-bottom:28px;font-weight:400}
+.login-panel{
+  width:100%;max-width:420px;background:var(--bg-card);border-radius:var(--radius);
+  padding:32px 28px;border:1px solid var(--border);box-shadow:var(--shadow-lg);
+}
+@media(min-width:768px){.login-panel{flex:0 0 440px;border-radius:0;max-width:none;height:100vh;padding:52px 44px;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;border-radius:0}}
+
+/* Mobile brand shown inside panel */
+.login-mobile-brand{display:flex;align-items:center;gap:10px;margin-bottom:24px;justify-content:center}
+@media(min-width:768px){.login-mobile-brand{display:none}}
+.login-mobile-icon{width:40px;height:40px;background:var(--blue3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.login-mobile-name{font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.5px}
+
+.login-panel-title{font-family:'Inter',sans-serif;font-size:24px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-0.5px}
+.login-panel-sub{font-size:14px;color:var(--text2);margin-bottom:24px;font-weight:400}
 
 .tabs-row{display:flex;background:var(--off2);border-radius:var(--radius-xs);padding:4px;margin-bottom:24px}
 .tab-btn{flex:1;padding:9px;text-align:center;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .2s}
-.tab-btn.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,0.10)}
+.tab-btn.active{background:var(--bg-card2);color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,0.3)}
 
-.form-group{margin-bottom:16px}
-.form-label{display:block;font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px}
-.form-input{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-xs);color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:all .2s}
-.form-input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(0,123,255,0.10)}
+.form-group{margin-bottom:14px}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.form-input{width:100%;padding:12px 14px;background:var(--off2);border:1.5px solid var(--border);border-radius:var(--radius-xs);color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:all .2s}
+.form-input:focus{border-color:var(--blue3);background:var(--bg-card2);box-shadow:0 0 0 3px rgba(14,165,233,0.15)}
 .form-input::placeholder{color:var(--text3)}
-.form-input option{background:#fff}
+.form-input option{background:var(--bg-card2);color:var(--text)}
 .form-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:400px){.form-row2{grid-template-columns:1fr}}
 
-.btn-main{width:100%;padding:15px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-xs);font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.2px;box-shadow:0 4px 16px rgba(0,123,255,0.35)}
-.btn-main:hover{background:#0069d9;transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,123,255,0.45)}
+.btn-main{width:100%;padding:14px;background:var(--blue3);color:#fff;border:none;border-radius:var(--radius-xs);font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.2px;box-shadow:0 4px 16px rgba(14,165,233,0.35)}
+.btn-main:hover{background:#0284C7;transform:translateY(-1px)}
 .btn-main:active{transform:scale(0.98)}
-
-.login-footer{font-size:12px;color:var(--text3);text-align:center;margin-top:18px;line-height:1.6}
+.login-footer{font-size:12px;color:var(--text3);text-align:center;margin-top:16px;line-height:1.6}
 
 /* ===== APP ===== */
-#screen-app{background:var(--off)}
+#screen-app{background:var(--bg-dark)}
 
 /* SIDEBAR (desktop) */
 .app-layout{display:flex;height:100%;flex-direction:column}
 @media(min-width:768px){.app-layout{flex-direction:row}}
 
-.sidebar{display:none;width:256px;background:var(--slate);flex-direction:column;flex-shrink:0;padding:0}
+.sidebar{display:none;width:256px;background:var(--bg-panel);flex-direction:column;flex-shrink:0;padding:0;border-right:1px solid var(--border)}
 @media(min-width:768px){.sidebar{display:flex}}
-.sidebar-brand{display:flex;align-items:center;gap:12px;padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:8px}
-.sidebar-brand-icon{width:38px;height:38px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px rgba(0,123,255,0.4)}
-.sidebar-brand-name{font-family:'Inter',sans-serif;font-size:17px;font-weight:800;color:#fff;letter-spacing:-0.3px}
-.sidebar-brand-name span{color:rgba(255,255,255,0.4)}
+.sidebar-brand{display:flex;align-items:center;gap:12px;padding:24px 20px 20px;border-bottom:1px solid var(--border);margin-bottom:8px}
+.sidebar-brand-icon{width:38px;height:38px;background:var(--blue3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px rgba(14,165,233,0.3)}
+.sidebar-brand-name{font-family:'Inter',sans-serif;font-size:17px;font-weight:800;color:var(--text);letter-spacing:-0.3px}
+.sidebar-brand-name span{color:var(--text3)}
 .sidebar-nav{flex:1;padding:8px 12px}
-.snav-section{font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:.8px;padding:16px 8px 6px}
-.snav-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);margin-bottom:2px;transition:all .15s}
-.snav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.9)}
-.snav-item.active{background:var(--blue);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(0,123,255,0.4)}
+.snav-section{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.8px;padding:16px 8px 6px}
+.snav-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:500;color:var(--slate);margin-bottom:2px;transition:all .15s}
+.snav-item:hover{background:var(--off2);color:var(--text)}
+.snav-item.active{background:rgba(14,165,233,0.15);color:var(--blue);font-weight:600;border:1px solid rgba(14,165,233,0.25)}
 .snav-icon{font-size:17px;width:22px;text-align:center;opacity:0.9}
-.snav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;min-width:18px;text-align:center}
-.sidebar-user{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
+.snav-badge{margin-left:auto;background:var(--red2);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;min-width:18px;text-align:center}
+.sidebar-user{padding:16px 20px;border-top:1px solid var(--border);margin-top:auto}
 .sidebar-user-row{display:flex;align-items:center;gap:10px}
-.sidebar-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;font-family:'Inter',sans-serif;flex-shrink:0;border:2px solid rgba(255,255,255,0.2)}
-.sidebar-user-name{font-size:14px;font-weight:600;color:#fff}
-.sidebar-user-plan{font-size:11px;color:rgba(255,255,255,0.4);margin-top:1px}
-.sidebar-logout{margin-top:12px;width:100%;padding:9px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
-.sidebar-logout:hover{background:rgba(255,71,87,0.2);color:var(--red);border-color:rgba(255,71,87,0.3)}
+.sidebar-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;font-family:'Inter',sans-serif;flex-shrink:0;border:2px solid rgba(125,211,252,0.25)}
+.sidebar-user-name{font-size:14px;font-weight:600;color:var(--text)}
+.sidebar-user-plan{font-size:11px;color:var(--text3);margin-top:1px}
+.sidebar-logout{margin-top:12px;width:100%;padding:9px;background:var(--off2);border:1px solid var(--border);border-radius:10px;color:var(--slate);font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.sidebar-logout:hover{background:var(--red-bg);color:var(--red);border-color:rgba(252,165,165,0.3)}
 
 /* MAIN CONTENT AREA */
 .app-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
-.app-topbar{background:#fff;border-bottom:1.5px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.app-topbar{background:var(--bg-card);border-bottom:1.5px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 @media(min-width:768px){.app-topbar{padding:18px 32px}}
 .topbar-left h2{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px}
 .topbar-left p{font-size:12px;color:var(--text3);margin-top:2px}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .notif-btn{position:relative;width:38px;height:38px;border-radius:50%;background:var(--off2);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center}
-.notif-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:var(--red);border:2px solid #fff}
-.mob-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;cursor:pointer}
+.notif-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:var(--red);border:2px solid var(--bg-card)}
+.mob-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue3);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;cursor:pointer}
 @media(min-width:768px){.mob-avatar{display:none}}
 
-.page-content{flex:1;overflow-y:auto;padding:20px;padding-bottom:80px}
+.page-content{flex:1;overflow-y:auto;padding:20px;padding-bottom:80px;background:var(--bg-dark)}
 @media(min-width:768px){.page-content{padding:28px 32px;padding-bottom:28px}}
 
 /* BOTTOM NAV (mobile only) */
-.bottom-nav{background:#fff;border-top:1.5px solid var(--border);display:flex;padding:6px 0 max(10px,env(safe-area-inset-bottom));width:100%}
+.bottom-nav{background:var(--bg-card);border-top:1.5px solid var(--border);display:flex;padding:6px 0 max(10px,env(safe-area-inset-bottom));width:100%}
 @media(min-width:768px){.bottom-nav{display:none!important}}
 .bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:5px}
 .bnav-icon{font-size:20px;line-height:1}
@@ -166,8 +180,8 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 
 .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px}
 @media(min-width:600px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
-.kpi-card{background:#fff;border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);position:relative;overflow:hidden;box-shadow:var(--shadow);transition:all .2s;cursor:pointer}
-.kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.kpi-card{background:var(--bg-card);border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);position:relative;overflow:hidden;box-shadow:var(--shadow);transition:all .2s;cursor:pointer}
+.kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--border2)}
 .kpi-tag{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px}
 .kpi-val{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;line-height:1;letter-spacing:-1px}
 .kpi-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:5px}
@@ -190,7 +204,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 
 .quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:600px){.quick-grid{grid-template-columns:repeat(4,1fr)}}
-.quick-card{background:#fff;border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+.quick-card{background:var(--bg-card);border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
 .quick-card:hover{border-color:var(--blue);box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .quick-card:active{transform:scale(0.97)}
 .qc-icon{font-size:28px;margin-bottom:10px}
@@ -313,11 +327,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 .cfg-sub{font-size:12px;color:var(--text3);margin-top:2px}
 
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:300;display:none;align-items:flex-end;justify-content:center}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:300;display:none;align-items:flex-end;justify-content:center}
 @media(min-width:600px){.modal-overlay{align-items:center}}
 .modal-overlay.open{display:flex;animation:fadein .2s}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
-.modal-drawer{background:#fff;border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;padding:20px 22px 40px;animation:slideup .3s cubic-bezier(.34,1.56,.64,1)}
+.modal-drawer{background:var(--bg-card);border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:92vh;overflow-y:auto;padding:20px 22px 40px;animation:slideup .3s cubic-bezier(.34,1.56,.64,1);border:1px solid var(--border)}
 @media(min-width:600px){.modal-drawer{border-radius:20px;max-height:90vh}}
 @keyframes slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .drawer-handle{width:40px;height:4px;background:var(--off2);border-radius:2px;margin:0 auto 18px}
@@ -449,8 +463,8 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 /* ===== SCREEN 3: FINANCIAL COMMAND CENTER ===== */
 .action-btns-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
 @media(min-width:600px){.action-btns-grid{grid-template-columns:repeat(3,1fr)}}
-.action-btn-card{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:18px 14px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);text-align:center}
-.action-btn-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.action-btn-card{background:var(--bg-card);border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:18px 14px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);text-align:center}
+.action-btn-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--border2)}
 .action-btn-card:active{transform:scale(0.97)}
 .abc-icon{font-size:28px;margin-bottom:8px}
 .abc-label{font-size:13px;font-weight:700;color:var(--text)}
@@ -458,9 +472,9 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 .abc-badge{display:inline-block;margin-top:7px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700}
 .plans-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:20px}
 @media(min-width:600px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
-.plan-card{background:#fff;border-radius:var(--radius-sm);border:2px solid var(--border);padding:20px;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.plan-card{background:var(--bg-card2);border-radius:var(--radius-sm);border:2px solid var(--border);padding:20px;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
 .plan-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.plan-card.current-plan{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,123,255,.12)}
+.plan-card.current-plan{border-color:var(--blue3);box-shadow:0 0 0 3px rgba(14,165,233,.15)}
 .plan-card.popular-plan{border-color:var(--green)}
 .plan-badge{position:absolute;top:0;right:0;background:var(--green);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:0 var(--radius-sm) 0 10px;white-space:nowrap}
 .plan-name{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
@@ -626,27 +640,12 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
       <div class="hero-circle hc2"></div>
       <div class="hero-circle hc3"></div>
       <div class="hero-brand">
-        <div class="hero-brand-icon">🚌</div>
+        <div class="hero-brand-icon">🚐</div>
         <div class="hero-brand-name">Van<span>Rotas</span></div>
-      </div>
-      <div class="van-scene">
-        <svg width="200" height="90" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="22" width="170" height="50" rx="10" fill="rgba(255,255,255,0.9)"/>
-          <rect x="130" y="12" width="50" height="60" rx="8" fill="rgba(255,255,255,0.8)"/>
-          <rect x="135" y="16" width="38" height="26" rx="5" fill="rgba(255,255,255,0.3)"/>
-          <rect x="18" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
-          <rect x="52" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
-          <rect x="86" y="28" width="28" height="20" rx="4" fill="rgba(255,255,255,0.35)"/>
-          <rect x="10" y="48" width="170" height="8" fill="rgba(255,255,255,0.2)"/>
-          <rect x="174" y="36" width="18" height="10" rx="4" fill="#FBBF24"/>
-          <text x="38" y="44" font-family="Arial" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">ESCOLAR</text>
-          <circle cx="46" cy="74" r="16" fill="#7C3AED"/><circle cx="46" cy="74" r="9" fill="rgba(255,255,255,0.3)"/><circle cx="46" cy="74" r="4" fill="rgba(255,255,255,0.5)"/>
-          <circle cx="148" cy="74" r="16" fill="#7C3AED"/><circle cx="148" cy="74" r="9" fill="rgba(255,255,255,0.3)"/><circle cx="148" cy="74" r="4" fill="rgba(255,255,255,0.5)"/>
-        </svg>
       </div>
       <div class="hero-tagline">
         <h1>Gerencie sua van escolar com controle total</h1>
-        <p style="font-size:14px;opacity:.85;margin-top:8px">Cobranças automáticas, contratos digitais e alertas inteligentes para motoristas escolares</p>
+        <p>Cobranças automáticas, contratos digitais e alertas inteligentes para motoristas escolares</p>
       </div>
       <div class="hero-features">
         <div class="hero-feat"><div class="hero-feat-icon">💚</div><div class="hero-feat-text">PIX integrado — cobranças automáticas</div></div>
@@ -656,6 +655,10 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
     </div>
 
     <div class="login-panel">
+      <div class="login-mobile-brand">
+        <div class="login-mobile-icon">🚐</div>
+        <div class="login-mobile-name">VanRotas</div>
+      </div>
       <div class="login-panel-title">Bem-vindo de volta!</div>
       <div class="login-panel-sub">Entre na sua conta ou crie uma nova gratuitamente</div>
       <div class="tabs-row">
@@ -667,15 +670,13 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
         <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-email" type="email" placeholder="seu@email.com"></div>
         <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="li-senha" type="password" placeholder="••••••••"></div>
         <button class="btn-main" onclick="doLogin()">Entrar →</button>
-        <div class="login-footer">Esqueceu a senha? <span style="color:var(--orange);font-weight:700;cursor:pointer">Recuperar acesso</span></div>
+        <div class="login-footer">Esqueceu a senha? <span style="color:var(--blue);font-weight:700;cursor:pointer">Recuperar acesso</span></div>
       </div>
 
       <div id="lform-criar" style="display:none">
         <div class="form-group"><label class="form-label">Nome completo</label><input class="form-input" id="li-nome" placeholder="Seu nome"></div>
-        <div class="form-row2">
-          <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-reg-email" type="email" placeholder="seu@email.com"></div>
-          <div class="form-group"><label class="form-label">WhatsApp</label><input class="form-input" id="li-wpp" type="tel" placeholder="(11) 99999-9999"></div>
-        </div>
+        <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-reg-email" type="email" placeholder="seu@email.com"></div>
+        <div class="form-group"><label class="form-label">WhatsApp</label><input class="form-input" id="li-wpp" type="tel" placeholder="(11) 99999-9999"></div>
         <div class="form-row2">
           <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="li-senha2" type="password" placeholder="••••••••"></div>
           <div class="form-group"><label class="form-label">Confirmar</label><input class="form-input" id="li-senha3" type="password" placeholder="••••••••"></div>
@@ -710,6 +711,8 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
         <div class="snav-section">Conta</div>
         <div class="snav-item" id="snav-config" onclick="goPage('config')"><span class="snav-icon">⚙️</span>Configurações</div>
         <div class="snav-item" id="snav-contrato" onclick="openContratoLink()"><span class="snav-icon">📄</span>Link de contrato</div>
+        <div class="snav-section">Premium</div>
+        <div class="snav-item" id="snav-despesas" onclick="goPage('despesas')"><span class="snav-icon">🚐</span>Despesas & Lucros</div>
       </div>
       <div class="sidebar-user">
         <div class="sidebar-user-row">
@@ -934,7 +937,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
             <div class="plan-card popular-plan">
               <div class="plan-badge">⭐ POPULAR</div>
               <div class="plan-name">Pro</div>
-              <div class="plan-price">R$ 19<span>/mês</span></div>
+              <div class="plan-price">R$ 29<span>/mês</span></div>
               <div style="margin-top:12px">
                 <div class="plan-feat">Até 30 alunos</div>
                 <div class="plan-feat">Editor de contrato</div>
@@ -942,11 +945,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
                 <div class="plan-feat">Relatórios completos</div>
                 <div class="plan-feat">Reconciliação PIX</div>
               </div>
-              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 19/mês')">Assinar Pro →</button>
+              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 29/mês')">Assinar Pro →</button>
             </div>
             <div class="plan-card">
               <div class="plan-name">Premium</div>
-              <div class="plan-price">R$ 29<span>/mês</span></div>
+              <div class="plan-price">R$ 59<span>/mês</span></div>
               <div style="margin-top:12px">
                 <div class="plan-feat">Alunos ilimitados</div>
                 <div class="plan-feat">Tudo do Pro</div>
@@ -954,7 +957,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
                 <div class="plan-feat">Múltiplos motoristas</div>
                 <div class="plan-feat">API integração</div>
               </div>
-              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 29/mês')">Assinar Premium →</button>
+              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 59/mês')">Assinar Premium →</button>
             </div>
           </div>
         </div>
@@ -1003,6 +1006,7 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
 
         <!-- CONFIG -->
         <div class="page" id="page-config">
+          <!-- PERFIL -->
           <div class="cfg-section">
             <div class="cfg-section-hdr">👤 Perfil do motorista</div>
             <div class="cfg-input-row"><label class="form-label">Nome</label><input class="form-input" id="cfg-nome" placeholder="Seu nome"></div>
@@ -1010,18 +1014,21 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
             <div class="cfg-input-row"><label class="form-label">E-mail</label><input class="form-input" id="cfg-email" type="email" placeholder="email@..."></div>
             <div class="cfg-input-row"><label class="form-label">CPF</label><input class="form-input" id="cfg-cpf" placeholder="000.000.000-00"></div>
           </div>
+          <!-- PIX -->
           <div class="cfg-section">
             <div class="cfg-section-hdr">💚 Dados PIX</div>
             <div class="cfg-input-row"><label class="form-label">Tipo de chave</label><select class="form-input" id="cfg-pix-tipo"><option>CPF</option><option>CNPJ</option><option>Celular</option><option>E-mail</option><option>Chave aleatória</option></select></div>
             <div class="cfg-input-row"><label class="form-label">Chave PIX</label><input class="form-input" id="cfg-pix" placeholder="Sua chave PIX"></div>
             <div class="cfg-input-row"><label class="form-label">Banco</label><input class="form-input" id="cfg-banco" placeholder="Ex: Nubank, Itaú..."></div>
           </div>
+          <!-- FINANCEIRO -->
           <div class="cfg-section">
             <div class="cfg-section-hdr">💰 Regras financeiras</div>
-            <div class="cfg-input-row"><label class="form-label">Juros ao mês (%)</label><input class="form-input" id="cfg-juros" type="number" value="2" step="0.5" min="0"><div class="btn-hint">Aplicado proporcionalmente por dia de atraso</div></div>
-            <div class="cfg-input-row"><label class="form-label">Multa por atraso (%)</label><input class="form-input" id="cfg-multa" type="number" value="2" step="0.5" min="0"><div class="btn-hint">Cobrada uma vez ao atrasar</div></div>
+            <div class="cfg-input-row"><label class="form-label">Juros ao mês (%)</label><input class="form-input" id="cfg-juros" type="number" value="2" step="0.5" min="0"></div>
+            <div class="cfg-input-row"><label class="form-label">Multa por atraso (%)</label><input class="form-input" id="cfg-multa" type="number" value="2" step="0.5" min="0"></div>
             <div class="cfg-input-row"><label class="form-label">Dia padrão de vencimento</label><input class="form-input" id="cfg-venc" type="number" value="5" min="1" max="28"></div>
           </div>
+          <!-- ALERTAS -->
           <div class="cfg-section">
             <div class="cfg-section-hdr">🔔 Alertas automáticos</div>
             <div class="cfg-toggle-row">
@@ -1033,22 +1040,81 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
               <button class="toggle on" id="tog-d" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></button>
             </div>
             <div class="cfg-toggle-row">
-              <div><div class="cfg-lbl">Cobrança automática por atraso</div><div class="cfg-sub">Avisa o responsável que está em atraso com juros calculados</div></div>
+              <div><div class="cfg-lbl">Cobrança automática por atraso</div><div class="cfg-sub">Avisa o responsável com juros calculados</div></div>
               <button class="toggle on" id="tog-late" onclick="this.classList.toggle('on')"><div class="toggle-knob"></div></button>
             </div>
           </div>
+          <!-- LINK CONTRATO -->
           <div class="cfg-section">
             <div class="cfg-section-hdr">🔗 Link de contrato digital</div>
             <div class="cfg-input-row">
               <div style="font-size:13px;color:var(--text2);margin-bottom:10px">Envie este link para os pais preencherem os dados e assinarem o contrato digitalmente</div>
-              <div style="background:var(--off2);border-radius:8px;padding:12px;font-size:13px;font-weight:600;color:var(--orange);word-break:break-all" id="link-contrato">Salve suas configurações para gerar o link</div>
-              <button style="margin-top:10px;padding:10px 18px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif" onclick="copiarLink()">📋 Copiar link</button>
-              <button style="margin-top:8px;margin-left:8px;padding:10px 18px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif" onclick="compartilharLinkWpp()">📱 Enviar via WhatsApp</button>
+              <div style="background:var(--off2);border-radius:8px;padding:12px;font-size:13px;font-weight:600;color:var(--blue);word-break:break-all" id="link-contrato">Salve suas configurações para gerar o link</div>
+              <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+                <button style="padding:10px 18px;background:var(--blue3);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif" onclick="copiarLink()">📋 Copiar link</button>
+                <button style="padding:10px 18px;background:#25D366;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif" onclick="compartilharLinkWpp()">📱 Enviar via WhatsApp</button>
+              </div>
             </div>
           </div>
+          <!-- PLANOS DE ASSINATURA -->
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">🌟 Plano de assinatura</div>
+            <div style="font-size:13px;color:var(--text2);margin-bottom:16px">Escolha o plano ideal para o seu negócio. Pagamento cai direto no PIX do VanRotas.</div>
+            <div class="plans-grid">
+              <div class="plan-card" id="plan-free">
+                <div class="plan-name">FREE</div>
+                <div class="plan-price">R$ 0<span>/mês</span></div>
+                <div class="plan-feat">Até 5 alunos</div>
+                <div class="plan-feat">Contratos básicos</div>
+                <div class="plan-feat">Cobranças manuais</div>
+                <div class="plan-feat no">Relatórios avançados</div>
+                <div class="plan-feat no">Lucros & Despesas</div>
+                <button class="plan-btn current-btn" id="btn-plan-free" onclick="assinarPlano('free')">Plano atual</button>
+              </div>
+              <div class="plan-card popular-plan" id="plan-pro">
+                <div class="plan-badge">POPULAR</div>
+                <div class="plan-name">PRO</div>
+                <div class="plan-price">R$ 49<span>/mês</span></div>
+                <div class="plan-feat">Alunos ilimitados</div>
+                <div class="plan-feat">Editor de contratos</div>
+                <div class="plan-feat">Cobranças automáticas</div>
+                <div class="plan-feat">Conciliação Pix</div>
+                <div class="plan-feat no">Lucros & Despesas 🔒</div>
+                <button class="plan-btn popular-btn" id="btn-plan-pro" onclick="assinarPlano('pro')">Assinar Pro — R$49/mês</button>
+              </div>
+              <div class="plan-card" id="plan-premium">
+                <div class="plan-name">PREMIUM</div>
+                <div class="plan-price">R$ 89<span>/mês</span></div>
+                <div class="plan-feat">Tudo do Pro</div>
+                <div class="plan-feat">Lucros & Despesas ✨</div>
+                <div class="plan-feat">Análise de combustível</div>
+                <div class="plan-feat">Revisões da van</div>
+                <div class="plan-feat">Suporte prioritário</div>
+                <button class="plan-btn upgrade-btn" id="btn-plan-premium" onclick="assinarPlano('premium')">Assinar Premium — R$89/mês</button>
+              </div>
+            </div>
+          </div>
+          <!-- SUPORTE WHATSAPP -->
+          <div class="cfg-section">
+            <div class="cfg-section-hdr">💬 Suporte VanRotas</div>
+            <div style="background:var(--off2);border-radius:var(--radius-sm);padding:16px;display:flex;align-items:center;gap:14px">
+              <div style="width:48px;height:48px;background:#25D366;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0">💬</div>
+              <div>
+                <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px">Fale com o suporte</div>
+                <div style="font-size:12px;color:var(--text2)">Atendimento via WhatsApp em horário comercial</div>
+              </div>
+              <button onclick="window.open('https://wa.me/5511983179592?text=Olá! Preciso de suporte com o VanRotas.','_blank')" style="margin-left:auto;padding:10px 16px;background:#25D366;color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;flex-shrink:0;white-space:nowrap">Abrir chat →</button>
+            </div>
+          </div>
+
           <button class="btn-primary-full" onclick="salvarConfig()" style="margin-top:4px">💾 Salvar configurações</button>
-          <button style="width:100%;padding:13px;background:#FFF1F0;border:1.5px solid #FFA39E;border-radius:var(--radius-sm);color:var(--red);font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;margin-top:8px" onclick="doLogout()">🚪 Sair da conta</button>
+          <button style="width:100%;padding:13px;background:var(--red-bg);border:1.5px solid rgba(252,165,165,0.3);border-radius:var(--radius-sm);color:var(--red);font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;margin-top:8px" onclick="doLogout()">🚪 Sair da conta</button>
           <div style="height:20px"></div>
+        </div>
+
+        <!-- DESPESAS & LUCROS (Premium) -->
+        <div class="page" id="page-despesas">
+          <div id="despesas-content"></div>
         </div>
 
       </div><!-- end page-content -->
@@ -1114,11 +1180,6 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color
     <button class="btn-secondary-full" onclick="closeModal('modal-profit')">Fechar</button>
   </div>
 </div>
-
-<!-- WhatsApp Support FAB -->
-<button class="wpp-support-fab" id="wpp-support-fab" onclick="openWppSupport()">
-  <span style="font-size:16px">💬</span> Suporte
-</button>
 
 <!-- FAB -->
 <button class="fab" id="fab" style="display:none" onclick="openModal('modal-aluno')">+</button>
@@ -2012,12 +2073,13 @@ function goPage(page){
   document.querySelectorAll('.bnav-item').forEach(n=>n.classList.remove('active'));
   const pe=document.getElementById('page-'+page);if(!pe){showToast('Página não encontrada');return;}
   pe.classList.add('active');
-  const sn=document.getElementById('snav-'+page);if(sn)sn.classList.add('active');
-  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos','contrato-editor':'bnav-alunos','financeiro-cmd':'bnav-financeiro',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
+  const sn=document.getElementById('snav-'+page.replace('-editor','').replace('-cmd',''));if(sn)sn.classList.add('active');
+  const sn2=document.getElementById('snav-'+page);if(sn2)sn2.classList.add('active');
+  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos','contrato-editor':'bnav-alunos','financeiro-cmd':'bnav-financeiro',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro',despesas:'bnav-financeiro'};
   const bnId=bnavMap[page];if(bnId){const bn=document.getElementById(bnId);if(bn)bn.classList.add('active');}
   document.querySelector('.page-content').scrollTop=0;
-  const titles={dashboard:'Dashboard',alunos:'CRM de Alunos','contrato-editor':'Editor de Contrato','financeiro-cmd':'Central Financeira',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
-  const subs={dashboard:'Visão geral',alunos:'Gestão avançada de alunos','contrato-editor':'Edite cláusulas em tempo real','financeiro-cmd':'Ações em massa, analytics e planos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Suas preferências'};
+  const titles={dashboard:'Dashboard',alunos:'CRM de Alunos','contrato-editor':'Editor de Contrato','financeiro-cmd':'Central Financeira',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações',despesas:'🚐 Despesas & Lucros'};
+  const subs={dashboard:'Visão geral',alunos:'Gestão avançada de alunos','contrato-editor':'Edite cláusulas em tempo real','financeiro-cmd':'Ações em massa, analytics e planos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Perfil, planos e suporte',despesas:'Combustível, revisões e análise de lucros'};
   document.getElementById('topbar-title').textContent=titles[page]||page;
   document.getElementById('topbar-sub').textContent=subs[page]||'';
   if(page==='relatorio')renderRelatorio();
@@ -2027,6 +2089,7 @@ function goPage(page){
   if(page==='config')loadConfig();
   if(page==='contrato-editor'){if(!window._clauses||!window._clauses.length)loadDefaultClauses();else renderClausesEditor();}
   if(page==='financeiro-cmd')renderFinanceiroCMD();
+  if(page==='despesas')renderDespesas();
 }
 
 // ===== MODAL =====
@@ -2039,18 +2102,11 @@ document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click
 document.addEventListener('DOMContentLoaded',()=>{
   const fab=document.getElementById('fab');
   if(fab) fab.onclick=()=>openNewAlunoModal();
-  // Show WPP support fab when logged in
-  const origEnter=typeof enterApp==='function'?enterApp:null;
 });
 
-// ===== SHOW SUPPORT FAB =====================================================
-function showSupportFab(v){const f=document.getElementById('wpp-support-fab');if(f)f.style.display=v?'flex':'none';}
-const _baseEnterApp=enterApp;
-enterApp=function(){_baseEnterApp.call(this);showSupportFab(true);}
-
-// ===== WPP SUPPORT ==========================================================
-function openWppSupport(){const msg=encodeURIComponent('Olá! Uso o VanRotas e gostaria de saber mais sobre os planos. 🚐');window.open('https://wa.me/5511999999999?text='+msg,'_blank');}
-function upgradePlan(plan,preco){showToast('💎 Plano '+plan+' ('+preco+') — Entre em contato!');setTimeout(openWppSupport,1000);}
+// ===== WPP SUPPORT (now inside config page) =================================
+function openWppSupport(){window.open('https://wa.me/5511983179592?text='+encodeURIComponent('Olá! Uso o VanRotas e preciso de suporte. 🚐'),'_blank');}
+function upgradePlan(plan,preco){assinarPlano(plan);}
 
 // ===== SCREEN 2: MULTI-STEP FORM ============================================
 function goAlunoStep(step){
@@ -2209,6 +2265,109 @@ function showHistorico(idx){
 
 // ===== TOAST =====
 function showToast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3000);}
+
+// ===== ASSINAR PLANO =====
+function assinarPlano(plano){
+  const precos={free:0,pro:49,premium:89};
+  const nomes={free:'Free',pro:'Pro',premium:'Premium'};
+  const pix='5511983179592'; // seu numero
+  if(plano==='free'){showToast('✅ Você já está no plano Free');return;}
+  const preco=precos[plano];
+  const nome=nomes[plano];
+  const msg=encodeURIComponent(`🚐 *VanRotas — Assinatura ${nome}*\n\nOlá! Quero assinar o plano *${nome}* por *R$ ${preco}/mês*.\n\nPor favor, confirme os dados de pagamento via PIX. 💚`);
+  window.open(`https://wa.me/${pix}?text=${msg}`,'_blank');
+  showToast(`📱 Abrindo WhatsApp para assinar o plano ${nome}...`);
+}
+
+// ===== DESPESAS & LUCROS (Premium) =====
+const DESPESAS_KEY='vanrotas_despesas';
+function getDespesas(){try{return JSON.parse(localStorage.getItem(DESPESAS_KEY)||'[]');}catch{return[];}}
+function saveDespesas(d){localStorage.setItem(DESPESAS_KEY,JSON.stringify(d));}
+
+function renderDespesas(){
+  const plano=DATA.motorista.plano||'free';
+  const el=document.getElementById('despesas-content');
+  if(!el)return;
+  if(plano!=='premium'){
+    el.innerHTML=`<div style="text-align:center;padding:60px 20px">
+      <div style="font-size:60px;margin-bottom:16px">🔒</div>
+      <div style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px">Recurso Premium</div>
+      <div style="font-size:14px;color:var(--text2);margin-bottom:24px;max-width:320px;margin-inline:auto;line-height:1.6">Despesas & Lucros está disponível apenas no plano Premium. Controle combustível, revisões e veja seus lucros reais.</div>
+      <button onclick="goPage('config')" style="padding:14px 28px;background:var(--blue3);color:#fff;border:none;border-radius:var(--radius-xs);font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Ver planos → Configurações</button>
+    </div>`;
+    return;
+  }
+  const desp=getDespesas();
+  const h=new Date(),mes=h.getMonth(),ano=h.getFullYear();
+  const mesDesp=desp.filter(d=>{const dt=new Date(d.data);return dt.getMonth()===mes&&dt.getFullYear()===ano;});
+  let totalDesp=mesDesp.reduce((s,d)=>s+parseFloat(d.valor||0),0);
+  let totalRec=0;
+  DATA.alunos.forEach(a=>{const pg=(a.pagamentos||[]).find(p=>{const dt=new Date(p.data);return dt.getMonth()===mes&&dt.getFullYear()===ano;});if(pg)totalRec+=parseFloat(pg.valor||a.valor);});
+  const lucro=totalRec-totalDesp;
+  const meses=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+
+  el.innerHTML=`
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+    <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text3);letter-spacing:.4px;margin-bottom:6px">Receita</div>
+      <div style="font-size:24px;font-weight:800;color:var(--green)">${fR(totalRec)}</div>
+    </div>
+    <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text3);letter-spacing:.4px;margin-bottom:6px">Despesas</div>
+      <div style="font-size:24px;font-weight:800;color:var(--red)">${fR(totalDesp)}</div>
+    </div>
+    <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--text3);letter-spacing:.4px;margin-bottom:6px">Lucro líquido</div>
+      <div style="font-size:24px;font-weight:800;color:${lucro>=0?'var(--green)':'var(--red)'}">${fR(lucro)}</div>
+    </div>
+  </div>
+  <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:20px;margin-bottom:20px">
+    <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:14px">➕ Lançar despesa</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <div><label class="form-label">Categoria</label>
+        <select class="form-input" id="desp-cat">
+          <option>⛽ Combustível</option><option>🔧 Revisão / Manutenção</option><option>🔄 Troca de pneus</option>
+          <option>🛡️ Seguro</option><option>📄 Documentação / IPVA</option><option>🧹 Limpeza</option><option>🔩 Peças</option><option>📦 Outros</option>
+        </select>
+      </div>
+      <div><label class="form-label">Valor (R$)</label><input class="form-input" id="desp-val" type="number" placeholder="0,00" min="0" step="0.01"></div>
+      <div><label class="form-label">Data</label><input class="form-input" id="desp-data" type="date" value="${new Date().toISOString().split('T')[0]}"></div>
+      <div><label class="form-label">Descrição</label><input class="form-input" id="desp-desc" placeholder="Ex: Gasolina posto BR"></div>
+    </div>
+    <button onclick="addDespesa()" style="width:100%;padding:12px;background:var(--blue3);color:#fff;border:none;border-radius:var(--radius-xs);font-size:14px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">💾 Registrar despesa</button>
+  </div>
+  <div style="background:var(--bg-card);border:1.5px solid var(--border);border-radius:var(--radius-sm);overflow:hidden">
+    <div style="padding:14px 18px;border-bottom:1.5px solid var(--border);font-size:14px;font-weight:700;color:var(--text)">📋 Despesas de ${meses[mes]}/${ano}</div>
+    ${mesDesp.length?mesDesp.slice().reverse().map((d,i)=>`
+      <div style="padding:13px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div style="font-size:13px;font-weight:600;color:var(--text)">${d.categoria}</div>
+          <div style="font-size:11px;color:var(--text3);margin-top:2px">${d.descricao||''} · ${new Date(d.data).toLocaleDateString('pt-BR')}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span style="font-size:14px;font-weight:700;color:var(--red)">${fR(d.valor)}</span>
+          <button onclick="removeDespesa(${desp.indexOf(d)})" style="padding:4px 8px;background:var(--red-bg);color:var(--red);border:none;border-radius:6px;font-size:11px;font-weight:700;cursor:pointer">✕</button>
+        </div>
+      </div>`).join('')
+    :'<div style="padding:30px;text-align:center;color:var(--text3);font-size:13px">Nenhuma despesa registrada este mês</div>'}
+  </div>`;
+}
+
+function addDespesa(){
+  const val=parseFloat(document.getElementById('desp-val').value);
+  if(!val||val<=0){showToast('❌ Informe um valor válido');return;}
+  const desp=getDespesas();
+  desp.push({
+    categoria:document.getElementById('desp-cat').value,
+    valor:val,
+    data:document.getElementById('desp-data').value||new Date().toISOString().split('T')[0],
+    descricao:document.getElementById('desp-desc').value.trim()
+  });
+  saveDespesas(desp);
+  showToast('✅ Despesa registrada!');
+  renderDespesas();
+}
+function removeDespesa(i){const desp=getDespesas();desp.splice(i,1);saveDespesas(desp);renderDespesas();}
 </script>
 </body>
 </html>
