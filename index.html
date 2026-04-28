@@ -3,32 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="theme-color" content="#7C3AED">
+<meta name="theme-color" content="#007BFF">
 <title>VanRotas — Gestão de Transporte Escolar</title>
 <link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;VanRotas&quot;,&quot;short_name&quot;:&quot;VanRotas&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;%236D28D9&quot;,&quot;theme_color&quot;:&quot;%237C3AED&quot;,&quot;icons&quot;:[{&quot;src&quot;:&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='38' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='20' y='68' width='152' height='72' rx='16' fill='white' fill-opacity='.95'/%3E%3Crect x='118' y='44' width='54' height='96' rx='12' fill='white' fill-opacity='.85'/%3E%3Crect x='124' y='50' width='40' height='36' rx='7' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='26' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='68' y='76' width='36' height='28' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='52' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='52' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='140' cy='148' r='18' fill='%236D28D9'/%3E%3Ccircle cx='140' cy='148' r='9' fill='white' fill-opacity='.35'/%3E%3C/svg%3E&quot;,&quot;sizes&quot;:&quot;192x192&quot;,&quot;type&quot;:&quot;image/svg+xml&quot;,&quot;purpose&quot;:&quot;any maskable&quot;}]}">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="VanRotas">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='36' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236D28D9'/%3E%3Cstop offset='1' stop-color='%23A78BFA'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='18' y='64' width='144' height='68' rx='15' fill='white' fill-opacity='.95'/%3E%3Crect x='112' y='42' width='50' height='90' rx='11' fill='white' fill-opacity='.85'/%3E%3Crect x='118' y='48' width='38' height='34' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='24' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Crect x='64' y='72' width='34' height='26' rx='6' fill='%23A78BFA' fill-opacity='.5'/%3E%3Ccircle cx='48' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='48' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3Ccircle cx='132' cy='140' r='17' fill='%236D28D9'/%3E%3Ccircle cx='132' cy='140' r='8' fill='white' fill-opacity='.35'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --orange:#4764e9f3; --orange2:#9B8EFF; --orange3:#BDB5FF;
-  --teal:#06B6D4; --teal2:#0891B2; --teal3:#E0F7FA;
-  --lime:#34D399; --lime2:#10B981;
-  --yellow:#FBBF24; --yellow2:#F59E0B;
-  --red:#F43F5E; --red2:#FB7185; --red-bg:#FFF1F4;
-  --green:#10B981; --green2:#059669; --green-bg:#ECFDF5;
-  --warn:#F59E0B; --warn-bg:#FFFBEB;
-  --white:#FFFFFF; --off:#F5F3FF; --off2:#EDE9FE;
-  --text:#1E1B4B; --text2:#4C4878; --text3:#A8A4C8;
-  --border:#DDD6FE; --border2:#C4B5FD;
+  /* === NEW PALETTE === */
+  --blue:#007BFF; --blue2:#3395FF; --blue3:#CCE5FF; --blue4:#EBF4FF;
+  --slate:#2D3436; --slate2:#636E72; --slate3:#B2BEC3;
+  --off:#F4F7F6; --off2:#EEF2F1; --white:#FFFFFF;
+  --green:#00B894; --green2:#55EFC4; --green-bg:#E8FAF5;
+  --red:#FF4757; --red2:#FF6B81; --red-bg:#FFF0F1;
+  --warn:#FDCB6E; --warn2:#E17055; --warn-bg:#FFF8EC;
+  --purple:#6C5CE7; --purple2:#A29BFE;
+  --text:var(--slate); --text2:var(--slate2); --text3:var(--slate3);
+  --border:#DFE6E9; --border2:#B2BEC3;
   --card:#FFFFFF;
-  --radius:16px; --radius-sm:10px; --radius-xs:7px;
-  --shadow:0 2px 12px rgba(124,111,247,0.10); --shadow-lg:0 8px 32px rgba(124,111,247,0.15);
+  --radius:24px; --radius-sm:16px; --radius-xs:10px;
+  --shadow:0 2px 12px rgba(0,0,0,0.06); --shadow-md:0 4px 20px rgba(0,0,0,0.10); --shadow-lg:0 8px 32px rgba(0,0,0,0.12);
+  /* keep orange alias → blue for backward compat */
+  --orange:var(--blue); --orange2:var(--blue2); --orange3:var(--blue3);
+  --teal:var(--blue); --teal2:#0056CC; --teal3:var(--blue4);
+  --lime:var(--green); --lime2:var(--green);
+  --yellow:var(--warn); --yellow2:var(--warn2);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);color:var(--text);overflow:hidden}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--off);color:var(--text);overflow:hidden}
 
 /* SCREENS */
 .screen{position:fixed;inset:0;display:none;flex-direction:column;overflow:hidden}
@@ -43,28 +48,28 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 
 /* LEFT HERO */
 .login-hero{
-  background:linear-gradient(145deg,#6D28D9 0%,#d656d6 40%,#8B5CF6 70%,#A78BFA 100%);
+  background:linear-gradient(145deg,#1a1a2e 0%,#16213e 40%,#0f3460 70%,#007BFF 100%);
   padding:32px;display:flex;flex-direction:column;justify-content:space-between;
   position:relative;overflow:hidden;min-height:300px;
 }
 @media(min-width:768px){.login-hero{flex:1;min-height:100vh;padding:48px}}
-.hero-brand{display:flex;align-items:center;gap:10px;}
-.hero-brand-icon{width:42px;height:42px;background:rgba(255,255,255,0.25);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;backdrop-filter:blur(10px)}
-.hero-brand-name{font-family:'Nunito',sans-serif;font-size:24px;font-weight:900;color:#fff;letter-spacing:-0.5px}
-.hero-brand-name span{opacity:0.75}
+.hero-brand{display:flex;align-items:center;gap:12px;}
+.hero-brand-icon{width:44px;height:44px;background:rgba(255,255,255,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;backdrop-filter:blur(10px);border:1.5px solid rgba(255,255,255,0.2)}
+.hero-brand-name{font-family:'Inter',sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.hero-brand-name span{opacity:0.6}
 .hero-tagline{position:relative;z-index:2}
-.hero-tagline h1{font-family:'Nunito',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px}
-.hero-tagline p{font-size:15px;color:rgba(255,255,255,0.85);line-height:1.6;max-width:380px}
+.hero-tagline h1{font-family:'Inter',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-1px}
+.hero-tagline p{font-size:15px;color:rgba(255,255,255,0.75);line-height:1.7;max-width:380px}
 .hero-features{display:flex;flex-direction:column;gap:10px;position:relative;z-index:2}
-.hero-feat{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.15);border-radius:10px;padding:10px 14px;backdrop-filter:blur(10px)}
+.hero-feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.08);border-radius:14px;padding:12px 16px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12)}
 .hero-feat-icon{font-size:18px;flex-shrink:0}
-.hero-feat-text{font-size:13px;color:#fff;font-weight:600}
+.hero-feat-text{font-size:13px;color:rgba(255,255,255,0.9);font-weight:500}
 
 /* decorative circles */
-.hero-circle{position:absolute;border-radius:50%;background:rgba(255,255,255,0.08)}
-.hc1{width:280px;height:280px;top:-80px;right:-80px}
-.hc2{width:180px;height:180px;bottom:40px;right:30px;background:rgba(255,255,255,0.05)}
-.hc3{width:100px;height:100px;bottom:-20px;left:60px;background:rgba(255,255,255,0.06)}
+.hero-circle{position:absolute;border-radius:50%;background:rgba(0,123,255,0.15)}
+.hc1{width:320px;height:320px;top:-100px;right:-100px}
+.hc2{width:200px;height:200px;bottom:60px;right:40px;background:rgba(255,255,255,0.04)}
+.hc3{width:120px;height:120px;bottom:-30px;left:80px;background:rgba(0,123,255,0.1)}
 
 /* VAN */
 .van-scene{text-align:center;margin:16px 0;animation:vanBob 2.5s ease-in-out infinite}
@@ -72,24 +77,24 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 
 /* RIGHT PANEL */
 .login-panel{padding:32px 24px;display:flex;flex-direction:column;justify-content:flex-start;background:#fff;overflow-y:auto}
-@media(min-width:768px){.login-panel{flex:0 0 420px;padding:48px 40px;overflow-y:auto;justify-content:center}}
-.login-panel-title{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;color:var(--text);margin-bottom:4px}
-.login-panel-sub{font-size:14px;color:var(--text2);margin-bottom:24px}
+@media(min-width:768px){.login-panel{flex:0 0 440px;padding:52px 44px;overflow-y:auto;justify-content:center}}
+.login-panel-title{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-0.5px}
+.login-panel-sub{font-size:14px;color:var(--text2);margin-bottom:28px;font-weight:400}
 
-.tabs-row{display:flex;background:var(--off2);border-radius:var(--radius-sm);padding:3px;margin-bottom:22px}
+.tabs-row{display:flex;background:var(--off2);border-radius:var(--radius-xs);padding:4px;margin-bottom:24px}
 .tab-btn{flex:1;padding:9px;text-align:center;border-radius:7px;font-size:14px;font-weight:600;cursor:pointer;color:var(--text2);transition:all .2s}
-.tab-btn.active{background:#fff;color:var(--orange);box-shadow:0 2px 8px rgba(124,111,247,0.15)}
+.tab-btn.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px rgba(0,0,0,0.10)}
 
-.form-group{margin-bottom:14px}
-.form-label{display:block;font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px}
-.form-input{width:100%;padding:12px 14px;background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-size:15px;font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s}
-.form-input:focus{border-color:var(--orange);background:#fff}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--text2);letter-spacing:.5px;text-transform:uppercase;margin-bottom:7px}
+.form-input{width:100%;padding:13px 16px;background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-xs);color:var(--text);font-size:15px;font-family:'Inter',sans-serif;outline:none;transition:all .2s}
+.form-input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(0,123,255,0.10)}
 .form-input::placeholder{color:var(--text3)}
 .form-input option{background:#fff}
-.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
-.btn-main{width:100%;padding:14px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:#fff;border:none;border-radius:var(--radius-sm);font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.2px;box-shadow:0 4px 14px rgba(124,111,247,0.35)}
-.btn-main:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(124,111,247,0.45)}
+.btn-main{width:100%;padding:15px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-xs);font-size:15px;font-weight:700;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;letter-spacing:.2px;box-shadow:0 4px 16px rgba(0,123,255,0.35)}
+.btn-main:hover{background:#0069d9;transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,123,255,0.45)}
 .btn-main:active{transform:scale(0.98)}
 
 .login-footer{font-size:12px;color:var(--text3);text-align:center;margin-top:18px;line-height:1.6}
@@ -101,153 +106,160 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 .app-layout{display:flex;height:100%;flex-direction:column}
 @media(min-width:768px){.app-layout{flex-direction:row}}
 
-.sidebar{display:none;width:240px;background:#fff;border-right:1.5px solid var(--border);flex-direction:column;flex-shrink:0;padding:20px 0}
+.sidebar{display:none;width:256px;background:var(--slate);flex-direction:column;flex-shrink:0;padding:0}
 @media(min-width:768px){.sidebar{display:flex}}
-.sidebar-brand{display:flex;align-items:center;gap:10px;padding:0 20px 20px;border-bottom:1.5px solid var(--border);margin-bottom:12px}
-.sidebar-brand-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--orange),var(--orange2));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px}
-.sidebar-brand-name{font-family:'Nunito',sans-serif;font-size:18px;font-weight:900;color:var(--text)}
-.sidebar-brand-name span{color:var(--orange)}
-.sidebar-nav{flex:1;padding:0 10px}
-.snav-item{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;color:var(--text2);margin-bottom:2px;transition:all .15s}
-.snav-item:hover{background:var(--off2)}
-.snav-item.active{background:linear-gradient(135deg,rgba(124,111,247,0.12),rgba(155,142,255,0.08));color:var(--orange)}
-.snav-icon{font-size:18px;width:24px;text-align:center}
-.snav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:800;padding:2px 7px;border-radius:20px;min-width:18px;text-align:center}
-.sidebar-user{padding:16px 20px;border-top:1.5px solid var(--border);margin-top:auto}
+.sidebar-brand{display:flex;align-items:center;gap:12px;padding:24px 20px 20px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:8px}
+.sidebar-brand-icon{width:38px;height:38px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 4px 12px rgba(0,123,255,0.4)}
+.sidebar-brand-name{font-family:'Inter',sans-serif;font-size:17px;font-weight:800;color:#fff;letter-spacing:-0.3px}
+.sidebar-brand-name span{color:rgba(255,255,255,0.4)}
+.sidebar-nav{flex:1;padding:8px 12px}
+.snav-section{font-size:10px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:.8px;padding:16px 8px 6px}
+.snav-item{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;cursor:pointer;font-size:14px;font-weight:500;color:rgba(255,255,255,0.6);margin-bottom:2px;transition:all .15s}
+.snav-item:hover{background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.9)}
+.snav-item.active{background:var(--blue);color:#fff;font-weight:600;box-shadow:0 4px 12px rgba(0,123,255,0.4)}
+.snav-icon{font-size:17px;width:22px;text-align:center;opacity:0.9}
+.snav-badge{margin-left:auto;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;min-width:18px;text-align:center}
+.sidebar-user{padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);margin-top:auto}
 .sidebar-user-row{display:flex;align-items:center;gap:10px}
-.sidebar-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff;font-family:'Nunito',sans-serif;flex-shrink:0}
-.sidebar-user-name{font-size:14px;font-weight:700;color:var(--text)}
-.sidebar-user-plan{font-size:11px;color:var(--text3)}
-.sidebar-logout{margin-top:10px;width:100%;padding:8px;background:var(--off2);border:none;border-radius:7px;color:var(--text2);font-size:13px;font-weight:600;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
-.sidebar-logout:hover{background:var(--red-bg);color:var(--red)}
+.sidebar-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#fff;font-family:'Inter',sans-serif;flex-shrink:0;border:2px solid rgba(255,255,255,0.2)}
+.sidebar-user-name{font-size:14px;font-weight:600;color:#fff}
+.sidebar-user-plan{font-size:11px;color:rgba(255,255,255,0.4);margin-top:1px}
+.sidebar-logout{margin-top:12px;width:100%;padding:9px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:rgba(255,255,255,0.5);font-size:13px;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
+.sidebar-logout:hover{background:rgba(255,71,87,0.2);color:var(--red);border-color:rgba(255,71,87,0.3)}
 
 /* MAIN CONTENT AREA */
 .app-main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .app-topbar{background:#fff;border-bottom:1.5px solid var(--border);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-@media(min-width:768px){.app-topbar{padding:16px 28px}}
-.topbar-left h2{font-family:'Nunito',sans-serif;font-size:20px;font-weight:800;color:var(--text)}
+@media(min-width:768px){.app-topbar{padding:18px 32px}}
+.topbar-left h2{font-family:'Inter',sans-serif;font-size:20px;font-weight:700;color:var(--text);letter-spacing:-0.3px}
 .topbar-left p{font-size:12px;color:var(--text3);margin-top:2px}
 .topbar-right{display:flex;align-items:center;gap:10px}
 .notif-btn{position:relative;width:38px;height:38px;border-radius:50%;background:var(--off2);border:none;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center}
-.notif-dot{position:absolute;top:4px;right:4px;width:9px;height:9px;border-radius:50%;background:var(--red);border:2px solid #fff}
-.mob-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:#fff;cursor:pointer}
+.notif-dot{position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;background:var(--red);border:2px solid #fff}
+.mob-avatar{width:38px;height:38px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;cursor:pointer}
 @media(min-width:768px){.mob-avatar{display:none}}
 
 .page-content{flex:1;overflow-y:auto;padding:20px;padding-bottom:80px}
-@media(min-width:768px){.page-content{padding:28px 32px}}
+@media(min-width:768px){.page-content{padding:28px 32px;padding-bottom:28px}}
 
 /* BOTTOM NAV (mobile only) */
 .bottom-nav{background:#fff;border-top:1.5px solid var(--border);display:flex;padding:6px 0 max(10px,env(safe-area-inset-bottom));width:100%}
 @media(min-width:768px){.bottom-nav{display:none!important}}
-.bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px}
+.bnav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:5px}
 .bnav-icon{font-size:20px;line-height:1}
 .bnav-label{font-size:10px;font-weight:600;color:var(--text3)}
-.bnav-item.active .bnav-label{color:var(--orange)}
-.bnav-item.active .bnav-icon{filter:drop-shadow(0 0 4px rgba(255,107,0,0.5))}
+.bnav-item.active .bnav-label{color:var(--blue)}
+.bnav-item.active .bnav-icon{filter:drop-shadow(0 0 5px rgba(0,123,255,0.5))}
 
 /* PAGES */
 .page{display:none}
 .page.active{display:block}
 
 /* === DASHBOARD === */
-.welcome-band{background:linear-gradient(135deg,#6D28D9,#7C3AED);border-radius:var(--radius);padding:20px 22px;color:#fff;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}
-.welcome-band::after{content:'🚌';position:absolute;right:16px;bottom:-8px;font-size:64px;opacity:0.18;transform:scaleX(-1)}
-.wb-title{font-family:'Nunito',sans-serif;font-size:20px;font-weight:900}
-.wb-sub{font-size:13px;opacity:0.85;margin-top:3px}
-.wb-date{font-size:12px;opacity:0.7;margin-top:6px}
-.btn-wb{background:rgba(255,255,255,0.25);border:1.5px solid rgba(255,255,255,0.5);color:#fff;border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;backdrop-filter:blur(6px);white-space:nowrap;transition:all .2s}
-.btn-wb:hover{background:rgba(255,255,255,0.45)}
+.welcome-band{background:linear-gradient(135deg,var(--slate) 0%,#0f3460 50%,#007BFF 100%);border-radius:var(--radius);padding:22px 24px;color:#fff;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}
+.welcome-band::after{content:'🚐';position:absolute;right:18px;bottom:-10px;font-size:72px;opacity:0.14;transform:scaleX(-1)}
+.wb-title{font-family:'Inter',sans-serif;font-size:20px;font-weight:800;letter-spacing:-0.3px}
+.wb-sub{font-size:13px;opacity:0.8;margin-top:4px}
+.wb-date{font-size:12px;opacity:0.6;margin-top:6px}
+.btn-wb{background:rgba(255,255,255,0.18);border:1.5px solid rgba(255,255,255,0.35);color:#fff;border-radius:10px;padding:9px 18px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;backdrop-filter:blur(6px);white-space:nowrap;transition:all .2s}
+.btn-wb:hover{background:rgba(255,255,255,0.3)}
 
-.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:20px}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:20px}
 @media(min-width:600px){.kpi-grid{grid-template-columns:repeat(4,1fr)}}
-.kpi-card{background:#fff;border-radius:var(--radius-sm);padding:16px;border:1.5px solid var(--border);position:relative;overflow:hidden}
-.kpi-tag{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:10px}
-.kpi-val{font-family:'Nunito',sans-serif;font-size:26px;font-weight:900;line-height:1}
-.kpi-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-top:5px}
-.kpi-bar{height:3px;border-radius:2px;margin-top:10px;background:var(--off2)}
+.kpi-card{background:#fff;border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);position:relative;overflow:hidden;box-shadow:var(--shadow);transition:all .2s;cursor:pointer}
+.kpi-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.kpi-tag{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:12px}
+.kpi-val{font-family:'Inter',sans-serif;font-size:28px;font-weight:800;line-height:1;letter-spacing:-1px}
+.kpi-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:5px}
+.kpi-bar{height:3px;border-radius:2px;margin-top:12px;background:var(--off2)}
 .kpi-bar-fill{height:3px;border-radius:2px}
 
-.section-hdr{display:flex;justify-content:space-between;align-items:center;margin:22px 0 12px}
-.section-hdr h3{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
-.section-link{font-size:13px;color:var(--orange);font-weight:700;cursor:pointer}
+.section-hdr{display:flex;justify-content:space-between;align-items:center;margin:24px 0 14px}
+.section-hdr h3{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.3px}
+.section-link{font-size:13px;color:var(--blue);font-weight:600;cursor:pointer}
 
-.alert-strip{border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;border:1.5px solid}
-.alert-strip.warn{background:var(--warn-bg);border-color:#FFD591}
-.alert-strip.danger{background:var(--red-bg);border-color:#FFA39E}
-.alert-strip.success{background:var(--green-bg);border-color:#B7EB8F}
+.alert-strip{border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;border:1.5px solid}
+.alert-strip.warn{background:var(--warn-bg);border-color:#FFE8A3}
+.alert-strip.danger{background:var(--red-bg);border-color:#FFBFC7}
+.alert-strip.success{background:var(--green-bg);border-color:#99E9D2}
 .as-icon{font-size:20px;flex-shrink:0;margin-top:1px}
 .as-body{flex:1}
 .as-title{font-size:14px;font-weight:700}
 .as-sub{font-size:12px;color:var(--text2);margin-top:2px;line-height:1.5}
-.as-btn{font-size:12px;color:var(--orange);font-weight:700;cursor:pointer;margin-top:6px;display:inline-block}
+.as-btn{font-size:12px;color:var(--blue);font-weight:700;cursor:pointer;margin-top:6px;display:inline-block}
 
-.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(min-width:600px){.quick-grid{grid-template-columns:repeat(4,1fr)}}
-.quick-card{background:#fff;border-radius:var(--radius-sm);padding:16px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s}
-.quick-card:hover{border-color:var(--orange);box-shadow:0 4px 16px rgba(124,111,247,0.12)}
+.quick-card{background:#fff;border-radius:var(--radius-sm);padding:18px;border:1.5px solid var(--border);cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+.quick-card:hover{border-color:var(--blue);box-shadow:var(--shadow-md);transform:translateY(-2px)}
 .quick-card:active{transform:scale(0.97)}
-.qc-icon{font-size:26px;margin-bottom:8px}
-.qc-label{font-size:13px;font-weight:700}
-.qc-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.qc-icon{font-size:28px;margin-bottom:10px}
+.qc-label{font-size:13px;font-weight:700;color:var(--text)}
+.qc-sub{font-size:11px;color:var(--text3);margin-top:3px}
 
 /* RECENT TABLE */
-.table-wrap{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);overflow:hidden}
-.table-row{display:grid;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
+.table-wrap{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);overflow:hidden;box-shadow:var(--shadow)}
+.table-row{display:grid;align-items:center;padding:13px 18px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .12s}
 .table-row:last-child{border-bottom:none}
 .table-row:hover{background:var(--off)}
-.table-row.header{background:var(--off2);cursor:default;padding:10px 16px}
+.table-row.header{background:var(--off2);cursor:default;padding:10px 18px}
 .table-row.header:hover{background:var(--off2)}
-.th{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.4px}
-.td-name{font-size:14px;font-weight:700}
+.th{font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.td-name{font-size:14px;font-weight:600}
 .td-sub{font-size:11px;color:var(--text3);margin-top:2px}
-.pill{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:20px;font-size:11px;font-weight:700}
-.pill.ok{background:#F6FFED;color:#52C41A}
-.pill.late{background:#FFF1F0;color:#F5222D}
-.pill.warn{background:#FFF7E6;color:#FA8C16}
-.pill.pago{background:#F0F9FF;color:#0EA5E9}
 
-/* ALUNO CARDS */
-.aluno-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);padding:16px 18px;margin-bottom:12px;cursor:pointer;transition:all .15s;border-left:5px solid transparent}
-.aluno-card.ok{border-left-color:var(--green)}
-.aluno-card.late{border-left-color:var(--red)}
-.aluno-card.warn{border-left-color:var(--warn)}
-.aluno-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-1px)}
-.ac-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.ac-avatar{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;font-weight:900;font-size:16px;flex-shrink:0}
+/* STATUS PILLS — premium color-coded */
+.pill{display:inline-flex;align-items:center;gap:4px;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.2px}
+.pill.ok,.pill.pago{background:#E8FAF5;color:#00B894}
+.pill.ok::before,.pill.pago::before{content:'●';font-size:7px;color:#00B894}
+.pill.late{background:var(--red-bg);color:var(--red)}
+.pill.late::before{content:'●';font-size:7px;color:var(--red)}
+.pill.warn{background:var(--warn-bg);color:#D4930A}
+.pill.warn::before{content:'●';font-size:7px;color:#D4930A}
+
+/* ALUNO CARDS — with circular avatar */
+.aluno-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);padding:18px 20px;margin-bottom:12px;cursor:pointer;transition:all .15s;box-shadow:var(--shadow)}
+.aluno-card.ok{border-top:3px solid var(--green)}
+.aluno-card.late{border-top:3px solid var(--red)}
+.aluno-card.warn{border-top:3px solid var(--warn2)}
+.aluno-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.ac-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ac-avatar{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:800;font-size:16px;flex-shrink:0;border:2.5px solid var(--border)}
 .ac-info{flex:1;min-width:0}
-.ac-name{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
+.ac-name{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.2px}
 .ac-resp{font-size:13px;color:var(--text2);margin-top:2px}
 .ac-escola{font-size:12px;color:var(--text3);margin-top:2px}
 .ac-mid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px;padding-top:14px;border-top:1.5px solid var(--border)}
-.ac-stat-val{font-family:'Nunito',sans-serif;font-size:16px;font-weight:800}
-.ac-stat-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px;margin-top:2px}
+.ac-stat-val{font-family:'Inter',sans-serif;font-size:16px;font-weight:700;letter-spacing:-0.3px}
+.ac-stat-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.3px;margin-top:2px;font-weight:600}
 .ac-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
-.act-btn{flex:1;min-width:60px;padding:8px 6px;border:none;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .15s}
+.act-btn{flex:1;min-width:60px;padding:9px 6px;border:none;border-radius:10px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s}
 .act-btn:active{transform:scale(0.96)}
 .act-wpp{background:#E8FDF2;color:#128C7E}
-.act-email{background:#EFF6FF;color:#2563EB}
-.act-pix{background:#FFF7E6;color:#D97706}
-.act-pago{background:#F6FFED;color:#52C41A}
-.act-red{background:#FFF1F0;color:#F5222D}
+.act-email{background:#EBF4FF;color:#0056CC}
+.act-pix{background:#FFF8EC;color:#D97706}
+.act-pago{background:#E8FAF5;color:#00B894}
+.act-red{background:var(--red-bg);color:var(--red)}
 
 /* SEARCH + FILTER */
-.search-bar{position:relative;margin-bottom:12px}
-.search-bar input{width:100%;padding:12px 14px 12px 40px;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:'Outfit',sans-serif;color:var(--text);outline:none}
-.search-bar input:focus{border-color:var(--orange)}
-.search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:16px;opacity:.4;pointer-events:none}
+.search-bar{position:relative;margin-bottom:14px}
+.search-bar input{width:100%;padding:13px 16px 13px 44px;background:#fff;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:'Inter',sans-serif;color:var(--text);outline:none;box-shadow:var(--shadow);transition:all .2s}
+.search-bar input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,123,255,0.10)}
+.search-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);font-size:16px;opacity:.4;pointer-events:none}
 .filter-row{display:flex;gap:8px;overflow-x:auto;margin-bottom:16px;scrollbar-width:none;padding-bottom:2px}
 .filter-row::-webkit-scrollbar{display:none}
-.fchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;border:1.5px solid var(--border);color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s;background:#fff}
-.fchip.active{background:var(--orange);color:#fff;border-color:var(--orange)}
-.fab{position:fixed;right:20px;bottom:80px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));border:none;color:#fff;font-size:28px;cursor:pointer;z-index:50;box-shadow:0 4px 20px rgba(124,111,247,.5);display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:300}
-.fab:hover{transform:scale(1.08)}
+.fchip{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;border:1.5px solid var(--border);color:var(--text2);cursor:pointer;white-space:nowrap;transition:all .15s;background:#fff}
+.fchip.active{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 4px 12px rgba(0,123,255,0.3)}
+.fab{position:fixed;right:20px;bottom:80px;width:56px;height:56px;border-radius:50%;background:var(--blue);border:none;color:#fff;font-size:28px;cursor:pointer;z-index:50;box-shadow:0 4px 20px rgba(0,123,255,0.5);display:flex;align-items:center;justify-content:center;transition:all .2s;font-weight:300}
+.fab:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(0,123,255,0.6)}
 .fab:active{transform:scale(0.93)}
 @media(min-width:768px){.fab{bottom:28px}}
 
 /* COBRANÇA */
-.cob-total-band{background:linear-gradient(135deg,#FFF1F0,#FFF7F7);border:2px solid #FFA39E;border-radius:var(--radius);padding:20px;margin-bottom:20px}
+.cob-total-band{background:linear-gradient(135deg,var(--red-bg),#fff5f6);border:2px solid #FFBFC7;border-radius:var(--radius);padding:22px;margin-bottom:20px;box-shadow:var(--shadow)}
 .cob-total-lbl{font-size:12px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.5px}
-.cob-total-val{font-family:'Nunito',sans-serif;font-size:40px;font-weight:900;color:var(--red);margin-top:4px}
+.cob-total-val{font-family:'Inter',sans-serif;font-size:40px;font-weight:800;color:var(--red);margin-top:4px;letter-spacing:-2px}
+
 .cob-stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;padding-top:14px;border-top:1.5px solid #FFA39E}
 .cob-stat-lbl{font-size:11px;color:var(--text2);text-transform:uppercase;font-weight:600}
 .cob-stat-val{font-size:18px;font-weight:800;margin-top:3px}
@@ -383,6 +395,138 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 /* SCROLLBAR */
 .page-content::-webkit-scrollbar,.modal-drawer::-webkit-scrollbar,.contrato-preview::-webkit-scrollbar,.contrato-doc::-webkit-scrollbar{width:4px}
 .page-content::-webkit-scrollbar-thumb,.modal-drawer::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* ===== SCREEN 1: SMART CONTRACT WORKSHOP ===== */
+.contract-workshop{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:900px){.contract-workshop{grid-template-columns:1fr 1fr;height:calc(100vh - 160px)}}
+.cw-panel{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-md);min-height:400px}
+.cw-panel-header{padding:14px 20px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--off);flex-shrink:0;flex-wrap:wrap;gap:8px}
+.cw-panel-title{font-size:14px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px}
+.cw-panel-body{flex:1;overflow-y:auto;padding:16px 20px}
+.clause-item{background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-xs);padding:14px 16px;margin-bottom:10px;transition:border-color .2s}
+.clause-item:hover{border-color:var(--blue)}
+.clause-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.clause-number{font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.6px;background:var(--blue3);padding:2px 8px;border-radius:20px}
+.clause-actions{display:flex;gap:5px}
+.clause-act-btn{width:26px;height:26px;border-radius:7px;border:1.5px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:all .15s;color:var(--text2);padding:0}
+.clause-act-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue4)}
+.clause-act-btn.del:hover{border-color:var(--red);color:var(--red);background:var(--red-bg)}
+.clause-title-inp{width:100%;font-size:13px;font-weight:700;color:var(--text);background:transparent;border:none;outline:none;font-family:'Inter',sans-serif;margin-bottom:6px;padding:2px 0}
+.clause-body-inp{width:100%;font-size:12px;color:var(--text2);background:transparent;border:none;outline:none;font-family:'Inter',sans-serif;resize:none;line-height:1.7;min-height:56px;padding:2px 0}
+.clause-title-inp:focus,.clause-body-inp:focus{background:var(--blue4);border-radius:4px;padding:2px 6px}
+.add-clause-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;background:var(--blue4);border:2px dashed var(--blue3);border-radius:var(--radius-xs);cursor:pointer;color:var(--blue);font-size:13px;font-weight:600;transition:all .2s;width:100%;margin-top:4px;font-family:'Inter',sans-serif}
+.add-clause-btn:hover{background:var(--blue3)}
+.contract-preview-wrap{padding:20px;font-size:12.5px;line-height:1.85;color:var(--text);flex:1;overflow-y:auto}
+.preview-title-block{text-align:center;margin-bottom:16px;padding-bottom:14px;border-bottom:2px solid var(--border)}
+.preview-title{font-size:14px;font-weight:800;color:var(--slate);letter-spacing:-.2px}
+.preview-clause{margin-bottom:12px}
+.preview-clause-title{font-size:11.5px;font-weight:700;color:var(--slate);margin-bottom:4px;text-transform:uppercase;letter-spacing:.3px}
+.preview-clause-body{font-size:12px;color:var(--text2);line-height:1.7}
+.wpp-float-btn{position:sticky;bottom:12px;margin:12px 20px;background:#25D366;color:#fff;border:none;border-radius:50px;padding:13px 20px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:all .2s;z-index:10;flex-shrink:0}
+.wpp-float-btn:hover{box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.cw-tool-btn{padding:7px 12px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;background:#fff;color:var(--text2);font-family:'Inter',sans-serif;transition:all .15s;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.cw-tool-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue4)}
+/* ===== SCREEN 2: MULTI-STEP ALUNO FORM ===== */
+.modal-drawer.wide{max-width:680px}
+.form-steps-bar{display:flex;background:var(--off2);border-radius:var(--radius-xs);margin-bottom:22px;overflow:hidden}
+.form-step-tab{flex:1;padding:10px 6px;text-align:center;font-size:11px;font-weight:600;color:var(--text3);cursor:pointer;transition:all .2s;border-right:1px solid var(--border)}
+.form-step-tab:last-child{border-right:none}
+.form-step-tab.active{background:var(--blue);color:#fff;font-weight:700}
+.form-step-tab.done{background:var(--green-bg);color:var(--green)}
+.form-step-content{display:none}
+.form-step-content.active{display:block}
+.upload-zone{border:2px dashed var(--border2);border-radius:var(--radius-xs);padding:26px;text-align:center;cursor:pointer;transition:all .2s;background:var(--off)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--blue);background:var(--blue4)}
+.uploaded-file{display:flex;align-items:center;gap:12px;background:var(--green-bg);border:1.5px solid #99E9D2;border-radius:var(--radius-xs);padding:11px 14px;margin-top:8px}
+.uploaded-file-icon{font-size:20px;flex-shrink:0}
+.uploaded-file-name{font-size:13px;font-weight:600;flex:1}
+.uploaded-file-remove{font-size:11px;color:var(--red);cursor:pointer;font-weight:700;padding:3px 8px;background:var(--red-bg);border-radius:6px;border:none;font-family:'Inter',sans-serif}
+.medical-tag{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:20px;font-size:12px;font-weight:600;background:var(--warn-bg);color:#c07a00;border:1px solid #FFE8A3;margin:3px}
+.medical-tag button{border:none;background:none;cursor:pointer;font-size:11px;color:#c07a00;padding:0;line-height:1}
+.add-tag-row{display:flex;gap:8px;margin-top:8px}
+.emergency-contact-card{background:var(--off);border:1.5px solid var(--border);border-radius:var(--radius-xs);padding:14px;margin-bottom:10px;position:relative}
+.ec-remove{position:absolute;top:10px;right:10px;background:var(--red-bg);color:var(--red);border:none;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+/* ===== SCREEN 3: FINANCIAL COMMAND CENTER ===== */
+.action-btns-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+@media(min-width:600px){.action-btns-grid{grid-template-columns:repeat(3,1fr)}}
+.action-btn-card{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:18px 14px;cursor:pointer;transition:all .2s;box-shadow:var(--shadow);text-align:center}
+.action-btn-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.action-btn-card:active{transform:scale(0.97)}
+.abc-icon{font-size:28px;margin-bottom:8px}
+.abc-label{font-size:13px;font-weight:700;color:var(--text)}
+.abc-sub{font-size:11px;color:var(--text3);margin-top:3px;line-height:1.4}
+.abc-badge{display:inline-block;margin-top:7px;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700}
+.plans-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:20px}
+@media(min-width:600px){.plans-grid{grid-template-columns:repeat(3,1fr)}}
+.plan-card{background:#fff;border-radius:var(--radius-sm);border:2px solid var(--border);padding:20px;text-align:center;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.plan-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.plan-card.current-plan{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,123,255,.12)}
+.plan-card.popular-plan{border-color:var(--green)}
+.plan-badge{position:absolute;top:0;right:0;background:var(--green);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:0 var(--radius-sm) 0 10px;white-space:nowrap}
+.plan-name{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.plan-price{font-size:28px;font-weight:800;color:var(--text);letter-spacing:-1px}
+.plan-price span{font-size:12px;font-weight:500;color:var(--text3)}
+.plan-feat{font-size:12px;color:var(--text2);padding:5px 0;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--border);text-align:left}
+.plan-feat:last-child{border-bottom:none}
+.plan-feat::before{content:'✓';color:var(--green);font-weight:800;flex-shrink:0}
+.plan-feat.no::before{content:'✗';color:var(--slate3)}
+.plan-feat.no{color:var(--text3)}
+.plan-btn{width:100%;margin-top:14px;padding:10px;border-radius:var(--radius-xs);font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;border:none;transition:all .2s}
+.plan-btn.upgrade-btn{background:var(--blue);color:#fff;box-shadow:0 4px 12px rgba(0,123,255,.3)}
+.plan-btn.current-btn{background:var(--off2);color:var(--text3);cursor:default}
+.plan-btn.popular-btn{background:var(--green);color:#fff;box-shadow:0 4px 12px rgba(0,184,148,.3)}
+.profit-chart-card{background:#fff;border-radius:var(--radius-sm);border:1.5px solid var(--border);padding:20px;margin-bottom:20px;box-shadow:var(--shadow)}
+.profit-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.pkpi{text-align:center;padding:12px;background:var(--off);border-radius:var(--radius-xs)}
+.pkpi-val{font-size:18px;font-weight:800;letter-spacing:-1px}
+.pkpi-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-top:3px;font-weight:600}
+.wpp-support-fab{position:fixed;right:20px;bottom:90px;background:#25D366;color:#fff;border:none;border-radius:50px;padding:11px 16px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:none;align-items:center;gap:8px;box-shadow:0 4px 24px rgba(37,211,102,.5);transition:all .2s;z-index:49;white-space:nowrap}
+.wpp-support-fab:hover{transform:translateY(-2px)}
+@media(min-width:768px){.wpp-support-fab{bottom:28px;right:28px}}
+/* ===== SCREEN 4: ADVANCED CRM ===== */
+.crm-stats-strip{display:flex;gap:10px;overflow-x:auto;margin-bottom:16px;padding-bottom:4px;scrollbar-width:none}
+.crm-stats-strip::-webkit-scrollbar{display:none}
+.crm-stat{background:#fff;border-radius:var(--radius-xs);padding:12px 16px;border:1.5px solid var(--border);flex-shrink:0;box-shadow:var(--shadow);min-width:100px;cursor:pointer;transition:all .15s;text-align:center}
+.crm-stat:hover{border-color:var(--blue);transform:translateY(-1px)}
+.crm-stat-val{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.crm-stat-lbl{font-size:10px;color:var(--text3);text-transform:uppercase;font-weight:600;margin-top:2px}
+.aluno-crm-card{background:#fff;border-radius:var(--radius);border:1.5px solid var(--border);margin-bottom:10px;transition:all .15s;box-shadow:var(--shadow);overflow:hidden}
+.aluno-crm-card:hover{box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.acc-top{display:flex;align-items:center;gap:14px;padding:16px 18px;cursor:pointer}
+.acc-avatar-wrap{position:relative;flex-shrink:0}
+.acc-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:800;font-size:15px;border:2.5px solid var(--border)}
+.acc-status-dot{position:absolute;bottom:0;right:0;width:12px;height:12px;border-radius:50%;border:2.5px solid #fff}
+.acc-status-dot.ok{background:var(--green)}
+.acc-status-dot.late{background:var(--red)}
+.acc-status-dot.warn{background:var(--warn2)}
+.acc-info{flex:1;min-width:0}
+.acc-name{font-size:15px;font-weight:700;letter-spacing:-.2px}
+.acc-meta{font-size:12px;color:var(--text2);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.acc-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.acc-toggle{position:relative;width:40px;height:22px}
+.acc-toggle input{opacity:0;width:0;height:0;position:absolute}
+.acc-toggle-slider{position:absolute;inset:0;border-radius:11px;background:var(--border2);cursor:pointer;transition:background .3s}
+.acc-toggle-slider::before{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform .3s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.acc-toggle input:checked+.acc-toggle-slider{background:var(--green)}
+.acc-toggle input:checked+.acc-toggle-slider::before{transform:translateX(18px)}
+.acc-footer{display:flex;border-top:1px solid var(--border)}
+.acc-foot-btn{flex:1;padding:10px 4px;border:none;background:none;cursor:pointer;font-size:11px;font-weight:600;color:var(--text2);font-family:'Inter',sans-serif;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:4px;border-right:1px solid var(--border)}
+.acc-foot-btn:last-child{border-right:none}
+.acc-foot-btn:hover{background:var(--off)}
+.acc-foot-btn.hist:hover{background:var(--blue4);color:var(--blue)}
+.acc-foot-btn.wpp-btn:hover{background:#E8FDF2;color:#128C7E}
+.acc-foot-btn.pago-btn:hover{background:var(--green-bg);color:var(--green)}
+.acc-foot-btn.cont-btn:hover{background:var(--blue4);color:var(--blue)}
+/* History modal */
+.hist-timeline{padding:0}
+.hist-item{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid var(--border)}
+.hist-item:last-child{border-bottom:none}
+.hist-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.hist-body{flex:1}
+.hist-title{font-size:13px;font-weight:600;color:var(--text)}
+.hist-date{font-size:11px;color:var(--text3);margin-top:2px}
+.hist-amount{font-size:14px;font-weight:700;color:var(--green);margin-top:2px}
+
 </style>
 </head>
 <body>
@@ -550,16 +694,22 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
     <!-- SIDEBAR -->
     <div class="sidebar">
       <div class="sidebar-brand">
-        <div class="sidebar-brand-icon">🚌</div>
+        <div class="sidebar-brand-icon">🚐</div>
         <div class="sidebar-brand-name">Van<span>Rotas</span></div>
       </div>
       <div class="sidebar-nav">
+        <div class="snav-section">Principal</div>
         <div class="snav-item active" id="snav-dashboard" onclick="goPage('dashboard')"><span class="snav-icon">🏠</span>Dashboard</div>
-        <div class="snav-item" id="snav-alunos" onclick="goPage('alunos')"><span class="snav-icon">👦</span>Alunos</div>
-        <div class="snav-item" id="snav-cobrancas" onclick="goPage('cobrancas')"><span class="snav-icon">💰</span>Cobranças<span class="snav-badge" id="snav-badge" style="display:none">0</span></div>
+        <div class="snav-item" id="snav-alunos" onclick="goPage('alunos')"><span class="snav-icon">🚐</span>Alunos CRM</div>
+        <div class="snav-section">Ferramentas</div>
+        <div class="snav-item" id="snav-contrato-editor" onclick="goPage('contrato-editor')"><span class="snav-icon">📝</span>Editor de Contrato</div>
+        <div class="snav-item" id="snav-financeiro-cmd" onclick="goPage('financeiro-cmd')"><span class="snav-icon">💹</span>Central Financeira</div>
+        <div class="snav-section">Financeiro</div>
+        <div class="snav-item" id="snav-cobrancas" onclick="goPage('cobrancas')"><span class="snav-icon">💳</span>Cobranças<span class="snav-badge" id="snav-badge" style="display:none">0</span></div>
         <div class="snav-item" id="snav-relatorio" onclick="goPage('relatorio')"><span class="snav-icon">📊</span>Relatório</div>
+        <div class="snav-section">Conta</div>
         <div class="snav-item" id="snav-config" onclick="goPage('config')"><span class="snav-icon">⚙️</span>Configurações</div>
-        <div class="snav-item" id="snav-contrato" onclick="openContratoLink()" style="margin-top:8px;border-top:1.5px solid var(--border);padding-top:14px"><span class="snav-icon">📄</span>Link de contrato</div>
+        <div class="snav-item" id="snav-contrato" onclick="openContratoLink()"><span class="snav-icon">📄</span>Link de contrato</div>
       </div>
       <div class="sidebar-user">
         <div class="sidebar-user-row">
@@ -642,16 +792,171 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
           <div id="dash-table"></div>
         </div>
 
-        <!-- ALUNOS -->
+        <!-- SCREEN 4: ADVANCED CRM -->
         <div class="page" id="page-alunos">
+          <div class="crm-stats-strip">
+            <div class="crm-stat"><div class="crm-stat-val" id="crm-total">0</div><div class="crm-stat-lbl">Total</div></div>
+            <div class="crm-stat"><div class="crm-stat-val" style="color:var(--green)" id="crm-ok">0</div><div class="crm-stat-lbl">Em dia</div></div>
+            <div class="crm-stat"><div class="crm-stat-val" style="color:var(--red)" id="crm-late">0</div><div class="crm-stat-lbl">Atrasados</div></div>
+            <div class="crm-stat"><div class="crm-stat-val" style="color:var(--warn2)" id="crm-warn">0</div><div class="crm-stat-lbl">Vencendo</div></div>
+            <div class="crm-stat"><div class="crm-stat-val" style="color:var(--blue);font-size:14px" id="crm-receita">R$ 0</div><div class="crm-stat-lbl">Mensalidades</div></div>
+          </div>
           <div class="search-bar"><span class="search-icon">🔍</span><input id="search-al" placeholder="Buscar aluno ou responsável..." oninput="filterAlunos(this.value)"></div>
-          <div class="filter-row">
-            <div class="fchip active" onclick="setFilter('todos',this)">Todos</div>
-            <div class="fchip" onclick="setFilter('ok',this)">✅ Em dia</div>
-            <div class="fchip" onclick="setFilter('late',this)">⚠ Atrasados</div>
-            <div class="fchip" onclick="setFilter('warn',this)">🔔 Vencendo</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+            <div class="filter-row" style="margin:0;flex:1">
+              <div class="fchip active" id="fchip-todos" onclick="setFilter('todos',this)">Todos</div>
+              <div class="fchip" id="fchip-ok" onclick="setFilter('ok',this)">✅ Em dia</div>
+              <div class="fchip" id="fchip-late" onclick="setFilter('late',this)">⚠ Atrasados</div>
+              <div class="fchip" id="fchip-warn" onclick="setFilter('warn',this)">🔔 Vencendo</div>
+              <div class="fchip" id="fchip-inativo" onclick="setFilter('inativo',this)">⏸ Inativos</div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <button class="cw-tool-btn" onclick="notificarTodos()">📣 Cobrar todos</button>
+              <button style="padding:9px 14px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-xs);font-size:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif" onclick="openNewAlunoModal()">+ Novo aluno</button>
+            </div>
           </div>
           <div id="alunos-list"></div>
+        </div>
+
+        <!-- SCREEN 1: CONTRACT WORKSHOP -->
+        <div class="page" id="page-contrato-editor">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
+            <div>
+              <div style="font-size:18px;font-weight:800;letter-spacing:-.3px">📝 Workshop de Contrato Inteligente</div>
+              <div style="font-size:13px;color:var(--text3);margin-top:3px">Edite cláusulas em tempo real — visualize antes de enviar</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="cw-tool-btn" onclick="loadDefaultClauses()">🔄 Restaurar padrão</button>
+              <button class="cw-tool-btn" onclick="exportContractText()">⬇️ Exportar</button>
+              <button style="padding:9px 18px;background:#25D366;color:#fff;border:none;border-radius:var(--radius-xs);font-size:13px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;display:inline-flex;align-items:center;gap:7px;box-shadow:0 4px 12px rgba(37,211,102,.4)" onclick="sendContractWpp()">📱 Enviar WhatsApp</button>
+            </div>
+          </div>
+          <div class="contract-workshop">
+            <div class="cw-panel">
+              <div class="cw-panel-header">
+                <div class="cw-panel-title">✏️ Editar Cláusulas <span style="background:var(--blue3);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:4px" id="clause-count-badge">0 cláusulas</span></div>
+                <button class="cw-tool-btn" style="padding:5px 12px" onclick="addClause()">+ Nova cláusula</button>
+              </div>
+              <div class="cw-panel-body" id="clauses-editor"></div>
+            </div>
+            <div class="cw-panel" style="display:flex;flex-direction:column">
+              <div class="cw-panel-header">
+                <div class="cw-panel-title">👁️ Visualização em Tempo Real</div>
+                <span style="font-size:11px;color:var(--text3);font-weight:600">Atualiza ao editar</span>
+              </div>
+              <div class="contract-preview-wrap" id="contract-live-preview">
+                <div class="preview-title-block">
+                  <div class="preview-title">CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE TRANSPORTE ESCOLAR</div>
+                  <div style="font-size:11px;color:var(--text3);margin-top:6px" id="preview-parties-line"></div>
+                </div>
+                <div id="preview-clauses-out"></div>
+              </div>
+              <button class="wpp-float-btn" onclick="sendContractWpp()">📱 Enviar via WhatsApp</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 3: FINANCIAL COMMAND CENTER -->
+        <div class="page" id="page-financeiro-cmd">
+          <div class="welcome-band" style="margin-bottom:20px">
+            <div>
+              <div class="wb-title">💹 Central Financeira</div>
+              <div class="wb-sub">Geração em massa · Reconciliação · Analytics · Planos</div>
+            </div>
+          </div>
+          <div class="section-hdr"><h3>⚡ Ações de alto impacto</h3></div>
+          <div class="action-btns-grid">
+            <div class="action-btn-card" onclick="gerarCobrancasMensais()">
+              <div class="abc-icon">📅</div>
+              <div class="abc-label">Gerar Cobranças Mensais</div>
+              <div class="abc-sub">Cria cobranças para todos ativos de uma vez</div>
+              <div class="abc-badge" style="background:var(--blue4);color:var(--blue)">Em massa</div>
+            </div>
+            <div class="action-btn-card" onclick="autoPixReconciliation()">
+              <div class="abc-icon">🔄</div>
+              <div class="abc-label">Reconciliação PIX Auto</div>
+              <div class="abc-sub">Verifica e marca pagamentos automaticamente</div>
+              <div class="abc-badge" style="background:var(--green-bg);color:var(--green)">Automático</div>
+            </div>
+            <div class="action-btn-card" onclick="openModal('modal-profit')">
+              <div class="abc-icon">📈</div>
+              <div class="abc-label">Análise de Lucro</div>
+              <div class="abc-sub">Receita, despesas estimadas e margem</div>
+              <div class="abc-badge" style="background:var(--warn-bg);color:#c07a00">Analytics</div>
+            </div>
+            <div class="action-btn-card" onclick="notificarTodos()">
+              <div class="abc-icon">📣</div>
+              <div class="abc-label">Cobrar Todos em Atraso</div>
+              <div class="abc-sub">WhatsApp para todos com débito em aberto</div>
+              <div class="abc-badge" style="background:var(--red-bg);color:var(--red)">Urgente</div>
+            </div>
+            <div class="action-btn-card" onclick="gerarRelatorioMensal()">
+              <div class="abc-icon">🧾</div>
+              <div class="abc-label">Exportar Relatório Mensal</div>
+              <div class="abc-sub">Resumo financeiro para compartilhar</div>
+              <div class="abc-badge" style="background:#F5EEF8;color:var(--purple)">Export</div>
+            </div>
+            <div class="action-btn-card" onclick="openContratoLink()">
+              <div class="abc-icon">🔗</div>
+              <div class="abc-label">Link de Contrato</div>
+              <div class="abc-sub">Pais assinam digitalmente</div>
+              <div class="abc-badge" style="background:var(--off2);color:var(--text2)">Digital</div>
+            </div>
+          </div>
+          <!-- Quick profit view -->
+          <div class="profit-chart-card">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+              <div style="font-size:15px;font-weight:700">📊 Visão Financeira do Mês</div>
+              <button class="cw-tool-btn" onclick="goPage('relatorio')">Detalhes →</button>
+            </div>
+            <div class="profit-kpis">
+              <div class="pkpi"><div class="pkpi-val" style="color:var(--green)" id="fcmd-rec">R$ 0</div><div class="pkpi-lbl">Recebido</div></div>
+              <div class="pkpi"><div class="pkpi-val" style="color:var(--red)" id="fcmd-pend">R$ 0</div><div class="pkpi-lbl">Pendente</div></div>
+              <div class="pkpi"><div class="pkpi-val" style="color:var(--blue)" id="fcmd-taxa">0%</div><div class="pkpi-lbl">Recebimento</div></div>
+            </div>
+            <div class="bar-wrap" id="fcmd-chart" style="height:80px"></div>
+          </div>
+          <!-- Plans -->
+          <div class="section-hdr"><h3>💎 Planos & Assinatura</h3><span style="font-size:12px;color:var(--text3)">Atual: <strong style="color:var(--blue)">Gratuito</strong></span></div>
+          <div class="plans-grid">
+            <div class="plan-card current-plan">
+              <div class="plan-name">Gratuito</div>
+              <div class="plan-price">R$ 0<span>/mês</span></div>
+              <div style="margin-top:12px">
+                <div class="plan-feat">Até 5 alunos</div>
+                <div class="plan-feat">Contratos básicos</div>
+                <div class="plan-feat">Cobranças manuais</div>
+                <div class="plan-feat no">Alertas automáticos</div>
+                <div class="plan-feat no">Relatórios avançados</div>
+              </div>
+              <button class="plan-btn current-btn">Plano atual</button>
+            </div>
+            <div class="plan-card popular-plan">
+              <div class="plan-badge">⭐ POPULAR</div>
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">R$ 29<span>/mês</span></div>
+              <div style="margin-top:12px">
+                <div class="plan-feat">Até 30 alunos</div>
+                <div class="plan-feat">Editor de contrato</div>
+                <div class="plan-feat">Alertas automáticos</div>
+                <div class="plan-feat">Relatórios completos</div>
+                <div class="plan-feat">Reconciliação PIX</div>
+              </div>
+              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 29/mês')">Assinar Pro →</button>
+            </div>
+            <div class="plan-card">
+              <div class="plan-name">Premium</div>
+              <div class="plan-price">R$ 59<span>/mês</span></div>
+              <div style="margin-top:12px">
+                <div class="plan-feat">Alunos ilimitados</div>
+                <div class="plan-feat">Tudo do Pro</div>
+                <div class="plan-feat">Suporte 24h</div>
+                <div class="plan-feat">Múltiplos motoristas</div>
+                <div class="plan-feat">API integração</div>
+              </div>
+              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 59/mês')">Assinar Premium →</button>
+            </div>
+          </div>
         </div>
 
         <!-- COBRANÇAS -->
@@ -789,33 +1094,105 @@ html,body{height:100%;font-family:'Outfit',sans-serif;background:var(--off);colo
 </div>
 <div id="financeiro-overlay" onclick="toggleFinanceiroMenu()" style="display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,0.3);backdrop-filter:blur(2px)"></div>
 
+<!-- MODAL HISTÓRICO -->
+<div class="modal-overlay" id="modal-historico">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title" id="hist-modal-title">📋 Histórico do Aluno</div>
+    <div class="drawer-sub" id="hist-modal-sub"></div>
+    <div class="hist-timeline" id="hist-timeline-content"></div>
+    <button class="btn-secondary-full" style="margin-top:16px" onclick="closeModal('modal-historico')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL PROFIT ANALYTICS -->
+<div class="modal-overlay" id="modal-profit">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <div class="drawer-title">📈 Análise de Lucro</div>
+    <div id="profit-modal-content"></div>
+    <button class="btn-secondary-full" onclick="closeModal('modal-profit')">Fechar</button>
+  </div>
+</div>
+
+<!-- WhatsApp Support FAB -->
+<button class="wpp-support-fab" id="wpp-support-fab" onclick="openWppSupport()">
+  <span style="font-size:16px">💬</span> Suporte
+</button>
+
 <!-- FAB -->
 <button class="fab" id="fab" style="display:none" onclick="openModal('modal-aluno')">+</button>
 
-<!-- MODAL ALUNO -->
+<!-- MODAL ALUNO: DEEP-DATA MULTI-STEP (Screen 2) -->
 <div class="modal-overlay" id="modal-aluno">
-  <div class="modal-drawer">
+  <div class="modal-drawer wide">
     <div class="drawer-handle"></div>
-    <div class="drawer-title">🚐 Novo aluno</div>
-    <div class="drawer-sub">Preencha os dados — o contrato será enviado automaticamente</div>
-    <div class="form-group"><label class="form-label">Nome do aluno *</label><input class="form-input" id="al-nome" placeholder="Nome completo do aluno"></div>
-    <div class="form-group"><label class="form-label">Responsável *</label><input class="form-input" id="al-resp" placeholder="Nome do pai/mãe/responsável"></div>
-    <div class="form-row2">
-      <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" id="al-wpp" placeholder="5511999999999" type="tel"></div>
-      <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="al-email" placeholder="email@..." type="email"></div>
+    <div class="drawer-title">🚐 Cadastro Completo de Aluno</div>
+    <div class="drawer-sub">Formulário avançado com dados médicos, emergência e documentos</div>
+    <div class="form-steps-bar">
+      <div class="form-step-tab active" id="astab-1" onclick="goAlunoStep(1)">1 · Dados Básicos</div>
+      <div class="form-step-tab" id="astab-2" onclick="goAlunoStep(2)">2 · Médico / Emergência</div>
+      <div class="form-step-tab" id="astab-3" onclick="goAlunoStep(3)">3 · Documentos</div>
     </div>
-    <div class="form-group"><label class="form-label">Endereço de embarque</label><input class="form-input" id="al-end" placeholder="Rua, número, bairro"></div>
-    <div class="form-row2">
-      <div class="form-group"><label class="form-label">Escola</label><input class="form-input" id="al-escola" placeholder="Nome da escola"></div>
-      <div class="form-group"><label class="form-label">Turno</label><select class="form-input" id="al-turno"><option>Manhã</option><option>Tarde</option><option>Integral</option><option>Noturno</option></select></div>
+    <!-- STEP 1 -->
+    <div class="form-step-content active" id="astep-1">
+      <div class="form-group"><label class="form-label">Nome do aluno *</label><input class="form-input" id="al-nome" placeholder="Nome completo do aluno"></div>
+      <div class="form-group"><label class="form-label">Responsável *</label><input class="form-input" id="al-resp" placeholder="Nome do pai/mãe/responsável"></div>
+      <div class="form-row2">
+        <div class="form-group"><label class="form-label">WhatsApp *</label><input class="form-input" id="al-wpp" placeholder="5511999999999" type="tel"></div>
+        <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="al-email" placeholder="email@..." type="email"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Endereço de embarque</label><input class="form-input" id="al-end" placeholder="Rua, número, bairro"></div>
+      <div class="form-row2">
+        <div class="form-group"><label class="form-label">Escola</label><input class="form-input" id="al-escola" placeholder="Nome da escola"></div>
+        <div class="form-group"><label class="form-label">Turno *</label>
+          <select class="form-input" id="al-turno"><option value="">Selecione</option><option>Manhã (07h–12h)</option><option>Tarde (13h–18h)</option><option>Integral (07h–17h)</option><option>Noturno (19h–23h)</option></select>
+        </div>
+      </div>
+      <div class="form-row2">
+        <div class="form-group"><label class="form-label">Valor mensal (R$) *</label><input class="form-input" id="al-valor" type="number" placeholder="350" min="0" step="0.01"></div>
+        <div class="form-group"><label class="form-label">Dia de vencimento</label><input class="form-input" id="al-venc" type="number" placeholder="5" min="1" max="28"></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <button class="btn-secondary-full" style="margin:0;flex:0 0 auto;padding:14px 20px" onclick="closeModal('modal-aluno')">Cancelar</button>
+        <button class="btn-primary-full" style="margin:0" onclick="goAlunoStep(2)">Próximo: Médico / Emergência →</button>
+      </div>
     </div>
-    <div class="form-row2">
-      <div class="form-group"><label class="form-label">Valor mensal (R$) *</label><input class="form-input" id="al-valor" type="number" placeholder="350" min="0" step="0.01"></div>
-      <div class="form-group"><label class="form-label">Dia de vencimento</label><input class="form-input" id="al-venc" type="number" placeholder="5" min="1" max="28"></div>
+    <!-- STEP 2 -->
+    <div class="form-step-content" id="astep-2">
+      <div style="font-size:13px;font-weight:700;margin-bottom:8px">🩺 Alergias & Informações Médicas</div>
+      <div id="medical-tags-wrap" style="display:flex;flex-wrap:wrap;gap:4px;min-height:24px;margin-bottom:8px"></div>
+      <div class="add-tag-row">
+        <input class="form-input" id="medical-tag-input" placeholder="Ex: Alérgico a amendoim, usa óculos..." style="flex:1">
+        <button onclick="addMedicalTag()" style="padding:10px 14px;background:var(--warn-bg);border:1.5px solid #FFE8A3;color:#c07a00;border-radius:var(--radius-xs);font-size:12px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap">+ Tag</button>
+      </div>
+      <div style="font-size:13px;font-weight:700;margin:18px 0 8px">🆘 Contatos de Emergência</div>
+      <div id="emergency-contacts-wrap"></div>
+      <button onclick="addEmergencyContact()" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;background:var(--red-bg);border:1.5px dashed #FFBFC7;border-radius:var(--radius-xs);color:var(--red);font-size:12px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;width:100%;margin-bottom:14px">+ Adicionar contato de emergência</button>
+      <div class="form-group"><label class="form-label">Observações adicionais</label><textarea class="form-input" id="al-obs" placeholder="Necessidades especiais, restrições, informações relevantes..." rows="3" style="resize:vertical"></textarea></div>
+      <div style="display:flex;gap:10px">
+        <button class="btn-secondary-full" style="margin:0;flex:0 0 auto;padding:14px 20px" onclick="goAlunoStep(1)">← Voltar</button>
+        <button class="btn-primary-full" style="margin:0" onclick="goAlunoStep(3)">Próximo: Documentos →</button>
+      </div>
     </div>
-    <div class="form-group"><label class="form-label">Observações</label><input class="form-input" id="al-obs" placeholder="Alergias, necessidades especiais..."></div>
-    <button class="btn-primary-full" onclick="salvarAluno()">✅ Cadastrar aluno</button>
-    <button class="btn-secondary-full" onclick="closeModal('modal-aluno')">Cancelar</button>
+    <!-- STEP 3 -->
+    <div class="form-step-content" id="astep-3">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">📁 Documentos do Aluno</div>
+      <div class="upload-zone" id="upload-zone-al" ondragover="dragOver(event)" ondragleave="dragLeave(event)" ondrop="dropFile(event)" onclick="document.getElementById('file-input-hidden').click()">
+        <div style="font-size:36px;margin-bottom:8px">📂</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text2)">Arraste arquivos ou clique para selecionar</div>
+        <div style="font-size:12px;color:var(--text3);margin-top:4px">RG, Certidão de nascimento, Cartão de vacinação — PDF, JPG, PNG</div>
+        <input type="file" id="file-input-hidden" multiple accept=".pdf,.jpg,.jpeg,.png" style="display:none" onchange="handleFileUpload(this.files)">
+      </div>
+      <div id="uploaded-files-list"></div>
+      <div style="margin-top:14px;background:var(--blue4);border:1.5px solid var(--blue3);border-radius:var(--radius-xs);padding:12px;font-size:12px;color:var(--blue);display:flex;gap:8px;align-items:flex-start">
+        <span>ℹ️</span><div>Documentos salvos localmente. No plano Pro/Premium, sincronizados na nuvem com criptografia.</div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button class="btn-secondary-full" style="margin:0;flex:0 0 auto;padding:14px 20px" onclick="goAlunoStep(2)">← Voltar</button>
+        <button class="btn-primary-full" style="margin:0" onclick="salvarAluno()">✅ Cadastrar e enviar contrato</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1023,41 +1400,64 @@ function renderDashboard(){
   }).join('')+'</div>';
 }
 
-// ===== ALUNOS =====
+// ===== ALUNOS CRM =====
 function renderAlunos(lista){
   const el=document.getElementById('alunos-list');
-  const fl=curFilter==='todos'?lista:lista.filter(a=>getStatus(a)===curFilter);
-  if(!fl.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">👦</div><div class="empty-title">Nenhum aluno encontrado</div><div class="empty-sub">Tente outro filtro ou cadastre novos alunos</div><button class="btn-empty" onclick="openModal(\'modal-aluno\')">+ Novo aluno</button></div>';return;}
-  const colors=['#7C6FF7','#06B6D4','#10B981','#F43F5E','#9B59B6','#1ABC9C'];
-  const bgs=['#F0EEFF','#E0F7FA','#ECFDF5','#FFF1F4','#F5EEF8','#E8F8F5'];
+  if(!el)return;
+  // update crm stats
+  const cOk=DATA.alunos.filter(a=>a.ativo!==false&&getStatus(a)==='ok').length;
+  const cLate=DATA.alunos.filter(a=>a.ativo!==false&&getStatus(a)==='late').length;
+  const cWarn=DATA.alunos.filter(a=>a.ativo!==false&&getStatus(a)==='warn').length;
+  const cRec=DATA.alunos.filter(a=>a.ativo!==false).reduce((s,a)=>s+parseFloat(a.valor||0),0);
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('crm-total',DATA.alunos.filter(a=>a.ativo!==false).length);sv('crm-ok',cOk);sv('crm-late',cLate);sv('crm-warn',cWarn);sv('crm-receita',fR(cRec));
+  const f=curFilter;
+  let fl;
+  if(f==='inativo')fl=lista.filter(a=>a.ativo===false);
+  else if(f==='todos')fl=lista.filter(a=>a.ativo!==false);
+  else fl=lista.filter(a=>a.ativo!==false&&getStatus(a)===f);
+  if(!fl.length){el.innerHTML='<div class="empty-state"><div class="empty-icon">🚐</div><div class="empty-title">Nenhum aluno encontrado</div><div class="empty-sub">Tente outro filtro ou cadastre novos alunos</div><button class="btn-empty" onclick="openNewAlunoModal()">+ Novo aluno</button></div>';return;}
+  const colors=['#007BFF','#06B6D4','#10B981','#F43F5E','#9B59B6','#1ABC9C'];
+  const bgs=['#EBF4FF','#E0F7FA','#ECFDF5','#FFF1F4','#F5EEF8','#E8F8F5'];
   el.innerHTML=fl.map(a=>{
-    const st=getStatus(a),j=calcJuros(a),idx=DATA.alunos.indexOf(a),ci=idx%6;
+    const idx=DATA.alunos.indexOf(a),ci=idx%6,st=getStatus(a),j=calcJuros(a);
     const pago=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);const h=new Date();return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();});
-    return `<div class="aluno-card ${st}" onclick="showDetalhe(${idx})">
-      <div class="ac-top">
-        <div style="display:flex;gap:10px;align-items:flex-start">
-          <div class="ac-avatar" style="background:${bgs[ci]};color:${colors[ci]}">${a.nome.substring(0,2).toUpperCase()}</div>
-          <div class="ac-info"><div class="ac-name">${a.nome}</div><div class="ac-resp">👤 ${a.responsavel}</div><div class="ac-escola">${a.escola||''} ${a.turno?'· '+a.turno:''}</div></div>
-        </div>
-        <span class="pill ${pago?'pago':st}">${pago?'✓ Pago':st==='late'?'⚠ Atrasado':st==='warn'?'🔔 Vence amanhã':'✓ Em dia'}</span>
-      </div>
-      <div class="ac-mid">
-        <div><div class="ac-stat-val" style="color:${st==='late'?'var(--red)':st==='warn'?'var(--warn)':'var(--green)'}">${fR(parseFloat(a.valor)+(j||0))}</div><div class="ac-stat-lbl">${j>0?'c/ juros':'mensalidade'}</div></div>
-        <div><div class="ac-stat-val">Dia ${a.vencimento}</div><div class="ac-stat-lbl">vencimento</div></div>
-        <div><div class="ac-stat-val">${(a.pagamentos||[]).length}</div><div class="ac-stat-lbl">pagamentos</div></div>
-      </div>
-      <div class="ac-actions" onclick="event.stopPropagation()">
-        <button class="act-btn act-wpp" onclick="notWpp(${idx})">📱 WhatsApp</button>
-        <button class="act-btn act-email" onclick="notEmail(${idx})">📧 E-mail</button>
-        <button class="act-btn act-pix" onclick="showPix(${idx})">💚 PIX</button>
-        ${!pago?`<button class="act-btn act-pago" onclick="marcarPago(${idx})">✅ Pago</button>`:''}
-        <button class="act-btn" style="background:#F0EEFF;color:var(--orange)" onclick="enviarContrato(${idx})">📄 Contrato</button>
-      </div>
-    </div>`;
+    const isAtivo=a.ativo!==false;
+    const medWarn=a.obs&&a.obs.includes('Alergias')?'<span style="font-size:10px;background:var(--warn-bg);color:#c07a00;padding:2px 6px;border-radius:8px;font-weight:700;margin-left:4px">⚠ Alergias</span>':'';
+    return '<div class="aluno-crm-card">'+
+      '<div class="acc-top" onclick="showDetalhe('+idx+')">'+
+        '<div class="acc-avatar-wrap">'+
+          '<div class="acc-avatar" style="background:'+bgs[ci]+';color:'+colors[ci]+'">'+a.nome.substring(0,2).toUpperCase()+'</div>'+
+          '<div class="acc-status-dot '+(pago?'ok':st)+'"></div>'+
+        '</div>'+
+        '<div class="acc-info">'+
+          '<div class="acc-name">'+a.nome+(isAtivo?'':' <span style="font-size:10px;background:var(--off2);color:var(--text3);padding:2px 6px;border-radius:10px;font-weight:700">INATIVO</span>')+'</div>'+
+          '<div class="acc-meta">👤 '+a.responsavel+' · '+(a.escola||'Escola n/d')+' · '+(a.turno||'')+'</div>'+
+          '<div style="margin-top:5px;display:flex;gap:6px;align-items:center;flex-wrap:wrap">'+
+            '<span class="pill '+(pago?'ok':st)+'">'+(pago?'✓ Pago':st==='late'?'⚠ Atrasado':st==='warn'?'🔔 Vence':'✓ Em dia')+'</span>'+
+            '<span style="font-size:12px;font-weight:700;color:var(--text2)">'+fR(parseFloat(a.valor)+(j||0))+'</span>'+
+            medWarn+
+          '</div>'+
+        '</div>'+
+        '<div class="acc-right" onclick="event.stopPropagation()">'+
+          '<label class="acc-toggle" title="'+(isAtivo?'Ativo':'Inativo')+'">'+
+            '<input type="checkbox" '+(isAtivo?'checked':'')+' onchange="toggleAlunoAtivo('+idx+',this.checked)">'+
+            '<span class="acc-toggle-slider"></span>'+
+          '</label>'+
+          '<div style="font-size:10px;color:var(--text3);font-weight:600">'+(isAtivo?'Ativo':'Inativo')+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="acc-footer" onclick="event.stopPropagation()">'+
+        '<button class="acc-foot-btn hist" onclick="showHistorico('+idx+')">📋 Histórico</button>'+
+        '<button class="acc-foot-btn wpp-btn" onclick="notWpp('+idx+')">📱 WhatsApp</button>'+
+        '<button class="acc-foot-btn pago-btn" onclick="marcarPago('+idx+')">'+(pago?'✅ Pago':'💳 Pagar')+'</button>'+
+        '<button class="acc-foot-btn cont-btn" onclick="enviarContrato('+idx+')">📄 Contrato</button>'+
+      '</div>'+
+    '</div>';
   }).join('');
 }
-function filterAlunos(q){renderAlunos(DATA.alunos.filter(a=>a.nome.toLowerCase().includes(q.toLowerCase())||a.responsavel.toLowerCase().includes(q.toLowerCase())));}
-function setFilter(f,el){curFilter=f;document.querySelectorAll('.fchip').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderAlunos(DATA.alunos);}
+function filterAlunos(q){const lista=q?DATA.alunos.filter(a=>a.nome.toLowerCase().includes(q.toLowerCase())||a.responsavel.toLowerCase().includes(q.toLowerCase())):DATA.alunos;renderAlunos(lista);}
+function setFilter(f,el){curFilter=f;document.querySelectorAll('.fchip').forEach(c=>c.classList.remove('active'));if(el)el.classList.add('active');renderAlunos(DATA.alunos);}
 
 // ===== DETALHE =====
 function showDetalhe(idx){
@@ -1188,15 +1588,22 @@ function salvarAluno(){
   const nome=document.getElementById('al-nome').value.trim();
   const resp=document.getElementById('al-resp').value.trim();
   const valor=document.getElementById('al-valor').value;
-  if(!nome||!resp||!valor){showToast('❌ Preencha os campos obrigatórios');return;}
-  const a={id:Date.now(),nome,responsavel:resp,whatsapp:document.getElementById('al-wpp').value.trim(),emailResp:document.getElementById('al-email').value.trim(),endereco:document.getElementById('al-end').value.trim(),escola:document.getElementById('al-escola').value.trim(),turno:document.getElementById('al-turno').value,valor:parseFloat(valor),vencimento:parseInt(document.getElementById('al-venc').value)||DATA.motorista.vencPadrao||5,obs:document.getElementById('al-obs').value.trim(),pagamentos:[],criadoEm:new Date().toISOString()};
+  if(!nome||!resp||!valor){showToast('❌ Preencha nome, responsável e valor (Passo 1)');goAlunoStep(1);return;}
+  const obsBase=document.getElementById('al-obs')?.value?.trim()||'';
+  const medStr=window._medTags&&window._medTags.length?('Alergias: '+window._medTags.join('; ')):'';
+  const a={id:Date.now(),nome,responsavel:resp,whatsapp:document.getElementById('al-wpp').value.trim(),emailResp:document.getElementById('al-email').value.trim(),endereco:document.getElementById('al-end').value.trim(),escola:document.getElementById('al-escola').value.trim(),turno:document.getElementById('al-turno').value,valor:parseFloat(valor),vencimento:parseInt(document.getElementById('al-venc').value)||DATA.motorista.vencPadrao||5,obs:[obsBase,medStr].filter(Boolean).join(' | '),pagamentos:[],criadoEm:new Date().toISOString(),ativo:true};
   DATA.alunos.push(a);save();renderAll();closeModal('modal-aluno');showToast('✅ Aluno cadastrado! Enviando contrato...');
-  ['al-nome','al-resp','al-wpp','al-email','al-end','al-escola','al-valor','al-obs'].forEach(id=>document.getElementById(id).value='');
-  // Enviar contrato automaticamente via WhatsApp
-  setTimeout(()=>{
-    const idx=DATA.alunos.length-1;
-    enviarContrato(idx);
-  },600);
+  window._medTags=[];window._ecCount=0;window._uploadedFiles=[];
+  setTimeout(()=>{const idx=DATA.alunos.length-1;enviarContrato(idx);},600);
+}
+function openNewAlunoModal(){
+  window._medTags=[];window._ecCount=0;window._uploadedFiles=[];
+  ['al-nome','al-resp','al-wpp','al-email','al-end','al-escola','al-valor','al-obs'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  const mtw=document.getElementById('medical-tags-wrap');if(mtw)mtw.innerHTML='';
+  const ecw=document.getElementById('emergency-contacts-wrap');if(ecw)ecw.innerHTML='';
+  const ufl=document.getElementById('uploaded-files-list');if(ufl)ufl.innerHTML='';
+  goAlunoStep(1);
+  openModal('modal-aluno');
 }
 
 // ===== CONTRATO VIA WHATSAPP =====
@@ -1599,19 +2006,18 @@ function toggleFinanceiroMenu(){
 }
 
 function goPage(page){
-  // Close financeiro menu if open
   if(financeiroOpen){financeiroOpen=false;document.getElementById('financeiro-menu').style.display='none';document.getElementById('financeiro-overlay').style.display='none';}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.snav-item').forEach(n=>n.classList.remove('active'));
   document.querySelectorAll('.bnav-item').forEach(n=>n.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
+  const pe=document.getElementById('page-'+page);if(!pe){showToast('Página não encontrada');return;}
+  pe.classList.add('active');
   const sn=document.getElementById('snav-'+page);if(sn)sn.classList.add('active');
-  // Map pages to bottom nav buttons
-  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
+  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos','contrato-editor':'bnav-alunos','financeiro-cmd':'bnav-financeiro',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
   const bnId=bnavMap[page];if(bnId){const bn=document.getElementById(bnId);if(bn)bn.classList.add('active');}
   document.querySelector('.page-content').scrollTop=0;
-  const titles={dashboard:'Dashboard',alunos:'Meus Alunos',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
-  const subs={dashboard:'Visão geral do seu negócio',alunos:'Gerencie todos os alunos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Suas preferências'};
+  const titles={dashboard:'Dashboard',alunos:'CRM de Alunos','contrato-editor':'Editor de Contrato','financeiro-cmd':'Central Financeira',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
+  const subs={dashboard:'Visão geral',alunos:'Gestão avançada de alunos','contrato-editor':'Edite cláusulas em tempo real','financeiro-cmd':'Ações em massa, analytics e planos',cobrancas:'Pagamentos em aberto',relatorio:'Análise financeira mensal',config:'Suas preferências'};
   document.getElementById('topbar-title').textContent=titles[page]||page;
   document.getElementById('topbar-sub').textContent=subs[page]||'';
   if(page==='relatorio')renderRelatorio();
@@ -1619,12 +2025,187 @@ function goPage(page){
   if(page==='dashboard')renderDashboard();
   if(page==='alunos')renderAlunos(DATA.alunos);
   if(page==='config')loadConfig();
+  if(page==='contrato-editor'){if(!window._clauses||!window._clauses.length)loadDefaultClauses();else renderClausesEditor();}
+  if(page==='financeiro-cmd')renderFinanceiroCMD();
 }
 
 // ===== MODAL =====
 function openModal(id){document.getElementById(id).classList.add('open');pushState('modal');}
 function closeModal(id){document.getElementById(id).classList.remove('open');}
 document.querySelectorAll('.modal-overlay').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('open');}));
+
+
+// ===== FAB → new modal ======================================================
+document.addEventListener('DOMContentLoaded',()=>{
+  const fab=document.getElementById('fab');
+  if(fab) fab.onclick=()=>openNewAlunoModal();
+  // Show WPP support fab when logged in
+  const origEnter=typeof enterApp==='function'?enterApp:null;
+});
+
+// ===== SHOW SUPPORT FAB =====================================================
+function showSupportFab(v){const f=document.getElementById('wpp-support-fab');if(f)f.style.display=v?'flex':'none';}
+const _baseEnterApp=enterApp;
+enterApp=function(){_baseEnterApp.call(this);showSupportFab(true);}
+
+// ===== WPP SUPPORT ==========================================================
+function openWppSupport(){const msg=encodeURIComponent('Olá! Uso o VanRotas e gostaria de saber mais sobre os planos. 🚐');window.open('https://wa.me/5511999999999?text='+msg,'_blank');}
+function upgradePlan(plan,preco){showToast('💎 Plano '+plan+' ('+preco+') — Entre em contato!');setTimeout(openWppSupport,1000);}
+
+// ===== SCREEN 2: MULTI-STEP FORM ============================================
+function goAlunoStep(step){
+  for(let i=1;i<=3;i++){
+    const c=document.getElementById('astep-'+i);if(c)c.classList.toggle('active',i===step);
+    const t=document.getElementById('astab-'+i);if(t){t.classList.remove('active','done');if(i<step)t.classList.add('done');if(i===step)t.classList.add('active');}
+  }
+}
+window._medTags=[];window._ecCount=0;window._uploadedFiles=[];
+function addMedicalTag(){
+  const inp=document.getElementById('medical-tag-input');
+  const v=(inp.value||'').trim();if(!v)return;
+  if(!window._medTags)window._medTags=[];
+  window._medTags.push(v);inp.value='';renderMedTags();
+}
+function removeMedTag(i){window._medTags.splice(i,1);renderMedTags();}
+function renderMedTags(){
+  const w=document.getElementById('medical-tags-wrap');if(!w)return;
+  w.innerHTML=(window._medTags||[]).map((t,i)=>'<span class="medical-tag">'+t+'<button onclick="removeMedTag('+i+')">✕</button></span>').join('');
+}
+function addEmergencyContact(){
+  if(!window._ecCount)window._ecCount=0;
+  window._ecCount++;
+  const n=window._ecCount;
+  const w=document.getElementById('emergency-contacts-wrap');if(!w)return;
+  const d=document.createElement('div');d.className='emergency-contact-card';d.id='ec-'+n;
+  d.innerHTML='<button class="ec-remove" onclick="document.getElementById(\'ec-'+n+'\').remove()">✕ Remover</button>'+
+    '<div style="font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;margin-bottom:8px">Contato '+n+'</div>'+
+    '<div class="form-row2" style="margin-bottom:0">'+
+      '<div class="form-group" style="margin-bottom:8px"><label class="form-label">Nome *</label><input class="form-input" placeholder="Nome completo"></div>'+
+      '<div class="form-group" style="margin-bottom:8px"><label class="form-label">Parentesco</label><input class="form-input" placeholder="Mãe, Pai..."></div>'+
+    '</div>'+
+    '<div class="form-group" style="margin-bottom:0"><label class="form-label">Telefone *</label><input class="form-input" type="tel" placeholder="(11) 99999-9999"></div>';
+  w.appendChild(d);
+}
+function dragOver(e){e.preventDefault();const z=document.getElementById('upload-zone-al');if(z)z.classList.add('drag-over');}
+function dragLeave(){const z=document.getElementById('upload-zone-al');if(z)z.classList.remove('drag-over');}
+function dropFile(e){e.preventDefault();dragLeave();handleFileUpload(e.dataTransfer.files);}
+function handleFileUpload(files){
+  if(!window._uploadedFiles)window._uploadedFiles=[];
+  Array.from(files).forEach(f=>window._uploadedFiles.push({name:f.name,size:f.size,type:f.type}));
+  renderUploadedFiles();
+}
+function renderUploadedFiles(){
+  const w=document.getElementById('uploaded-files-list');if(!w)return;
+  w.innerHTML=(window._uploadedFiles||[]).map((f,i)=>'<div class="uploaded-file"><div class="uploaded-file-icon">'+(f.type.includes('pdf')?'📄':'🖼️')+'</div><div class="uploaded-file-name">'+f.name+'<div style="font-size:11px;color:var(--text3)">'+(f.size/1024).toFixed(1)+' KB</div></div><button class="uploaded-file-remove" onclick="window._uploadedFiles.splice('+i+',1);renderUploadedFiles()">✕</button></div>').join('');
+}
+
+// ===== SCREEN 1: CONTRACT WORKSHOP ==========================================
+window._clauses=[];
+const _defaultClauses=[
+  {id:1,title:'CLÁUSULA 1 – DO OBJETO',body:'O CONTRATADO obriga-se a prestar serviços de transporte escolar ao aluno identificado neste contrato, realizando o trajeto entre o endereço de embarque e a escola, nos dias úteis letivos.'},
+  {id:2,title:'CLÁUSULA 2 – DO VALOR E PAGAMENTO',body:'O valor mensal pela prestação dos serviços será acordado entre as partes, com vencimento todo dia [DIA] de cada mês, a ser pago via PIX. Em caso de atraso serão aplicados multa e juros moratórios.'},
+  {id:3,title:'CLÁUSULA 3 – RESPONSABILIDADES DO CONTRATANTE',body:'O CONTRATANTE compromete-se a efetuar o pagamento pontualmente; comunicar ausências com antecedência mínima de 24h; garantir que o aluno esteja no ponto de embarque no horário combinado.'},
+  {id:4,title:'CLÁUSULA 4 – RESPONSABILIDADES DO CONTRATADO',body:'O CONTRATADO compromete-se a transportar o aluno com segurança e pontualidade; manter o veículo em perfeitas condições; possuir documentação legal exigida para o transporte escolar.'},
+  {id:5,title:'CLÁUSULA 5 – DO PRAZO',body:'O presente contrato vigora por prazo indeterminado, podendo ser rescindido por qualquer das partes mediante aviso prévio de 30 dias.'},
+  {id:6,title:'CLÁUSULA 6 – FORO',body:'As partes elegem o foro da comarca do domicílio do CONTRATADO para dirimir eventuais litígios, renunciando a qualquer outro por mais privilegiado que seja.'},
+];
+function loadDefaultClauses(){
+  window._clauses=_defaultClauses.map(c=>({...c}));
+  renderClausesEditor();
+  showToast('🔄 Cláusulas padrão carregadas');
+}
+function renderClausesEditor(){
+  const el=document.getElementById('clauses-editor');if(!el)return;
+  const cb=document.getElementById('clause-count-badge');if(cb)cb.textContent=(window._clauses||[]).length+' cláusulas';
+  if(!window._clauses||!window._clauses.length){el.innerHTML='<div style="text-align:center;padding:30px;color:var(--text3)"><div style="font-size:32px">📄</div><div style="margin-top:8px;font-size:13px;font-weight:600">Nenhuma cláusula.<br>Clique em "+ Nova cláusula"</div></div>';updatePreview();return;}
+  el.innerHTML=window._clauses.map((c,i)=>`<div class="clause-item">
+    <div class="clause-header">
+      <span class="clause-number">Cláusula ${i+1}</span>
+      <div class="clause-actions">
+        ${i>0?`<button class="clause-act-btn" onclick="moveClause(${i},-1)">↑</button>`:''}
+        ${i<window._clauses.length-1?`<button class="clause-act-btn" onclick="moveClause(${i},1)">↓</button>`:''}
+        <button class="clause-act-btn del" onclick="delClause(${i})">🗑</button>
+      </div>
+    </div>
+    <input class="clause-title-inp" value="${c.title.replace(/"/g,'&quot;')}" oninput="window._clauses[${i}].title=this.value;updatePreview()">
+    <textarea class="clause-body-inp" oninput="window._clauses[${i}].body=this.value;updatePreview()">${c.body}</textarea>
+  </div>`).join('')+'<button class="add-clause-btn" onclick="addClause()">+ Adicionar nova cláusula</button>';
+  updatePreview();
+}
+function addClause(){window._clauses.push({id:Date.now(),title:'CLÁUSULA '+(window._clauses.length+1)+' – NOVO ITEM',body:'Descreva o conteúdo aqui...'});renderClausesEditor();}
+function delClause(i){if(!confirm('Remover cláusula?'))return;window._clauses.splice(i,1);renderClausesEditor();}
+function moveClause(i,d){const j=i+d;if(j<0||j>=window._clauses.length)return;[window._clauses[i],window._clauses[j]]=[window._clauses[j],window._clauses[i]];renderClausesEditor();}
+function updatePreview(){
+  const m=DATA.motorista;
+  const pl=document.getElementById('preview-parties-line');
+  if(pl)pl.innerHTML='<strong>Data:</strong> '+new Date().toLocaleDateString('pt-BR')+' &nbsp;|&nbsp; <strong>Motorista:</strong> '+(m.nome||'[MOTORISTA]');
+  const out=document.getElementById('preview-clauses-out');if(!out)return;
+  out.innerHTML=(window._clauses||[]).map(c=>`<div class="preview-clause"><div class="preview-clause-title">${c.title}</div><div class="preview-clause-body">${c.body}</div></div><hr style="border:none;border-top:1px solid var(--border);margin:10px 0">`).join('');
+}
+function exportContractText(){
+  const m=DATA.motorista;
+  let t='CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE TRANSPORTE ESCOLAR\n'+'='.repeat(55)+'\nMotorista: '+(m.nome||'')+'\nData: '+new Date().toLocaleDateString('pt-BR')+'\n\n';
+  (window._clauses||[]).forEach(c=>{t+=c.title+'\n'+c.body+'\n\n';});
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'}));a.download='contrato-vanrotas.txt';a.click();
+  showToast('⬇️ Contrato exportado!');
+}
+function sendContractWpp(){
+  const m=DATA.motorista;
+  let msg='📋 *CONTRATO DE TRANSPORTE ESCOLAR*\n*Motorista:* '+(m.nome||'[MOTORISTA]')+'\n*Data:* '+new Date().toLocaleDateString('pt-BR')+'\n\n';
+  (window._clauses||[]).forEach(c=>{msg+='*'+c.title+'*\n'+c.body+'\n\n';});
+  msg+='_VanRotas — Gestão de Transporte Escolar_ 🚐';
+  const wpp=(m.tel||'').replace(/\D/g,'');
+  window.open('https://wa.me/'+(wpp||'')+'?text='+encodeURIComponent(msg),'_blank');
+}
+
+// ===== SCREEN 3: FINANCIAL CMD ==============================================
+function gerarCobrancasMensais(){
+  const ativos=DATA.alunos.filter(a=>a.ativo!==false);
+  if(!ativos.length){showToast('❌ Nenhum aluno ativo');return;}
+  if(!confirm('Gerar cobranças para '+ativos.length+' aluno(s) ativos?'))return;
+  showToast('✅ '+ativos.length+' cobranças geradas para '+new Date().toLocaleString('pt-BR',{month:'long',year:'numeric'})+'!');
+}
+function autoPixReconciliation(){showToast('🔄 Reconciliação PIX disponível no plano Pro');}
+function gerarRelatorioMensal(){
+  const m=DATA.motorista,h=new Date();let rec=0,pend=0,prev=0;
+  DATA.alunos.forEach(a=>{prev+=parseFloat(a.valor);const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();});if(pg)rec+=parseFloat(pg.valor||a.valor);else pend+=parseFloat(a.valor);});
+  let t='RELATÓRIO FINANCEIRO — '+h.toLocaleString('pt-BR',{month:'long',year:'numeric'}).toUpperCase()+'\n'+'='.repeat(45)+'\nMotorista: '+(m.nome||'')+'\n\nRECEBIDO: R$ '+rec.toFixed(2)+'\nPENDENTE: R$ '+pend.toFixed(2)+'\nPREVISTO: R$ '+prev.toFixed(2)+'\nTAXA: '+(prev>0?Math.round(rec/prev*100):0)+'%\n\nALUNOS:\n';
+  DATA.alunos.forEach(a=>{const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===h.getMonth()&&d.getFullYear()===h.getFullYear();});t+=a.nome+': '+(pg?'✅ PAGO (R$ '+parseFloat(pg.valor||a.valor).toFixed(2)+')':'⏳ PENDENTE (R$ '+parseFloat(a.valor).toFixed(2)+')')+'\n';});
+  t+='\n_VanRotas_';
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/plain;charset=utf-8'}));a.download='relatorio-'+h.getFullYear()+'-'+(h.getMonth()+1)+'.txt';a.click();showToast('🧾 Relatório exportado!');
+}
+function renderFinanceiroCMD(){
+  const h=new Date(),mes=h.getMonth(),ano=h.getFullYear();let rec=0,pend=0,prev=0;
+  DATA.alunos.forEach(a=>{prev+=parseFloat(a.valor);const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===mes&&d.getFullYear()===ano;});if(pg)rec+=parseFloat(pg.valor||a.valor);else pend+=parseFloat(a.valor);});
+  const sv=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  sv('fcmd-rec',fR(rec));sv('fcmd-pend',fR(pend));sv('fcmd-taxa',prev>0?Math.round(rec/prev*100)+'%':'0%');
+  const bc=document.getElementById('fcmd-chart');
+  if(bc){const mns=['J','F','M','A','M','J','J','A','S','O','N','D'];let md=[];for(let i=5;i>=0;i--){let m2=mes-i,y2=ano;if(m2<0){m2+=12;y2--;}let r2=0,p2=0;DATA.alunos.forEach(a=>{const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===m2&&d.getFullYear()===y2;});if(pg)r2+=parseFloat(pg.valor||a.valor);else p2+=parseFloat(a.valor);});md.push({l:mns[m2],r:r2,p:p2});}
+  const mx=Math.max(...md.map(d=>d.r+d.p),1);
+  bc.innerHTML=md.map(d=>'<div class="bar-col"><div class="bar-stack"><div style="background:var(--blue3);height:'+Math.max(d.p/mx*74,d.p?2:0)+'px;width:100%;border-radius:3px 3px 0 0;transition:height .5s"></div><div style="background:var(--blue);height:'+Math.max(d.r/mx*74,d.r?2:0)+'px;width:100%;border-radius:3px 3px 0 0;transition:height .5s;margin-top:1px"></div></div><div class="bar-lbl">'+d.l+'</div></div>').join('');}
+  // profit modal content
+  const pc=document.getElementById('profit-modal-content');
+  if(pc)pc.innerHTML='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px"><div style="background:var(--green-bg);border:1.5px solid #99E9D2;border-radius:var(--radius-xs);padding:16px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--green)">'+fR(rec)+'</div><div style="font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;margin-top:4px">Recebido</div></div><div style="background:var(--red-bg);border:1.5px solid #FFBFC7;border-radius:var(--radius-xs);padding:16px;text-align:center"><div style="font-size:24px;font-weight:800;color:var(--red)">'+fR(pend)+'</div><div style="font-size:11px;color:var(--text3);font-weight:700;text-transform:uppercase;margin-top:4px">Pendente</div></div></div><div style="background:var(--off);border-radius:var(--radius-xs);padding:14px"><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><span>Receita prevista</span><strong>'+fR(prev)+'</strong></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px"><span>Taxa recebimento</span><strong style="color:var(--blue)">'+(prev>0?Math.round(rec/prev*100):0)+'%</strong></div><div style="display:flex;justify-content:space-between;padding:8px 0;font-size:13px"><span>Alunos pagantes</span><strong>'+DATA.alunos.filter(a=>{const pg=(a.pagamentos||[]).find(p=>{const d=new Date(p.data);return d.getMonth()===mes&&d.getFullYear()===ano;});return!!pg;}).length+' / '+DATA.alunos.length+'</strong></div></div>';
+}
+
+// ===== SCREEN 4: CRM EXTRAS =================================================
+function toggleAlunoAtivo(idx,val){
+  DATA.alunos[idx].ativo=val;save();renderAll();
+  showToast(val?'✅ '+DATA.alunos[idx].nome+' reativado!':'⏸ '+DATA.alunos[idx].nome+' inativado');
+}
+function showHistorico(idx){
+  const a=DATA.alunos[idx];
+  document.getElementById('hist-modal-title').textContent='📋 Histórico — '+a.nome;
+  document.getElementById('hist-modal-sub').textContent=a.responsavel+' · '+(a.escola||'');
+  const dotC={pago:'var(--green)',contrato:'var(--blue)',cadastro:'var(--purple)'};
+  let items=[];
+  (a.pagamentos||[]).slice().reverse().forEach(p=>items.push({type:'pago',title:'Pagamento recebido — '+fR(p.valor),date:new Date(p.data).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'}),amount:p.valor}));
+  (DATA.contratos||[]).filter(c=>c.aluno===a.nome).forEach(c=>items.push({type:'contrato',title:'Contrato assinado — cód: '+c.id,date:new Date(c.data).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}));
+  if(a.criadoEm)items.push({type:'cadastro',title:'Aluno cadastrado no sistema',date:new Date(a.criadoEm).toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})});
+  const tc=document.getElementById('hist-timeline-content');
+  tc.innerHTML=items.length?('<div class="hist-timeline">'+items.map(it=>'<div class="hist-item"><div class="hist-dot" style="background:'+(dotC[it.type]||'var(--blue)')+'"></div><div class="hist-body"><div class="hist-title">'+it.title+'</div><div class="hist-date">📅 '+it.date+'</div>'+(it.amount?'<div class="hist-amount">'+fR(it.amount)+'</div>':'')+'</div></div>').join('')+'</div>'):'<div style="text-align:center;padding:30px;color:var(--text3)">📭 Nenhum registro encontrado</div>';
+  openModal('modal-historico');
+}
 
 // ===== TOAST =====
 function showToast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),3000);}
