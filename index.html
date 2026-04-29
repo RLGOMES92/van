@@ -14,57 +14,59 @@
 <style>
 :root {
   /* ═══════════════════════════════════════════
-     LIGHT + NEON ACCENT PALETTE — VanRotas
+     CINZA CLARO + AZUL + AMARELO — VanRotas
      ═══════════════════════════════════════════ */
 
-  /* Neon accent tokens */
-  --neon-green: #00E676;
-  --neon-green-dim: #B9F6CA;
-  --neon-green-glow: 0 0 12px rgba(0,230,118,0.45), 0 0 28px rgba(0,230,118,0.2);
-  --neon-cyan: #00BCD4;
-  --neon-cyan-dim: #B2EBF2;
-  --neon-cyan-glow: 0 0 12px rgba(0,188,212,0.45), 0 0 28px rgba(0,188,212,0.2);
-  --neon-violet: #7C4DFF;
-  --neon-violet-glow: 0 0 12px rgba(124,77,255,0.4);
-  --neon-pink: #F50057;
+  /* Cores principais */
+  --blue-main: #1D6AFF;       /* azul vibrante principal */
+  --blue-light: #EEF3FF;      /* azul clarinho de fundo */
+  --blue-mid: #C7D9FF;        /* azul médio para bordas */
+  --blue-hover: #1558E0;      /* azul escuro no hover */
+  --yellow-main: #FFD600;     /* amarelo vibrante */
+  --yellow-light: #FFFBEA;    /* amarelo clarinho */
+  --yellow-mid: #FFE566;      /* amarelo médio */
+  --yellow-glow: 0 0 14px rgba(255,214,0,0.45);
+  --blue-glow: 0 0 14px rgba(29,106,255,0.35);
 
-  /* Backgrounds — bright white/light */
-  --bg: #F0F4F8;
+  /* Fundos */
+  --bg: #F2F4F7;
   --bg-card: #FFFFFF;
-  --bg-card2: #F7FAFB;
-  --bg-input: #F0F4F8;
+  --bg-card2: #F7F8FA;
+  --bg-input: #F2F4F7;
   --bg-panel: #FFFFFF;
 
-  /* Text */
-  --text: #1A202C;
+  /* Texto */
+  --text: #18202E;
   --text2: #4A5568;
-  --text3: #A0AEC0;
+  --text3: #9AA5B4;
 
-  /* Borders */
-  --border: #E2E8F0;
-  --border2: #CBD5E0;
+  /* Bordas */
+  --border: #DDE3ED;
+  --border2: #C5CFDF;
 
-  /* Status colors */
-  --green: #00C853;       --green2: #69F0AE;    --green-bg: #E8FFF3;
-  --red: #FF1744;         --red2: #FF5252;      --red-bg: #FFF0F0;
-  --warn: #FF9100;        --warn2: #FF6D00;     --warn-bg: #FFF8EE;
-  --blue: #00BCD4;        --blue2: #26C6DA;     --blue3: #B2EBF2;  --blue4: #E0F7FA;
-  --purple: #7C4DFF;      --purple2: #B388FF;
-  --off: #F7FAFB;         --off2: #EDF2F7;      --white: #FFFFFF;
+  /* Status */
+  --green: #00B96B;      --green2: #4FE8A0;   --green-bg: #EAFAF3;
+  --red: #E8304A;        --red2: #FF6B6B;     --red-bg: #FFF1F3;
+  --warn: #FFD600;       --warn2: #F59E0B;    --warn-bg: #FFFBEA;
+  --blue: #1D6AFF;       --blue2: #5591FF;    --blue3: #C7D9FF;    --blue4: #EEF3FF;
+  --purple: #7C4DFF;     --purple2: #B388FF;
+  --off: #F7F8FA;        --off2: #EDF0F5;     --white: #FFFFFF;
 
-  /* Aliases */
+  /* Aliases para compatibilidade */
   --card: var(--bg-card);
-  --orange: var(--neon-cyan); --orange2: var(--blue2); --orange3: var(--blue3);
-  --teal: var(--neon-cyan);   --teal2: #0097A7;         --teal3: var(--blue4);
-  --lime: var(--neon-green);  --lime2: var(--green2);
-  --yellow: var(--warn);      --yellow2: var(--warn2);
-  --slate: #4A5568; --slate2: #718096; --slate3: #A0AEC0;
+  --orange: var(--blue-main); --orange2: var(--blue2); --orange3: var(--blue3);
+  --teal: var(--blue-main);   --teal2: var(--blue-hover); --teal3: var(--blue4);
+  --lime: var(--green);       --lime2: var(--green2);
+  --yellow: var(--yellow-main); --yellow2: var(--warn2);
+  --slate: #4A5568; --slate2: #718096; --slate3: #9AA5B4;
+  --neon-green: var(--green); --neon-cyan: var(--blue-main);
+  --neon-green-glow: var(--blue-glow); --neon-cyan-glow: var(--blue-glow);
 
   /* Radii & shadows */
   --radius: 20px; --radius-sm: 14px; --radius-xs: 10px;
-  --shadow: 0 2px 16px rgba(0,0,0,0.07);
-  --shadow-md: 0 6px 28px rgba(0,0,0,0.10);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,0.13);
+  --shadow: 0 2px 16px rgba(29,106,255,0.06);
+  --shadow-md: 0 6px 28px rgba(29,106,255,0.10);
+  --shadow-lg: 0 12px 48px rgba(29,106,255,0.14);
 }
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
@@ -563,22 +565,22 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg);color:
 
 
 /* ═══════════════════════════════════════════════════════
-   LIGHT + NEON ACCENT DESIGN SYSTEM
+   CINZA CLARO + AZUL + AMARELO — DESIGN SYSTEM
    ═══════════════════════════════════════════════════════ */
 
-/* FONT — clean geometric sans */
+/* FONT */
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
-html,body,.app-layout,*{font-family:'Plus Jakarta Sans','Inter',sans-serif}
+html,body,*{font-family:'Plus Jakarta Sans','Inter',sans-serif}
 
-/* LIGHT BASE */
+/* BASE */
 html,body{background:var(--bg)!important}
 #screen-app{background:var(--bg)!important}
 #screen-login{background:var(--bg)!important}
 .login-wrap{background:var(--bg)!important}
 
-/* NEON LOGO */
+/* LOGO GRADIENTE AZUL→AMARELO */
 .neon-logo,.sidebar-brand-name,.hero-brand-name,.login-mobile-name{
-  background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;
+  background:linear-gradient(120deg,var(--blue-main) 30%,var(--yellow-main) 100%)!important;
   -webkit-background-clip:text!important;
   -webkit-text-fill-color:transparent!important;
   filter:none!important;
@@ -588,401 +590,520 @@ html,body{background:var(--bg)!important}
   background:none!important;
 }
 
-/* ── SIDEBAR ─────────────────────────────── */
+/* ── SIDEBAR ──────────────────────────────── */
 .sidebar{
   background:#FFFFFF!important;
   border-right:1px solid var(--border)!important;
-  box-shadow:2px 0 20px rgba(0,188,212,0.05)!important;
 }
 .sidebar-brand{border-bottom:1px solid var(--border)!important}
 .sidebar-brand-icon{
-  background:linear-gradient(135deg,rgba(0,188,212,0.12),rgba(0,230,118,0.12))!important;
-  border:2px solid var(--neon-cyan)!important;
-  box-shadow:var(--neon-cyan-glow)!important;
+  background:var(--blue-light)!important;
+  border:2px solid var(--blue-main)!important;
+  box-shadow:var(--blue-glow)!important;
 }
-.snav-section{color:var(--text3)!important}
-.snav-item{color:var(--text2)!important}
-.snav-item:hover{background:var(--off)!important;color:var(--text)!important;border-color:var(--border)!important}
+.snav-section{color:var(--text3)!important;font-size:9px!important}
+.snav-item{color:var(--text2)!important;border-color:transparent!important}
+.snav-item:hover{background:var(--blue-light)!important;color:var(--blue-main)!important;border-color:var(--blue-mid)!important}
 .snav-item.active{
-  background:linear-gradient(135deg,rgba(0,188,212,0.1),rgba(0,230,118,0.08))!important;
-  color:var(--neon-cyan)!important;
-  border-color:rgba(0,188,212,0.35)!important;
-  box-shadow:inset 0 0 0 1px rgba(0,188,212,0.2)!important;
+  background:var(--blue-light)!important;
+  color:var(--blue-main)!important;
+  border-color:var(--blue-mid)!important;
   font-weight:700!important;
 }
 .sidebar-user{border-top:1px solid var(--border)!important;background:var(--off)!important}
 .sidebar-avatar{
-  background:linear-gradient(135deg,rgba(0,188,212,0.15),rgba(0,230,118,0.15))!important;
-  border:2px solid var(--neon-cyan)!important;
-  color:var(--neon-cyan)!important;
+  background:var(--blue-light)!important;
+  border:2px solid var(--blue-main)!important;
+  color:var(--blue-main)!important;
 }
 .sidebar-logout{
-  background:rgba(255,23,68,0.05)!important;
-  border:1px solid rgba(255,23,68,0.2)!important;
+  background:var(--red-bg)!important;
+  border:1px solid rgba(232,48,74,0.2)!important;
   color:var(--red)!important;
 }
-.sidebar-logout:hover{background:rgba(255,23,68,0.1)!important}
+.sidebar-logout:hover{background:rgba(232,48,74,0.1)!important}
 
-/* ── TOPBAR ─────────────────────────────── */
+/* ── TOPBAR ──────────────────────────────── */
 .app-topbar{
   background:#FFFFFF!important;
   border-bottom:1px solid var(--border)!important;
-  box-shadow:0 1px 12px rgba(0,0,0,0.04)!important;
+  box-shadow:0 1px 8px rgba(29,106,255,0.05)!important;
 }
-.topbar-left h2{color:var(--text)!important}
-.topbar-left p{color:var(--text3)!important}
-.notif-btn{background:var(--off)!important;border:1px solid var(--border)!important}
 .mob-avatar{
-  background:linear-gradient(135deg,rgba(0,188,212,0.15),rgba(0,230,118,0.12))!important;
-  border:2px solid var(--neon-cyan)!important;
-  color:var(--neon-cyan)!important;
+  background:var(--blue-light)!important;
+  border:2px solid var(--blue-main)!important;
+  color:var(--blue-main)!important;
+}
+.notif-btn{background:var(--off)!important;border-color:var(--border)!important}
+
+/* ── PAGE CONTENT ──────────────────────────── */
+.page-content{
+  background:
+    radial-gradient(ellipse 55% 35% at 95% 5%, rgba(29,106,255,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 5% 95%, rgba(255,214,0,0.06) 0%, transparent 60%),
+    var(--bg)!important;
 }
 
-/* ── PAGE CONTENT ─────────────────────────── */
-.page-content{background:var(--bg)!important}
-
-/* ── BOTTOM NAV ─────────────────────────── */
+/* ── BOTTOM NAV ──────────────────────────── */
 .bottom-nav{
   background:#FFFFFF!important;
   border-top:1px solid var(--border)!important;
-  box-shadow:0 -2px 16px rgba(0,0,0,0.06)!important;
+  box-shadow:0 -2px 16px rgba(29,106,255,0.07)!important;
 }
-.bnav-item.active .bnav-label{color:var(--neon-cyan)!important}
-.bnav-item.active .bnav-icon{filter:drop-shadow(0 0 6px rgba(0,188,212,0.6))!important}
+.bnav-item.active .bnav-label{color:var(--blue-main)!important}
+.bnav-item.active .bnav-icon{filter:drop-shadow(0 0 5px rgba(29,106,255,0.5))!important}
 
-/* ── WELCOME BAND ─────────────────────────── */
+/* ── WELCOME BAND ──────────────────────────── */
 .welcome-band{
-  background:linear-gradient(135deg,#E0F7FA 0%,#F0FFF4 60%,#E8F5E9 100%)!important;
-  border:1.5px solid rgba(0,188,212,0.25)!important;
-  box-shadow:0 4px 24px rgba(0,188,212,0.08)!important;
+  background:linear-gradient(135deg,#EEF3FF 0%,#FFFBEA 100%)!important;
+  border:1.5px solid var(--blue-mid)!important;
+  box-shadow:0 4px 20px rgba(29,106,255,0.08)!important;
 }
-.wb-title{color:var(--text)!important}
-.wb-sub{color:var(--text2)!important}
 .btn-wb{
-  background:rgba(0,188,212,0.1)!important;
-  border:1.5px solid rgba(0,188,212,0.4)!important;
-  color:var(--neon-cyan)!important;
+  background:rgba(29,106,255,0.1)!important;
+  border:1.5px solid rgba(29,106,255,0.35)!important;
+  color:var(--blue-main)!important;
 }
-.btn-wb:hover{background:rgba(0,188,212,0.18)!important;box-shadow:var(--neon-cyan-glow)!important}
+.btn-wb:hover{background:rgba(29,106,255,0.16)!important}
 
-/* ── KPI CARDS ─────────────────────────── */
-.kpi-card{
-  background:#FFFFFF!important;
-  border:1.5px solid var(--border)!important;
-  box-shadow:var(--shadow)!important;
-}
-.kpi-card:hover{
-  border-color:var(--neon-cyan)!important;
-  box-shadow:var(--shadow-md),0 0 0 3px rgba(0,188,212,0.08)!important;
-  transform:translateY(-2px)!important;
-}
+/* ── KPI CARDS ──────────────────────────── */
+.kpi-card{background:#FFFFFF!important;border-color:var(--border)!important;box-shadow:var(--shadow)!important}
+.kpi-card:hover{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light),var(--shadow-md)!important;transform:translateY(-2px)!important}
 
-/* ── TABLE ─────────────────────────────── */
+/* ── TABLE ──────────────────────────── */
 .table-wrap{background:#FFFFFF!important;border-color:var(--border)!important}
 .table-row.header{background:var(--off)!important}
-.table-row:hover{background:var(--off)!important}
+.table-row:hover{background:var(--blue-light)!important}
 .table-row{border-bottom-color:var(--border)!important}
+.th{color:var(--text3)!important}
 
-/* ── SEARCH ─────────────────────────────── */
-.search-bar input{
-  background:#FFFFFF!important;
-  border-color:var(--border)!important;
-  color:var(--text)!important;
-}
-.search-bar input:focus{border-color:var(--neon-cyan)!important;box-shadow:0 0 0 3px rgba(0,188,212,0.12)!important}
+/* ── SEARCH ──────────────────────────── */
+.search-bar input{background:#FFFFFF!important;border-color:var(--border)!important;color:var(--text)!important}
+.search-bar input:focus{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light)!important}
 
-/* ── FILTER CHIPS ─────────────────────────── */
-.fchip{
-  background:#FFFFFF!important;
-  border-color:var(--border)!important;
-  color:var(--text2)!important;
-}
+/* ── FILTER CHIPS ──────────────────────────── */
+.fchip{background:#FFFFFF!important;border-color:var(--border)!important;color:var(--text2)!important}
 .fchip.active{
-  background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;
+  background:var(--blue-main)!important;
   color:#fff!important;
   border-color:transparent!important;
-  box-shadow:var(--neon-cyan-glow)!important;
+  box-shadow:var(--blue-glow)!important;
 }
 
-/* ── QUICK CARDS ─────────────────────────── */
-.quick-card{
-  background:#FFFFFF!important;
-  border-color:var(--border)!important;
-}
-.quick-card:hover{
-  border-color:var(--neon-cyan)!important;
-  box-shadow:0 0 0 3px rgba(0,188,212,0.1),var(--shadow-md)!important;
-}
+/* ── QUICK CARDS ──────────────────────────── */
+.quick-card{background:#FFFFFF!important;border-color:var(--border)!important}
+.quick-card:hover{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light),var(--shadow-md)!important}
 
-/* ── BUTTONS ─────────────────────────────── */
+/* ── BOTÕES PRINCIPAIS ──────────────────────── */
 .btn-main,.btn-primary-full,.btn-empty{
-  background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;
-  color:#fff!important;
-  box-shadow:var(--neon-cyan-glow)!important;
+  background:var(--blue-main)!important;
+  color:#FFFFFF!important;
+  box-shadow:var(--blue-glow)!important;
   border:none!important;
-  font-weight:700!important;
 }
-.btn-main:hover,.btn-primary-full:hover{
-  filter:brightness(1.06)!important;
-  box-shadow:0 0 20px rgba(0,188,212,0.6),0 0 40px rgba(0,230,118,0.25)!important;
+.btn-main:hover,.btn-primary-full:hover,.btn-empty:hover{
+  background:var(--blue-hover)!important;
+  box-shadow:0 0 20px rgba(29,106,255,0.55)!important;
 }
 .btn-secondary-full{
   background:#FFFFFF!important;
   border:1.5px solid var(--border)!important;
   color:var(--text2)!important;
 }
-.btn-secondary-full:hover{border-color:var(--neon-cyan)!important;color:var(--neon-cyan)!important}
+.btn-secondary-full:hover{border-color:var(--blue-main)!important;color:var(--blue-main)!important}
 
-/* ── FAB ─────────────────────────────── */
+/* ── FAB ──────────────────────────── */
 #fab{
-  background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;
-  color:#fff!important;
-  box-shadow:0 4px 24px rgba(0,188,212,0.45)!important;
+  background:var(--blue-main)!important;
+  color:#FFFFFF!important;
+  box-shadow:0 4px 24px rgba(29,106,255,0.45)!important;
 }
-#fab:hover{box-shadow:0 6px 36px rgba(0,188,212,0.6),0 0 20px rgba(0,230,118,0.3)!important}
+#fab:hover{background:var(--blue-hover)!important;box-shadow:0 6px 36px rgba(29,106,255,0.6)!important}
 
-/* ── MODALS ─────────────────────────────── */
-.modal-overlay{background:rgba(26,32,44,0.6)!important;backdrop-filter:blur(6px)!important}
+/* ── MODALS ──────────────────────────── */
+.modal-overlay{background:rgba(18,24,40,0.55)!important;backdrop-filter:blur(5px)!important}
 .modal-drawer{
   background:#FFFFFF!important;
   border:1px solid var(--border)!important;
-  box-shadow:0 -4px 40px rgba(0,188,212,0.12),var(--shadow-lg)!important;
+  box-shadow:0 -4px 40px rgba(29,106,255,0.10),var(--shadow-lg)!important;
 }
 .drawer-handle{background:var(--border)!important}
-.drawer-title{color:var(--text)!important}
 
-/* ── FORM INPUTS ─────────────────────────── */
-.form-input{
-  background:var(--bg-input)!important;
-  border-color:var(--border)!important;
-  color:var(--text)!important;
-}
-.form-input:focus{
-  border-color:var(--neon-cyan)!important;
-  box-shadow:0 0 0 3px rgba(0,188,212,0.12)!important;
-  background:#fff!important;
-}
+/* ── FORM INPUTS ──────────────────────────── */
+.form-input{background:var(--off)!important;border-color:var(--border)!important;color:var(--text)!important}
+.form-input:focus{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light)!important;background:#fff!important}
 .form-input::placeholder{color:var(--text3)!important}
-.form-label{color:var(--text3)!important}
+.form-label{color:var(--text3)!important;font-size:11px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.5px!important}
 .form-step-tab{background:var(--off)!important;color:var(--text3)!important;border-color:var(--border)!important}
-.form-step-tab.active{
-  background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;
-  color:#fff!important;
-}
+.form-step-tab.active{background:var(--blue-main)!important;color:#fff!important}
 .form-step-tab.done{background:var(--green-bg)!important;color:var(--green)!important}
 
-/* ── TABS ─────────────────────────────── */
+/* ── TABS (LOGIN) ──────────────────────────── */
 .tabs-row{background:var(--off)!important;border:1px solid var(--border)!important}
 .tab-btn{color:var(--text2)!important}
-.tab-btn.active{
-  background:#FFFFFF!important;
-  color:var(--neon-cyan)!important;
-  box-shadow:var(--shadow)!important;
-  border:1px solid rgba(0,188,212,0.25)!important;
-}
+.tab-btn.active{background:#FFFFFF!important;color:var(--blue-main)!important;box-shadow:var(--shadow)!important;border:1px solid var(--blue-mid)!important}
 
-/* ── ALUNO CARDS ─────────────────────────── */
+/* ── ALUNO CARDS ──────────────────────────── */
 .aluno-card{background:#FFFFFF!important;border-color:var(--border)!important}
+.aluno-card.ok{border-top:3px solid var(--green)!important}
+.aluno-card.late{border-top:3px solid var(--red)!important}
+.aluno-card.warn{border-top:3px solid var(--yellow-main)!important}
 .aluno-crm-card{background:#FFFFFF!important;border-color:var(--border)!important}
-.aluno-crm-card:hover{box-shadow:var(--shadow-md),0 0 0 2px rgba(0,188,212,0.1)!important}
-.acc-top{background:transparent!important}
-.acc-footer{background:#FAFCFD!important;border-top-color:var(--border)!important}
+.aluno-crm-card:hover{box-shadow:var(--shadow-md),0 0 0 2px var(--blue-light)!important}
+.acc-footer{background:#FAFBFD!important;border-top-color:var(--border)!important}
 .acc-foot-btn{color:var(--text2)!important;border-right-color:var(--border)!important}
 .acc-foot-btn:hover{background:var(--off)!important}
-.acc-foot-btn.hist:hover{background:rgba(0,188,212,0.07)!important;color:var(--neon-cyan)!important}
+.acc-foot-btn.hist:hover{background:var(--blue-light)!important;color:var(--blue-main)!important}
 .acc-foot-btn.wpp-btn:hover{background:#E8FDF2!important;color:#00897B!important}
 .acc-foot-btn.pago-btn:hover{background:var(--green-bg)!important;color:var(--green)!important}
-.acc-foot-btn.cont-btn:hover{background:rgba(0,188,212,0.07)!important;color:var(--neon-cyan)!important}
-.acc-toggle input:checked+.acc-toggle-slider{background:var(--neon-green)!important;box-shadow:0 0 8px rgba(0,230,118,0.45)!important}
+.acc-foot-btn.cont-btn:hover{background:var(--blue-light)!important;color:var(--blue-main)!important}
+.acc-toggle input:checked+.acc-toggle-slider{background:var(--blue-main)!important;box-shadow:var(--blue-glow)!important}
+.acc-toggle-slider{background:var(--border2)!important}
 
-/* ── CRM STAT CARDS ─────────────────────────── */
+/* ── CRM STATS ──────────────────────────── */
 .crm-stat{background:#FFFFFF!important;border-color:var(--border)!important;box-shadow:var(--shadow)!important}
-.crm-stat:hover{border-color:var(--neon-cyan)!important}
+.crm-stat:hover{border-color:var(--blue-main)!important}
 
-/* ── COBRANÇAS ─────────────────────────── */
-.cob-total-band{background:linear-gradient(135deg,#FFF8F8,#FFF0F0)!important;border-color:rgba(255,23,68,0.2)!important}
+/* ── COBRANÇAS ──────────────────────────── */
+.cob-total-band{background:linear-gradient(135deg,#FFF1F3,#FFF8FA)!important;border-color:rgba(232,48,74,0.2)!important}
 .cob-card{background:#FFFFFF!important;border-color:var(--border)!important}
 .cc-breakdown{background:var(--off)!important}
-.cc-total-row{background:#FFF5F5!important}
+.cc-total-row{background:#FFF5F7!important}
 
-/* ── RELATÓRIO ─────────────────────────── */
+/* ── RELATÓRIO ──────────────────────────── */
 .rel-month{background:#FFFFFF!important;border-color:var(--border)!important}
 .chart-card{background:#FFFFFF!important;border-color:var(--border)!important}
 .rel-table{background:#FFFFFF!important;border-color:var(--border)!important}
 .rel-header-row{background:var(--off)!important}
-.rel-data-row:hover{background:var(--off)!important}
+.rel-data-row:hover{background:var(--blue-light)!important}
 .rel-data-row{border-bottom-color:var(--border)!important}
 
-/* ── CONFIG ─────────────────────────────── */
+/* ── CONFIGURAÇÕES ──────────────────────────── */
 .cfg-section{background:#FFFFFF!important;border-color:var(--border)!important}
 .cfg-section-hdr{
-  color:var(--neon-cyan)!important;
-  border-bottom-color:var(--border)!important;
-  background:linear-gradient(135deg,rgba(0,188,212,0.05),rgba(0,230,118,0.03))!important;
+  color:var(--blue-main)!important;
+  background:var(--blue-light)!important;
+  border-bottom-color:var(--blue-mid)!important;
+  font-weight:700!important;
 }
 .cfg-input-row{border-bottom-color:var(--border)!important}
 .cfg-toggle-row{border-bottom-color:var(--border)!important}
-.toggle.on{background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;box-shadow:0 0 10px rgba(0,230,118,0.35)!important}
+.toggle.on{background:var(--blue-main)!important;box-shadow:var(--blue-glow)!important}
 
-/* ── STATUS PILLS ─────────────────────────── */
-.pill.ok,.pill.pago{background:rgba(0,200,83,0.1)!important;color:#00A651!important;border-color:rgba(0,200,83,0.25)!important}
-.pill.late{background:rgba(255,23,68,0.08)!important;color:var(--red)!important;border-color:rgba(255,23,68,0.2)!important}
-.pill.warn{background:rgba(255,145,0,0.1)!important;color:var(--warn)!important;border-color:rgba(255,145,0,0.2)!important}
+/* ── STATUS PILLS ──────────────────────────── */
+.pill.ok,.pill.pago{background:rgba(0,185,107,0.1)!important;color:#007A45!important;border-color:rgba(0,185,107,0.25)!important}
+.pill.late{background:rgba(232,48,74,0.08)!important;color:var(--red)!important;border-color:rgba(232,48,74,0.2)!important}
+.pill.warn{background:var(--yellow-light)!important;color:#B45309!important;border-color:rgba(255,214,0,0.35)!important}
 
-/* ── ALERT STRIPS ─────────────────────────── */
-.alert-strip.success{background:rgba(0,200,83,0.06)!important;border-color:rgba(0,200,83,0.2)!important}
+/* ── ALERT STRIPS ──────────────────────────── */
+.alert-strip.warn{background:var(--yellow-light)!important;border-color:rgba(255,214,0,0.35)!important}
+.alert-strip.success{background:rgba(0,185,107,0.06)!important;border-color:rgba(0,185,107,0.2)!important}
 
-/* ── CONTRACT WORKSHOP ─────────────────────── */
+/* ── CONTRACT WORKSHOP ──────────────────────── */
 .cw-panel{background:#FFFFFF!important;border-color:var(--border)!important}
 .cw-panel-header{background:var(--off)!important;border-bottom-color:var(--border)!important}
 .clause-item{background:var(--off)!important;border-color:var(--border)!important}
-.clause-item:hover{border-color:var(--neon-cyan)!important}
-.clause-act-btn{background:#FFFFFF!important;color:var(--text2)!important;border-color:var(--border)!important}
-.clause-act-btn:hover{border-color:var(--neon-cyan)!important;color:var(--neon-cyan)!important;background:rgba(0,188,212,0.07)!important}
+.clause-item:hover{border-color:var(--blue-main)!important}
+.clause-act-btn{background:#FFFFFF!important;border-color:var(--border)!important}
+.clause-act-btn:hover{border-color:var(--blue-main)!important;color:var(--blue-main)!important;background:var(--blue-light)!important}
 .clause-act-btn.del:hover{border-color:var(--red)!important;color:var(--red)!important;background:var(--red-bg)!important}
-.clause-title-inp:focus,.clause-body-inp:focus{background:rgba(0,188,212,0.05)!important}
-.add-clause-btn{background:rgba(0,188,212,0.05)!important;border-color:rgba(0,188,212,0.3)!important;color:var(--neon-cyan)!important}
-.add-clause-btn:hover{background:rgba(0,188,212,0.1)!important}
+.add-clause-btn{background:var(--blue-light)!important;border-color:var(--blue-mid)!important;color:var(--blue-main)!important}
+.add-clause-btn:hover{background:var(--blue4)!important}
 .cw-tool-btn{background:#FFFFFF!important;border-color:var(--border)!important;color:var(--text2)!important}
-.cw-tool-btn:hover{border-color:var(--neon-cyan)!important;color:var(--neon-cyan)!important;background:rgba(0,188,212,0.05)!important}
+.cw-tool-btn:hover{border-color:var(--blue-main)!important;color:var(--blue-main)!important;background:var(--blue-light)!important}
 .contract-preview-wrap{background:var(--off)!important}
 
-/* ── FINANCIAL CMD ─────────────────────────── */
+/* ── FINANCIAL CMD ──────────────────────────── */
 .action-btn-card{background:#FFFFFF!important;border-color:var(--border)!important}
-.action-btn-card:hover{border-color:var(--neon-cyan)!important;box-shadow:0 0 0 3px rgba(0,188,212,0.08),var(--shadow-md)!important}
+.action-btn-card:hover{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light),var(--shadow-md)!important}
 .profit-chart-card{background:#FFFFFF!important;border-color:var(--border)!important}
 .pkpi{background:var(--off)!important}
 .plan-card{background:#FFFFFF!important;border-color:var(--border)!important}
-.plan-card.current-plan{border-color:var(--neon-green)!important;box-shadow:0 0 0 3px rgba(0,230,118,0.1)!important}
-.plan-card.popular-plan{border-color:var(--neon-cyan)!important;box-shadow:0 0 0 3px rgba(0,188,212,0.1)!important}
-.plan-btn.upgrade-btn{background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;color:#fff!important;box-shadow:var(--neon-cyan-glow)!important}
-.plan-btn.popular-btn{background:var(--neon-green)!important;color:#fff!important;box-shadow:var(--neon-green-glow)!important}
-.plan-btn.current-btn{background:var(--off)!important;color:var(--text3)!important}
+.plan-card.current-plan{border-color:var(--yellow-main)!important;box-shadow:0 0 0 3px var(--yellow-light)!important}
+.plan-card.popular-plan{border-color:var(--blue-main)!important;box-shadow:0 0 0 3px var(--blue-light)!important}
+.plan-btn.upgrade-btn{background:var(--blue-main)!important;color:#fff!important;box-shadow:var(--blue-glow)!important}
+.plan-btn.popular-btn{background:var(--blue-main)!important;color:#fff!important;box-shadow:var(--blue-glow)!important}
+.plan-btn.current-btn{background:var(--yellow-light)!important;color:#B45309!important;border:1.5px solid var(--yellow-main)!important}
 
-/* ── PIX BOX ─────────────────────────────── */
-.pix-box{background:linear-gradient(135deg,rgba(0,188,212,0.06),rgba(0,230,118,0.04))!important;border-color:rgba(0,188,212,0.3)!important}
-.pix-amount{color:var(--neon-cyan)!important;text-shadow:none!important}
+/* ── PIX BOX ──────────────────────────── */
+.pix-box{background:var(--blue-light)!important;border-color:var(--blue-mid)!important}
+.pix-amount{color:var(--blue-main)!important}
 .pix-key{background:var(--off)!important;border-color:var(--border)!important}
-.pix-key-val{color:var(--neon-green)!important}
+.pix-key-val{color:var(--blue-main)!important}
 
-/* ── UPLOAD ZONE ─────────────────────────── */
+/* ── UPLOAD ZONE ──────────────────────────── */
 .upload-zone{background:var(--off)!important;border-color:var(--border2)!important}
-.upload-zone:hover,.upload-zone.drag-over{border-color:var(--neon-cyan)!important;background:rgba(0,188,212,0.05)!important}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--blue-main)!important;background:var(--blue-light)!important}
 
-/* ── HISTORY MODAL ─────────────────────────── */
+/* ── HIST ──────────────────────────── */
 .hist-item{border-bottom-color:var(--border)!important}
-.hist-title{color:var(--text)!important}
-.hist-amount{color:var(--neon-green)!important}
+.hist-amount{color:var(--green)!important}
 
-/* ── CONTRATO PAGE ─────────────────────────── */
+/* ── CONTRATO PÚBLICO ──────────────────────── */
 #screen-contrato{background:var(--bg)!important}
 .contrato-page-wrap{background:#FFFFFF!important;border-color:var(--border)!important}
-.contrato-brand{color:var(--neon-cyan)!important}
-.step-dot.active,.step-dot.done{background:linear-gradient(135deg,var(--neon-cyan),var(--neon-green))!important;box-shadow:var(--neon-cyan-glow)!important}
-.step-line.done{background:linear-gradient(90deg,var(--neon-cyan),var(--neon-green))!important}
+.contrato-brand{color:var(--blue-main)!important}
+.step-dot.active,.step-dot.done{background:var(--blue-main)!important;box-shadow:var(--blue-glow)!important}
+.step-line.done{background:var(--blue-main)!important}
 .contrato-preview,.contrato-doc{background:var(--off)!important;border-color:var(--border)!important}
-.accepted-badge{background:var(--green-bg)!important;border-color:rgba(0,200,83,0.3)!important}
-.accepted-title{color:var(--neon-green)!important}
+.accepted-badge{background:var(--green-bg)!important;border-color:rgba(0,185,107,0.3)!important}
 
-/* ── EMERGENCY + MEDICAL ─────────────────────── */
+/* ── EMERGENCY / MEDICAL ──────────────────────── */
 .emergency-contact-card{background:var(--off)!important;border-color:var(--border)!important}
-.medical-tag{background:rgba(255,145,0,0.08)!important;border-color:rgba(255,145,0,0.2)!important;color:var(--warn2)!important}
-.medical-tag button{color:var(--warn2)!important}
+.medical-tag{background:var(--yellow-light)!important;border-color:rgba(255,214,0,0.3)!important;color:#B45309!important}
+.medical-tag button{color:#B45309!important}
 
-/* ── LOGIN ─────────────────────────────────── */
+/* ── LOGIN ──────────────────────────── */
 .login-panel{background:#FFFFFF!important}
-.login-mobile-icon,.hero-brand-icon{
-  background:linear-gradient(135deg,rgba(0,188,212,0.12),rgba(0,230,118,0.1))!important;
-  border:2px solid var(--neon-cyan)!important;
-  box-shadow:var(--neon-cyan-glow)!important;
+.login-mobile-icon,.hero-brand-icon,.sidebar-brand-icon{
+  background:var(--blue-light)!important;
+  border:2px solid var(--blue-main)!important;
+  box-shadow:var(--blue-glow)!important;
 }
 .login-panel-title{color:var(--text)!important}
 .login-panel-sub{color:var(--text2)!important}
-.login-footer{color:var(--text3)!important}
-.hero-feat{
-  background:rgba(0,188,212,0.06)!important;
-  border-color:rgba(0,188,212,0.2)!important;
-}
-.hero-feat-text{color:rgba(255,255,255,0.9)!important}
+.hero-feat{background:rgba(29,106,255,0.08)!important;border-color:rgba(29,106,255,0.2)!important}
 
-/* ── TOAST ─────────────────────────────────── */
+/* ── TOAST ──────────────────────────── */
 .toast{
   background:#FFFFFF!important;
-  border:1.5px solid var(--neon-cyan)!important;
+  border:1.5px solid var(--blue-main)!important;
   color:var(--text)!important;
-  box-shadow:var(--neon-cyan-glow),var(--shadow-md)!important;
+  box-shadow:var(--blue-glow),var(--shadow-md)!important;
 }
 
-/* ── FINANCEIRO MENU ─────────────────────────── */
+/* ── FINANCEIRO MENU ──────────────────────────── */
 #financeiro-menu > div{
   background:#FFFFFF!important;
   border-color:var(--border2)!important;
-  box-shadow:0 8px 40px rgba(0,188,212,0.12)!important;
+  box-shadow:0 8px 40px rgba(29,106,255,0.12)!important;
 }
 
-/* ── SECTION HEADERS ─────────────────────────── */
-.section-hdr h3{color:var(--text)!important}
-.section-link{color:var(--neon-cyan)!important}
+/* ── SEÇÃO AMARELO (destaque) ──────────────────────── */
+/* Badge/destaque amarelo em cards especiais */
+.yellow-badge{
+  background:var(--yellow-main);
+  color:#18202E;
+  font-weight:800;
+  padding:4px 12px;
+  border-radius:20px;
+  font-size:11px;
+}
 
-/* ── SCROLLBAR ─────────────────────────────── */
+/* ── SCROLLBAR ──────────────────────────── */
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--off)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:var(--neon-cyan)}
+::-webkit-scrollbar-thumb{background:var(--blue-mid);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue-main)}
 
-/* ── NEON GLOW ACCENTS on key elements ─────── */
-.kpi-val[style*="neon"]{text-shadow:none!important}
-
-/* CHART BARS */
-.bar-seg,.bar-stack > div{border-radius:4px 4px 0 0!important}
-
-/* ACC TOGGLE slider */
-.acc-toggle-slider{background:var(--border2)!important}
-
-/* EMPTY STATE */
-.empty-state{color:var(--text3)!important}
-.empty-title{color:var(--text)!important}
-
-/* SIDEBAR FOOTER */
-.sidebar-user-name{color:var(--text)!important}
-.sidebar-user-plan{color:var(--text3)!important}
-
-/* BTN HINT */
-.btn-hint{color:var(--text3)!important}
-
-/* COB STATS */
-.cob-total-lbl{color:var(--red)!important}
-.cob-total-val{color:var(--red)!important}
-
-/* UPLOADED FILES */
-.uploaded-file{background:var(--green-bg)!important;border-color:rgba(0,200,83,0.25)!important}
+/* Uploaded files */
+.uploaded-file{background:var(--green-bg)!important;border-color:rgba(0,185,107,0.2)!important}
 .uploaded-file-name{color:var(--text)!important}
+.uploaded-file-remove{background:var(--red-bg)!important;color:var(--red)!important}
 
-/* NEON SCANLINE - very subtle */
-body::after{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,188,212,0.008) 3px,rgba(0,188,212,0.008) 4px);
-  pointer-events:none;
-  z-index:9999;
+/* BTN hint */
+.btn-hint{color:var(--text3)!important}
+.section-link{color:var(--blue-main)!important}
+
+/* ACC STATS */
+.snav-badge{background:var(--red)!important}
+.notif-dot{background:var(--red)!important}
+
+/* Cobranças action buttons */
+.act-wpp{background:#E8FDF5!important;color:#00897B!important}
+.act-email{background:var(--blue-light)!important;color:var(--blue-main)!important}
+.act-pix{background:var(--yellow-light)!important;color:#B45309!important}
+.act-pago{background:var(--green-bg)!important;color:var(--green)!important}
+
+/* SCHED BADGE */
+.sched-badge{background:var(--green-bg)!important;border-color:rgba(0,185,107,0.25)!important;color:var(--green)!important}
+
+
+/* ══════════════════════════════════════════
+   SISTEMA DE PLANOS — FREE vs PRO
+   ══════════════════════════════════════════ */
+
+/* Banner fixo no topo quando FREE */
+.free-banner {
+  display: none;
+  position: sticky;
+  top: -20px;
+  margin: -20px -20px 16px -20px;
+  z-index: 90;
+  background: linear-gradient(135deg, #18202E 0%, #1D3461 100%);
+  padding: 10px 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 12px rgba(29,106,255,0.2);
+}
+.free-banner.show { display: flex; }
+.free-banner-text { font-size: 12px; color: rgba(255,255,255,0.85); font-weight: 500; flex: 1; }
+.free-banner-text strong { color: var(--yellow-main); }
+.free-banner-btn {
+  padding: 7px 16px;
+  background: var(--yellow-main);
+  color: #18202E;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: var(--yellow-glow);
+  transition: all .2s;
+}
+.free-banner-btn:hover { filter: brightness(1.05); }
+.free-banner-close {
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 2px 6px;
+  flex-shrink: 0;
 }
 
-/* Gradient mesh background on page-content */
-.page-content{
-  background:
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(0,188,212,0.04) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 35% at 10% 90%, rgba(0,230,118,0.04) 0%, transparent 60%),
-    var(--bg) !important;
+/* LOCK OVERLAY nas funcionalidades Pro */
+.pro-lock-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+.pro-lock-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(242,244,247,0.88);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all .2s;
+}
+.pro-lock-overlay:hover { background: rgba(238,243,255,0.92); }
+.pro-lock-icon { font-size: 28px; margin-bottom: 6px; filter: drop-shadow(0 2px 6px rgba(29,106,255,0.3)); }
+.pro-lock-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--blue-main);
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+.pro-lock-sub { font-size: 11px; color: var(--text3); margin-top: 3px; }
+.pro-lock-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--yellow-main);
+  color: #18202E;
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  z-index: 11;
 }
 
-/* Login panel on desktop */
-@media(min-width:768px){
-  .login-panel{
-    border-left:1px solid var(--border)!important;
-    box-shadow:-4px 0 32px rgba(0,188,212,0.05)!important;
-  }
+/* FREE LIMIT BADGE nos KPI cards */
+.free-limit-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--text3);
+  font-weight: 600;
 }
+.free-limit-track {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.free-limit-fill {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue-main), var(--yellow-main));
+  transition: width .5s ease;
+}
+
+/* PLANO BADGES no sidebar */
+.snav-pro-badge {
+  margin-left: auto;
+  background: var(--yellow-light);
+  color: #B45309;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 10px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  border: 1px solid var(--yellow-main);
+  flex-shrink: 0;
+}
+
+/* PLAN CARD destaque FREE */
+.plan-card-free-active {
+  border: 2px solid var(--yellow-main) !important;
+  box-shadow: 0 0 0 3px var(--yellow-light), 0 4px 24px rgba(255,214,0,0.15) !important;
+}
+.plan-card-pro-active {
+  border: 2px solid var(--blue-main) !important;
+  box-shadow: 0 0 0 3px var(--blue-light), 0 4px 24px rgba(29,106,255,0.15) !important;
+}
+
+/* TOUR TOOLTIP primeira visita */
+.tour-tip {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 400;
+  background: #18202E;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  display: none;
+  animation: slideup .3s ease;
+  border: 1.5px solid rgba(255,214,0,0.3);
+}
+.tour-tip.show { display: block; }
+.tour-tip-arrow {
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #18202E;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.tour-tip-close {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 16px;
+  background: var(--yellow-main);
+  color: #18202E;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+@media(min-width:768px){.tour-tip{bottom:28px}}
 
 </style>
 </head>
@@ -1113,9 +1234,26 @@ body::after{
     </div>
 
     <div class="login-panel">
-      <div class="login-panel-title">Bem-vindo de volta!</div>
-      <div class="login-panel-sub">Entre na sua conta ou crie uma nova gratuitamente</div>
-      <div class="tabs-row">
+
+      <!-- Modo FREE: topo -->
+      <div id="lform-gratis-cta" style="text-align:center;margin-bottom:20px;padding:16px;background:var(--yellow-light);border-radius:var(--radius-xs);border:1.5px solid var(--yellow-main)">
+        <div style="font-size:22px;margin-bottom:6px">🚌</div>
+        <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:4px">Experimente grátis agora</div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.5">Sem cartão de crédito. Explore todas as funcionalidades no modo demonstração.</div>
+        <button onclick="entrarGratis()" style="width:100%;padding:13px;background:var(--yellow-main);color:#18202E;border:none;border-radius:var(--radius-xs);font-size:14px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:var(--yellow-glow);letter-spacing:.2px">
+          🎯 Começar gratuitamente
+        </button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+        <span style="font-size:12px;color:var(--text3);font-weight:600">ou entre com sua conta</span>
+        <div style="flex:1;height:1px;background:var(--border)"></div>
+      </div>
+
+      <div class="login-panel-title" style="font-size:20px">Entrar na conta</div>
+      <div class="login-panel-sub" style="margin-bottom:16px">Acesse sua conta ou crie uma nova</div>
+      <div class="tabs-row" style="margin-bottom:18px">
         <div class="tab-btn active" onclick="loginTab('entrar',this)">Entrar</div>
         <div class="tab-btn" onclick="loginTab('criar',this)">Criar conta</div>
       </div>
@@ -1124,7 +1262,7 @@ body::after{
         <div class="form-group"><label class="form-label">E-mail</label><input class="form-input" id="li-email" type="email" placeholder="seu@email.com"></div>
         <div class="form-group"><label class="form-label">Senha</label><input class="form-input" id="li-senha" type="password" placeholder="••••••••"></div>
         <button class="btn-main" onclick="doLogin()">Entrar →</button>
-        <div class="login-footer">Esqueceu a senha? <span style="color:var(--orange);font-weight:700;cursor:pointer">Recuperar acesso</span></div>
+        <div class="login-footer">Esqueceu a senha? <span style="color:var(--blue-main);font-weight:700;cursor:pointer">Recuperar acesso</span></div>
       </div>
 
       <div id="lform-criar" style="display:none">
@@ -1157,14 +1295,15 @@ body::after{
       <div class="sidebar-nav">
         <div class="snav-section">Principal</div>
         <div class="snav-item active" id="snav-dashboard" onclick="goPage('dashboard')"><span class="snav-icon">🏠</span>Dashboard</div>
-        <div class="snav-item" id="snav-alunos" onclick="goPage('alunos')"><span class="snav-icon">🚐</span>Alunos CRM</div>
+        <div class="snav-item" id="snav-alunos" onclick="goPage('alunos')"><span class="snav-icon">🚐</span>Alunos CRM<span class="snav-pro-badge" id="snav-alunos-badge">3/3 Free</span></div>
         <div class="snav-section">Ferramentas</div>
-        <div class="snav-item" id="snav-contrato-editor" onclick="goPage('contrato-editor')"><span class="snav-icon">📝</span>Editor de Contrato</div>
-        <div class="snav-item" id="snav-financeiro-cmd" onclick="goPage('financeiro-cmd')"><span class="snav-icon">💹</span>Central Financeira</div>
+        <div class="snav-item" id="snav-contrato-editor" onclick="goPage('contrato-editor')"><span class="snav-icon">📝</span>Editor de Contrato<span class="snav-pro-badge snav-badge-pro" id="snav-editor-badge">PRO</span></div>
+        <div class="snav-item" id="snav-financeiro-cmd" onclick="goPage('financeiro-cmd')"><span class="snav-icon">💹</span>Central Financeira<span class="snav-pro-badge snav-badge-pro" id="snav-cmd-badge">PRO</span></div>
         <div class="snav-section">Financeiro</div>
         <div class="snav-item" id="snav-cobrancas" onclick="goPage('cobrancas')"><span class="snav-icon">💳</span>Cobranças<span class="snav-badge" id="snav-badge" style="display:none">0</span></div>
         <div class="snav-item" id="snav-relatorio" onclick="goPage('relatorio')"><span class="snav-icon">📊</span>Relatório</div>
         <div class="snav-section">Conta</div>
+        <div class="snav-item" id="snav-planos" onclick="goPage('config');setTimeout(()=>{const el=document.getElementById('cfg-planos-section');if(el)el.scrollIntoView({behavior:'smooth'})},200)"><span class="snav-icon">💎</span>Planos & Preços<span class="snav-pro-badge" id="snav-planos-badge" style="background:var(--yellow-light);color:#B45309;border-color:var(--yellow-main)">Upgrade</span></div>
         <div class="snav-item" id="snav-config" onclick="goPage('config')"><span class="snav-icon">⚙️</span>Configurações</div>
         <div class="snav-item" id="snav-contrato" onclick="openContratoLink()"><span class="snav-icon">📄</span>Link de contrato</div>
       </div>
@@ -1399,11 +1538,11 @@ body::after{
                 <div class="plan-feat">Relatórios completos</div>
                 <div class="plan-feat">Reconciliação PIX</div>
               </div>
-              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 29/mês')">Assinar Pro →</button>
+              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 19/mês')">Assinar Pro →</button>
             </div>
             <div class="plan-card">
               <div class="plan-name">Premium</div>
-              <div class="plan-price">R$ 59<span>/mês</span></div>
+              <div class="plan-price">R$ 39<span>/mês</span></div>
               <div style="margin-top:12px">
                 <div class="plan-feat">Alunos ilimitados</div>
                 <div class="plan-feat">Tudo do Pro</div>
@@ -1411,7 +1550,7 @@ body::after{
                 <div class="plan-feat">Múltiplos motoristas</div>
                 <div class="plan-feat">API integração</div>
               </div>
-              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 59/mês')">Assinar Premium →</button>
+              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 39/mês')">Assinar Premium →</button>
             </div>
           </div>
         </div>
@@ -1504,8 +1643,97 @@ body::after{
             </div>
           </div>
           <button class="btn-primary-full" onclick="salvarConfig()" style="margin-top:4px">💾 Salvar configurações</button>
-          <button style="width:100%;padding:13px;background:#FFF1F0;border:1.5px solid #FFA39E;border-radius:var(--radius-sm);color:var(--red);font-size:15px;font-weight:700;font-family:'Outfit',sans-serif;cursor:pointer;margin-top:8px" onclick="doLogout()">🚪 Sair da conta</button>
-          <div style="height:20px"></div>
+
+          <!-- PLANOS & PREÇOS -->
+          <div class="cfg-section" id="cfg-planos-section" style="margin-top:16px">
+            <div class="cfg-section-hdr" style="display:flex;align-items:center;justify-content:space-between">
+              <span>💎 Planos & Preços</span>
+              <span style="font-size:11px;font-weight:700;color:var(--text3)">Plano atual: <strong id="cfg-plano-atual" style="color:var(--blue-main)">Gratuito</strong></span>
+            </div>
+            <div class="cfg-input-row">
+
+              <!-- STATUS DO PLANO ATUAL -->
+              <div id="free-plan-status" style="background:var(--yellow-light);border:1.5px solid var(--yellow-main);border-radius:var(--radius-xs);padding:14px;margin-bottom:16px">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+                  <div>
+                    <div style="font-size:11px;font-weight:800;color:#B45309;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">🎯 Plano Gratuito Ativo</div>
+                    <div style="font-size:12px;color:#92400E;line-height:1.5">Alunos cadastrados: <strong id="free-alunos-usado">0</strong>/3 · Assine o Pro e tenha acesso ilimitado</div>
+                  </div>
+                </div>
+                <div class="free-limit-bar" style="margin-top:10px">
+                  <span id="free-bar-label">0/3</span>
+                  <div class="free-limit-track"><div class="free-limit-fill" id="free-limit-fill" style="width:0%"></div></div>
+                  <span style="color:var(--text3)">limite</span>
+                </div>
+              </div>
+              <div id="pro-plan-status" style="display:none;background:var(--blue-light);border:1.5px solid var(--blue-main);border-radius:var(--radius-xs);padding:14px;margin-bottom:16px">
+                <div style="font-size:11px;font-weight:800;color:var(--blue-main);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">✅ Plano Pro Ativo</div>
+                <div style="font-size:12px;color:var(--blue-hover);line-height:1.5">Você tem acesso completo a todas as funcionalidades. Obrigado pela confiança!</div>
+              </div>
+
+              <!-- 3 CARDS DE PLANO -->
+              <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px">
+
+                <!-- FREE -->
+                <div id="plan-card-free" style="background:var(--off);border:2px solid var(--yellow-main);border-radius:var(--radius-xs);padding:16px;position:relative">
+                  <div style="position:absolute;top:-1px;left:16px;background:var(--yellow-main);color:#18202E;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">ATUAL</div>
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
+                    <div>
+                      <div style="font-size:12px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Gratuito</div>
+                      <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 0<span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
+                    </div>
+                    <span style="font-size:22px">🎯</span>
+                  </div>
+                  <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Até 3 alunos</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Dashboard completo</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Cobranças manuais</div>
+                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Editor de contrato</div>
+                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Alertas automáticos</div>
+                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Relatórios avançados</div>
+                  </div>
+                  <button style="width:100%;margin-top:12px;padding:9px;background:var(--off2);border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:12px;font-weight:700;color:var(--text3);cursor:default;font-family:'Plus Jakarta Sans',sans-serif">Plano atual</button>
+                </div>
+
+                <!-- PRO -->
+                <div id="plan-card-pro" style="background:#FFFFFF;border:2px solid var(--blue-main);border-radius:var(--radius-xs);padding:16px;position:relative;box-shadow:0 4px 20px rgba(29,106,255,0.1)">
+                  <div style="position:absolute;top:-1px;right:16px;background:var(--blue-main);color:#fff;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">⭐ POPULAR</div>
+                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
+                    <div>
+                      <div style="font-size:12px;font-weight:800;color:var(--blue-main);text-transform:uppercase;letter-spacing:.5px">Pro</div>
+                      <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 49<span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
+                    </div>
+                    <span style="font-size:22px">🚀</span>
+                  </div>
+                  <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alunos ilimitados</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Editor de contrato Pro</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alertas automáticos</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Relatórios completos</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Central Financeira</div>
+                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Suporte prioritário</div>
+                  </div>
+                  <button id="btn-assinar-pro" onclick="openPixSupModal()" style="width:100%;margin-top:12px;padding:12px;background:var(--blue-main);color:#fff;border:none;border-radius:var(--radius-xs);font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:var(--blue-glow);transition:all .2s">💎 Assinar Pro — R$ 49/mês</button>
+                </div>
+
+              </div>
+
+              <!-- DIVIDER -->
+              <div style="height:1px;background:var(--border);margin-bottom:16px"></div>
+
+              <!-- SUPORTE -->
+              <div style="font-size:13px;color:var(--text2);margin-bottom:12px;line-height:1.6;text-align:center">
+                Dúvidas? Fale com o suporte agora mesmo 👇
+              </div>
+              <button onclick="openWppSupport()" style="width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:var(--radius-xs);font-size:14px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 16px rgba(37,211,102,0.3);transition:all .2s">
+                <span style="font-size:20px">💬</span> Abrir suporte no WhatsApp
+              </button>
+              <div style="text-align:center;font-size:11px;color:var(--text3);margin-top:8px">Resposta em até 2h · Horário comercial</div>
+            </div>
+          </div>
+
+          <button style="width:100%;padding:13px;background:var(--red-bg);border:1.5px solid rgba(232,48,74,0.25);border-radius:var(--radius-sm);color:var(--red);font-size:15px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;margin-top:8px" onclick="doLogout()">🚪 Sair da conta</button>
+          <div style="height:24px"></div>
         </div>
 
       </div><!-- end page-content -->
@@ -1520,13 +1748,17 @@ body::after{
     <div class="bnav-icon">🏠</div>
     <div class="bnav-label">Início</div>
   </div>
-  <div class="bnav-item" id="bnav-financeiro" onclick="toggleFinanceiroMenu()">
-    <div class="bnav-icon">💰</div>
-    <div class="bnav-label">Financeiro</div>
-  </div>
   <div class="bnav-item" id="bnav-alunos" onclick="goPage('alunos')">
     <div class="bnav-icon">🚐</div>
     <div class="bnav-label">Alunos</div>
+  </div>
+  <div class="bnav-item" id="bnav-cobrancas" onclick="goPage('cobrancas')">
+    <div class="bnav-icon">💳</div>
+    <div class="bnav-label">Cobranças</div>
+  </div>
+  <div class="bnav-item" id="bnav-financeiro" onclick="toggleFinanceiroMenu()">
+    <div class="bnav-icon">⋯</div>
+    <div class="bnav-label">Mais</div>
   </div>
 </div>
 
@@ -1572,10 +1804,63 @@ body::after{
   </div>
 </div>
 
-<!-- WhatsApp Support FAB -->
-<button class="wpp-support-fab" id="wpp-support-fab" onclick="openWppSupport()">
-  <span style="font-size:16px">💬</span> Suporte
-</button>
+
+
+<!-- MODAL ASSINAR PRO -->
+<div class="modal-overlay" id="modal-assinar-pro">
+  <div class="modal-drawer">
+    <div class="drawer-handle"></div>
+    <!-- Header com azul + amarelo -->
+    <div style="text-align:center;padding:8px 0 20px">
+      <div style="display:inline-flex;align-items:center;justify-content:center;width:60px;height:60px;background:var(--blue-light);border:2px solid var(--blue-main);border-radius:18px;font-size:30px;margin-bottom:14px;box-shadow:var(--blue-glow)">💎</div>
+      <div style="font-size:22px;font-weight:900;background:linear-gradient(120deg,var(--blue-main) 30%,var(--yellow-main) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.5px">VanRotas Pro</div>
+      <div style="font-size:13px;color:var(--text2);margin-top:5px">R$ 49/mês · Ativação imediata após PIX</div>
+    </div>
+    <!-- Divider -->
+    <div style="height:1px;background:linear-gradient(90deg,transparent,var(--blue-main),transparent);opacity:.2;margin-bottom:18px"></div>
+    <!-- Incluso -->
+    <div style="background:var(--blue-light);border-radius:var(--radius-xs);padding:14px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:800;color:var(--blue-main);letter-spacing:.8px;text-transform:uppercase;margin-bottom:10px">O que está incluso</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Alunos ilimitados</div>
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Cobranças automáticas</div>
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Editor de contrato</div>
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Relatórios completos</div>
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Reconciliação PIX</div>
+        <div style="font-size:12px;color:var(--text2);display:flex;gap:6px;align-items:center"><span style="color:var(--blue-main);font-weight:800">✓</span>Suporte prioritário</div>
+      </div>
+    </div>
+    <!-- Chave PIX -->
+    <div style="background:var(--yellow-light);border:1.5px solid var(--yellow-main);border-radius:var(--radius-xs);padding:16px;margin-bottom:14px">
+      <div style="font-size:10px;font-weight:800;color:#B45309;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">🔑 Chave PIX para pagamento</div>
+      <div style="font-size:20px;font-weight:900;color:#92400E;letter-spacing:.5px" id="pro-pix-key-val">5511983179592</div>
+      <div style="font-size:11px;color:#B45309;margin-top:4px">Tipo: Celular · Favorecido: VanRotas</div>
+    </div>
+    <!-- Info -->
+    <div style="background:var(--blue-light);border-radius:var(--radius-xs);padding:12px;margin-bottom:14px;font-size:12px;color:var(--blue-main);display:flex;gap:8px;align-items:flex-start;border:1px solid var(--blue-mid)">
+      <span>ℹ️</span><div>Após o PIX, envie o comprovante pelo WhatsApp. Seu plano Pro será ativado em até <strong>5 minutos</strong>.</div>
+    </div>
+    <!-- Botões -->
+    <button onclick="copiarChavePix()" style="width:100%;padding:12px;background:#FFFFFF;border:1.5px solid var(--yellow-main);border-radius:var(--radius-xs);font-size:13px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:#92400E;margin-bottom:10px;transition:all .2s">📋 Copiar chave PIX</button>
+    <button onclick="enviarComprovante()" style="width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:var(--radius-xs);font-size:14px;font-weight:700;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 16px rgba(37,211,102,.35);display:flex;align-items:center;justify-content:center;gap:8px">📱 Enviar comprovante via WhatsApp</button>
+    <button class="btn-secondary-full" style="margin-top:10px" onclick="closeModal('modal-assinar-pro')">Cancelar</button>
+  </div>
+</div>
+
+<!-- FREE BANNER (inside app-main) -->
+<div class="free-banner" id="free-banner">
+  <div class="free-banner-text">🎯 Você está no <strong>Plano Gratuito</strong> — Alunos: <strong id="banner-alunos-count">0/3</strong> · Assine o Pro e desbloqueie tudo</div>
+  <button class="free-banner-btn" onclick="openPixSupModal()">💎 Assinar Pro — R$39/mês</button>
+  <span class="free-banner-close" onclick="document.getElementById('free-banner').classList.remove('show')">✕</span>
+</div>
+
+<!-- TOUR TIP primeira visita -->
+<div class="tour-tip" id="tour-tip">
+  <div style="font-size:18px;margin-bottom:6px">👋 Olá! Seja bem-vindo!</div>
+  <div>Você está no <strong style="color:var(--yellow-main)">modo gratuito</strong>. Explore à vontade — funcionalidades Pro estão visíveis mas marcadas com 🔒.</div>
+  <div class="tour-tip-close" onclick="closeTourTip()">Entendi, vamos lá! →</div>
+  <div class="tour-tip-arrow"></div>
+</div>
 
 <!-- FAB -->
 <button class="fab" id="fab" style="display:none" onclick="openModal('modal-aluno')">+</button>
@@ -1696,7 +1981,89 @@ body::after{
 
 <script>
 // ===== DATA =====
-let DATA = {user:null, motorista:{nome:'',tel:'',email:'',cpf:'',pixChave:'',pixTipo:'CPF',banco:'',juros:2,multa:2,vencPadrao:5}, alunos:[], users:[], contratos:[]};
+let DATA = {user:null, motorista:{nome:'',tel:'',email:'',cpf:'',pixChave:'',pixTipo:'CPF',banco:'',juros:2,multa:2,vencPadrao:5}, alunos:[], users:[], contratos:[], plano:'free'};
+// user_plan: 'free' | 'pro' | 'premium'
+let user_plan = 'free';
+
+// ═══════════════════════════════════════════════════
+// PLAN HELPERS
+// ═══════════════════════════════════════════════════
+function getPlan(){ return DATA.plano || 'free'; }
+function isPro(){ return getPlan()==='pro'||getPlan()==='premium'; }
+function getFreeAlunos(){ return DATA.alunos.filter(a=>a.ativo!==false).length; }
+const FREE_ALUNO_LIMIT = 3;
+const FREE_ALUNO_VISIBLE = 10; // quantos alunos mostrar no modo free
+
+function checkFreeLimit(){
+  if(isPro()) return true;
+  if(getFreeAlunos() >= FREE_ALUNO_LIMIT){
+    showToast('⚠️ Limite do plano gratuito (3 alunos). Assine o Pro!');
+    openPixSupModal();
+    return false;
+  }
+  return true;
+}
+
+function updatePlanUI(){
+  const pro = isPro();
+  const count = getFreeAlunos();
+  const planName = pro ? 'Pro' : 'Gratuito';
+
+  // Banner FREE
+  const banner = document.getElementById('free-banner');
+  if(banner) banner.classList.toggle('show', !pro);
+  const bc = document.getElementById('banner-alunos-count');
+  if(bc) bc.textContent = count+'/'+FREE_ALUNO_LIMIT;
+
+  // Config: plano atual
+  const cpa = document.getElementById('cfg-plano-atual');
+  if(cpa) cpa.textContent = planName;
+  const cpa2 = document.getElementById('cfg-plano-atual');
+  if(cpa2){ cpa2.textContent=planName; cpa2.style.color=pro?'var(--blue-main)':'#B45309'; }
+
+  // Config: status cards
+  const freeStatus = document.getElementById('free-plan-status');
+  const proStatus = document.getElementById('pro-plan-status');
+  if(freeStatus) freeStatus.style.display = pro ? 'none' : 'block';
+  if(proStatus) proStatus.style.display = pro ? 'block' : 'none';
+
+  // Limite bar
+  const fill = document.getElementById('free-limit-fill');
+  const label = document.getElementById('free-bar-label');
+  const used = document.getElementById('free-alunos-usado');
+  if(fill){ const pct = Math.min(count/FREE_ALUNO_LIMIT*100,100); fill.style.width=pct+'%'; fill.style.background=pct>=100?'var(--red)':'linear-gradient(90deg,var(--blue-main),var(--yellow-main))'; }
+  if(label) label.textContent = count+'/'+FREE_ALUNO_LIMIT;
+  if(used) used.textContent = count;
+
+  // Sidebar badges
+  const alunosBadge = document.getElementById('snav-alunos-badge');
+  if(alunosBadge){ if(pro){alunosBadge.style.display='none';}else{alunosBadge.style.display='';alunosBadge.textContent=count+'/'+FREE_ALUNO_LIMIT+' Free';alunosBadge.style.background=count>=FREE_ALUNO_LIMIT?'var(--red-bg)':'var(--yellow-light)';alunosBadge.style.color=count>=FREE_ALUNO_LIMIT?'var(--red)':'#B45309';} }
+  const editorBadge = document.getElementById('snav-editor-badge');
+  if(editorBadge) editorBadge.style.display = pro ? 'none' : '';
+  const cmdBadge = document.getElementById('snav-cmd-badge');
+  if(cmdBadge) cmdBadge.style.display = pro ? 'none' : '';
+  const planosBadge = document.getElementById('snav-planos-badge');
+  if(planosBadge) planosBadge.style.display = pro ? 'none' : '';
+
+  // Btn assinar pro
+  const btnPro = document.getElementById('btn-assinar-pro');
+  if(btnPro){ if(pro){btnPro.textContent='✅ Plano Pro ativo';btnPro.style.background='var(--green)';btnPro.onclick=null;btnPro.style.cursor='default';}else{btnPro.textContent='💎 Assinar Pro — R$ 49/mês';btnPro.style.background='var(--blue-main)';btnPro.onclick=openPixSupModal;btnPro.style.cursor='pointer';} }
+
+  // Sidebar user plan label
+  const sidebarPlan = document.querySelector('.sidebar-user-plan');
+  if(sidebarPlan) sidebarPlan.textContent = pro ? '✅ Plano Pro' : '🎯 Plano Gratuito';
+}
+
+// Ativar plano Pro após confirmação de pagamento
+function activarPlanoPro(){
+  DATA.plano = 'pro';
+  user_plan = 'pro';
+  save();
+  updatePlanUI();
+  showToast('🎉 Plano Pro ativado! Bem-vindo ao Pro!');
+  setTimeout(()=>goPage('dashboard'),500);
+}
+
 let curFilter = 'todos';
 let financeiroOpen = false;
 let relMonth = {m:new Date().getMonth(), y:new Date().getFullYear()};
@@ -1760,11 +2127,38 @@ function enterApp(){
   document.getElementById('screen-app').classList.add('active');
   document.getElementById('fab').style.display='flex';
   document.getElementById('global-bottom-nav').style.display='flex';
+  // move banner inside page-content (not body)
+  const banner = document.getElementById('free-banner');
+  const pc = document.querySelector('.page-content');
+  if(banner && pc && banner.parentNode !== pc){ pc.prepend(banner); }
+  user_plan = DATA.plano || 'free';
   loadDemoIfEmpty();
   updateHeader();
   loadConfig();
   renderAll();
   startAlertTimer();
+  updatePlanUI();
+  // Mostrar tour na primeira visita
+  const visited = localStorage.getItem('vr_visited');
+  if(!visited){ setTimeout(()=>showTourTip(),1200); localStorage.setItem('vr_visited','1'); }
+}
+
+function entrarGratis(){
+  // Login demo sem senha
+  const user = {nome:'Motorista Demo', email:'demo@vanrotas.com', demo:true};
+  DATA.user = user;
+  DATA.plano = 'free';
+  save();
+  enterApp();
+}
+
+function showTourTip(){
+  const tip = document.getElementById('tour-tip');
+  if(tip) tip.classList.add('show');
+}
+function closeTourTip(){
+  const tip = document.getElementById('tour-tip');
+  if(tip) tip.classList.remove('show');
 }
 
 function loadDemoIfEmpty(){
@@ -1813,7 +2207,7 @@ function fR(v){const n=parseFloat(v);return 'R$ '+n.toLocaleString('pt-BR',{mini
 function calcMulhaAp(a){return parseFloat(a.valor)*(DATA.motorista.multa||2)/100;}
 
 // ===== RENDER ALL =====
-function renderAll(){updateStats();renderDashboard();renderAlunos(DATA.alunos);renderCobrancas();updateContratoLink();}
+function renderAll(){updateStats();renderDashboard();renderAlunos(DATA.alunos);renderCobrancas();updateContratoLink();updatePlanUI();}
 
 function updateStats(){
   let ok=0,late=0,tot=0;
@@ -2049,7 +2443,7 @@ function salvarAluno(){
   const obsBase=document.getElementById('al-obs')?.value?.trim()||'';
   const medStr=window._medTags&&window._medTags.length?('Alergias: '+window._medTags.join('; ')):'';
   const a={id:Date.now(),nome,responsavel:resp,whatsapp:document.getElementById('al-wpp').value.trim(),emailResp:document.getElementById('al-email').value.trim(),endereco:document.getElementById('al-end').value.trim(),escola:document.getElementById('al-escola').value.trim(),turno:document.getElementById('al-turno').value,valor:parseFloat(valor),vencimento:parseInt(document.getElementById('al-venc').value)||DATA.motorista.vencPadrao||5,obs:[obsBase,medStr].filter(Boolean).join(' | '),pagamentos:[],criadoEm:new Date().toISOString(),ativo:true};
-  DATA.alunos.push(a);save();renderAll();closeModal('modal-aluno');showToast('✅ Aluno cadastrado! Enviando contrato...');
+  if(!checkFreeLimit()){return;}  DATA.alunos.push(a);save();renderAll();closeModal('modal-aluno');showToast('✅ Aluno cadastrado! Enviando contrato...');updatePlanUI();
   window._medTags=[];window._ecCount=0;window._uploadedFiles=[];
   setTimeout(()=>{const idx=DATA.alunos.length-1;enviarContrato(idx);},600);
 }
@@ -2470,7 +2864,7 @@ function goPage(page){
   const pe=document.getElementById('page-'+page);if(!pe){showToast('Página não encontrada');return;}
   pe.classList.add('active');
   const sn=document.getElementById('snav-'+page);if(sn)sn.classList.add('active');
-  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos','contrato-editor':'bnav-alunos','financeiro-cmd':'bnav-financeiro',cobrancas:'bnav-financeiro',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
+  const bnavMap={dashboard:'bnav-dashboard',alunos:'bnav-alunos','contrato-editor':'bnav-financeiro','financeiro-cmd':'bnav-financeiro',cobrancas:'bnav-cobrancas',relatorio:'bnav-financeiro',config:'bnav-financeiro'};
   const bnId=bnavMap[page];if(bnId){const bn=document.getElementById(bnId);if(bn)bn.classList.add('active');}
   document.querySelector('.page-content').scrollTop=0;
   const titles={dashboard:'Dashboard',alunos:'CRM de Alunos','contrato-editor':'Editor de Contrato','financeiro-cmd':'Central Financeira',cobrancas:'Cobranças',relatorio:'Relatório',config:'Configurações'};
@@ -2501,13 +2895,42 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 // ===== SHOW SUPPORT FAB =====================================================
-function showSupportFab(v){const f=document.getElementById('wpp-support-fab');if(f)f.style.display=v?'flex':'none';}
+function showSupportFab(v){}
 const _baseEnterApp=enterApp;
 enterApp=function(){_baseEnterApp.call(this);showSupportFab(true);}
 
 // ===== WPP SUPPORT ==========================================================
-function openWppSupport(){const msg=encodeURIComponent('Olá! Uso o VanRotas e gostaria de saber mais sobre os planos. 🚐');window.open('https://wa.me/5511999999999?text='+msg,'_blank');}
-function upgradePlan(plan,preco){showToast('💎 Plano '+plan+' ('+preco+') — Entre em contato!');setTimeout(openWppSupport,1000);}
+function openWppSupport(){
+  const nome=DATA.motorista.nome||DATA.user?.nome||'Motorista';
+  const msg=encodeURIComponent('Olá! Sou '+nome+', uso o VanRotas e preciso de suporte. 🚐');
+  window.open('https://wa.me/5511983179592?text='+msg,'_blank');
+}
+function openPixSupModal(){
+  openModal('modal-assinar-pro');
+}
+function copiarChavePix(){
+  const key='5511983179592';
+  navigator.clipboard.writeText(key)
+    .then(()=>showToast('📋 Chave PIX copiada!'))
+    .catch(()=>{const t=document.createElement('textarea');t.value=key;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();showToast('📋 Chave PIX copiada!');});
+}
+function enviarComprovante(){
+  const nome=DATA.motorista.nome||DATA.user?.nome||'Motorista';
+  const msg=encodeURIComponent(
+    '💎 *ASSINATURA VANROTAS PRO — R$ 49/mês*\n\n'+
+    '👤 Nome: *'+nome+'*\n'+
+    '📱 WhatsApp: '+(DATA.motorista.tel||'')+'\n\n'+
+    '💛 *Chave PIX usada:* 5511983179592\n\n'+
+    '(Anexe aqui o comprovante do PIX)\n\n'+
+    '✅ Aguardo ativação do Plano Pro!\n_VanRotas 🚌_'
+  );
+  window.open('https://wa.me/5511983179592?text='+msg,'_blank');
+  closeModal('modal-assinar-pro');
+  showToast('📱 Comprovante enviado! Ativação em até 5 min.');
+  // Simulação de ativação (em produção: webhook do sistema)
+  setTimeout(()=>{ if(confirm('Plano Pro ativado! (Simulação)\nClicar OK para confirmar ativação do plano Pro.')){activarPlanoPro();} },3000);
+}
+function upgradePlan(plan,preco){openPixSupModal();}
 
 // ===== SCREEN 2: MULTI-STEP FORM ============================================
 function goAlunoStep(step){
