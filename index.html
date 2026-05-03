@@ -1538,43 +1538,54 @@ html,body{background:var(--bg)!important}
           <!-- Plans -->
           <div class="section-hdr"><h3>💎 Planos & Assinatura</h3><span style="font-size:12px;color:var(--text3)">Atual: <strong style="color:var(--blue)">Gratuito</strong></span></div>
           <div class="plans-grid">
-            <div class="plan-card current-plan">
-              <div class="plan-name">Gratuito</div>
-              <div class="plan-price">R$ 0<span>/mês</span></div>
-              <div style="margin-top:12px">
-                <div class="plan-feat">Até 5 alunos</div>
-                <div class="plan-feat">Contratos básicos</div>
-                <div class="plan-feat">Cobranças manuais</div>
-                <div class="plan-feat no">Alertas automáticos</div>
-                <div class="plan-feat no">Relatórios avançados</div>
-              </div>
-              <button class="plan-btn current-btn">Plano atual</button>
-            </div>
-            <div class="plan-card popular-plan">
-              <div class="plan-badge">⭐ POPULAR</div>
-              <div class="plan-name">Pro</div>
-              <div class="plan-price">R$ 29<span>/mês</span></div>
-              <div style="margin-top:12px">
-                <div class="plan-feat">Até 30 alunos</div>
-                <div class="plan-feat">Editor de contrato</div>
-                <div class="plan-feat">Alertas automáticos</div>
-                <div class="plan-feat">Relatórios completos</div>
-                <div class="plan-feat">Reconciliação PIX</div>
-              </div>
-              <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 19/mês')">Assinar Pro →</button>
-            </div>
-            <div class="plan-card">
-              <div class="plan-name">Premium</div>
-              <div class="plan-price">R$ 39<span>/mês</span></div>
-              <div style="margin-top:12px">
-                <div class="plan-feat">Alunos ilimitados</div>
-                <div class="plan-feat">Tudo do Pro</div>
-                <div class="plan-feat">Suporte 24h</div>
-                <div class="plan-feat">Múltiplos motoristas</div>
-                <div class="plan-feat">API integração</div>
-              </div>
-              <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 39/mês')">Assinar Premium →</button>
-            </div>
+
+  <!-- GRATUITO -->
+  <div class="plan-card current-plan">
+    <div class="plan-name">Gratuito</div>
+    <div class="plan-price">R$ 0<span>/mês</span></div>
+    <div style="margin-top:12px">
+      <div class="plan-feat">Até 3 alunos</div>
+      <div class="plan-feat">Contratos básicos</div>
+      <div class="plan-feat">Cobranças manuais</div>
+      <div class="plan-feat no">Alertas automáticos</div>
+      <div class="plan-feat no">Relatórios avançados</div>
+      <div class="plan-feat no">Central Financeira</div>
+    </div>
+    <button class="plan-btn current-btn">Plano atual</button>
+  </div>
+
+  <!-- PRO -->
+  <div class="plan-card popular-plan">
+    <div class="plan-badge">⭐ POPULAR</div>
+    <div class="plan-name">Pro</div>
+    <div class="plan-price">R$ 19<span style="font-size:14px">,90</span><span>/mês</span></div>
+    <div style="margin-top:12px">
+      <div class="plan-feat">Até 30 alunos</div>
+      <div class="plan-feat">Editor de contrato</div>
+      <div class="plan-feat">Alertas automáticos</div>
+      <div class="plan-feat">Relatórios completos</div>
+      <div class="plan-feat">Reconciliação PIX</div>
+      <div class="plan-feat no">Múltiplos motoristas</div>
+    </div>
+    <button class="plan-btn popular-btn" onclick="upgradePlan('Pro','R$ 19,90/mês')">Assinar Pro →</button>
+  </div>
+
+  <!-- PREMIUM -->
+  <div class="plan-card">
+    <div class="plan-name">Premium</div>
+    <div class="plan-price">R$ 29<span style="font-size:14px">,20</span><span>/mês</span></div>
+    <div style="margin-top:12px">
+      <div class="plan-feat">Alunos ilimitados</div>
+      <div class="plan-feat">Tudo do Pro</div>
+      <div class="plan-feat">Suporte 24h</div>
+      <div class="plan-feat">Múltiplos motoristas</div>
+      <div class="plan-feat">API integração</div>
+      <div class="plan-feat">Backup na nuvem</div>
+    </div>
+    <button class="plan-btn upgrade-btn" onclick="upgradePlan('Premium','R$ 29,20/mês')">Assinar Premium →</button>
+  </div>
+
+</div>
           </div>
         </div>
 
@@ -1698,46 +1709,79 @@ html,body{background:var(--bg)!important}
               <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:16px">
 
                 <!-- FREE -->
-                <div id="plan-card-free" style="background:var(--off);border:2px solid var(--yellow-main);border-radius:var(--radius-xs);padding:16px;position:relative">
-                  <div style="position:absolute;top:-1px;left:16px;background:var(--yellow-main);color:#18202E;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">ATUAL</div>
-                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
-                    <div>
-                      <div style="font-size:12px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Gratuito</div>
-                      <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 0<span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
-                    </div>
-                    <span style="font-size:22px">🎯</span>
-                  </div>
-                  <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Até 3 alunos</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Dashboard completo</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Cobranças manuais</div>
-                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Editor de contrato</div>
-                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Alertas automáticos</div>
-                    <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Relatórios avançados</div>
-                  </div>
-                  <button style="width:100%;margin-top:12px;padding:9px;background:var(--off2);border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:12px;font-weight:700;color:var(--text3);cursor:default;font-family:'Plus Jakarta Sans',sans-serif">Plano atual</button>
-                </div>
+  <div id="plan-card-free" style="background:var(--off);border:2px solid var(--yellow-main);border-radius:var(--radius-xs);padding:16px;position:relative">
+    <div style="position:absolute;top:-1px;left:16px;background:var(--yellow-main);color:#18202E;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">ATUAL</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
+      <div>
+        <div style="font-size:12px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.5px">Gratuito</div>
+        <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 0<span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
+      </div>
+      <span style="font-size:22px">🎯</span>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Até 3 alunos</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Dashboard completo</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Cobranças manuais</div>
+      <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Editor de contrato</div>
+      <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Alertas automáticos</div>
+      <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Relatórios avançados</div>
+    </div>
+    <button style="width:100%;margin-top:12px;padding:9px;background:var(--off2);border:1.5px solid var(--border);border-radius:var(--radius-xs);font-size:12px;font-weight:700;color:var(--text3);cursor:default;font-family:'Plus Jakarta Sans',sans-serif">Plano atual</button>
+  </div>
 
-                <!-- PRO -->
-                <div id="plan-card-pro" style="background:#FFFFFF;border:2px solid var(--blue-main);border-radius:var(--radius-xs);padding:16px;position:relative;box-shadow:0 4px 20px rgba(29,106,255,0.1)">
-                  <div style="position:absolute;top:-1px;right:16px;background:var(--blue-main);color:#fff;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">⭐ POPULAR</div>
-                  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
-                    <div>
-                      <div style="font-size:12px;font-weight:800;color:var(--blue-main);text-transform:uppercase;letter-spacing:.5px">Pro</div>
-                      <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 49<span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
-                    </div>
-                    <span style="font-size:22px">🚀</span>
-                  </div>
-                  <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alunos ilimitados</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Editor de contrato Pro</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alertas automáticos</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Relatórios completos</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Central Financeira</div>
-                    <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Suporte prioritário</div>
-                  </div>
-                  <button id="btn-assinar-pro" onclick="openPixSupModal()" style="width:100%;margin-top:12px;padding:12px;background:var(--blue-main);color:#fff;border:none;border-radius:var(--radius-xs);font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:var(--blue-glow);transition:all .2s">💎 Assinar Pro — R$ 49/mês</button>
-                </div>
+  <!-- PRO -->
+  <div id="plan-card-pro" style="background:#FFFFFF;border:2px solid var(--blue-main);border-radius:var(--radius-xs);padding:16px;position:relative;box-shadow:0 4px 20px rgba(29,106,255,0.1)">
+    <div style="position:absolute;top:-1px;right:16px;background:var(--blue-main);color:#fff;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">⭐ POPULAR</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
+      <div>
+        <div style="font-size:12px;font-weight:800;color:var(--blue-main);text-transform:uppercase;letter-spacing:.5px">Pro</div>
+        <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 19<span style="font-size:14px;font-weight:700">,90</span><span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
+      </div>
+      <span style="font-size:22px">🚀</span>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alunos ilimitados</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Editor de contrato Pro</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Alertas automáticos</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Relatórios completos</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--blue-main);font-weight:800">✓</span>Central Financeira</div>
+      <div style="font-size:12px;color:var(--text3);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--border2)">✗</span>Múltiplos motoristas</div>
+    </div>
+    <button id="btn-assinar-pro" onclick="openPixSupModal()" style="width:100%;margin-top:12px;padding:12px;background:var(--blue-main);color:#fff;border:none;border-radius:var(--radius-xs);font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:var(--blue-glow);transition:all .2s">💎 Assinar Pro — R$ 19,90/mês</button>
+  </div>
+
+  <!-- PREMIUM -->
+  <div id="plan-card-premium" style="background:#FFFFFF;border:2px solid var(--green);border-radius:var(--radius-xs);padding:16px;position:relative;box-shadow:0 4px 20px rgba(0,185,107,0.08)">
+    <div style="position:absolute;top:-1px;left:16px;background:var(--green);color:#fff;font-size:9px;font-weight:900;padding:3px 10px;border-radius:0 0 8px 8px;letter-spacing:.5px">👑 COMPLETO</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-top:10px">
+      <div>
+        <div style="font-size:12px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.5px">Premium</div>
+        <div style="font-size:26px;font-weight:900;color:var(--text);letter-spacing:-1px;margin-top:3px">R$ 29<span style="font-size:14px;font-weight:700">,20</span><span style="font-size:12px;font-weight:500;color:var(--text3)">/mês</span></div>
+      </div>
+      <span style="font-size:22px">👑</span>
+    </div>
+    <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Alunos ilimitados</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Tudo do Pro</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Múltiplos motoristas</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Suporte prioritário 24h</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>API integração</div>
+      <div style="font-size:12px;color:var(--text2);padding:4px 0;display:flex;align-items:center;gap:6px"><span style="color:var(--green);font-weight:800">✓</span>Backup na nuvem</div>
+    </div>
+    <button onclick="upgradePlan('Premium','R$ 29,20/mês')" style="width:100%;margin-top:12px;padding:12px;background:var(--green);color:#fff;border:none;border-radius:var(--radius-xs);font-size:13px;font-weight:800;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;box-shadow:0 4px 16px rgba(0,185,107,0.3);transition:all .2s">👑 Assinar Premium — R$ 29,20/mês</button>
+  </div>
+
+</div>
+⚠️ Também atualize o botão de assinar Pro no modal id="modal-assinar-pro":
+
+<!-- Linha do valor no modal (procure por "R$ 49/mês" ou "R$ 39/mês") -->
+<div style="font-size:13px;color:var(--text2);margin-top:5px">R$ 19,90/mês · Ativação imediata após PIX</div>
+
+<!-- Botão de assinar no cfg-planos-section (procure por "R$ 49/mês") -->
+<!-- Já está corrigido no card Pro acima -->
+
+<!-- Banner free (procure por "R$39/mês") -->
+<button class="free-banner-btn" onclick="openPixSupModal()">💎 Assinar Pro — R$19,90/mês</button>
 
               </div>
 
@@ -1906,7 +1950,7 @@ html,body{background:var(--bg)!important}
 <!-- FREE BANNER (inside app-main) -->
 <div class="free-banner" id="free-banner">
   <div class="free-banner-text">🎯 Você está no <strong>Plano Gratuito</strong> — Alunos: <strong id="banner-alunos-count">0/3</strong> · Assine o Pro e desbloqueie tudo</div>
-  <button class="free-banner-btn" onclick="openPixSupModal()">💎 Assinar Pro — R$39/mês</button>
+  <button class="free-banner-btn" onclick="openPixSupModal()">💎 Assinar Pro — R$19/mês</button>
   <span class="free-banner-close" onclick="document.getElementById('free-banner').classList.remove('show')">✕</span>
 </div>
 
